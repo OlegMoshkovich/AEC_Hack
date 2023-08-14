@@ -11,7 +11,7 @@ import {ThemeProvider } from '@mui/material/styles';
 import {lightTheme, darkTheme} from './Theme'
 
 const Sample = () =>{
-const [dark, setDark] = useState(true)
+const [dark, setDark] = useState(false)
   return(
     <React.StrictMode>
         <ThemeProvider theme={dark ? darkTheme : lightTheme}>
