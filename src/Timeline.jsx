@@ -25,7 +25,6 @@ export default function CustomizedTimeline() {
         spacing={2}
         sx={{
           height: '300px',
-          width: '400px',
           overflow:'scroll',}}
       >
       <Timeline>
