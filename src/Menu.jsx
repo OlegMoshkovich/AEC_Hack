@@ -4,7 +4,7 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-export default function BasicMenu() {
+export default function BasicMenu({menuItems}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -33,8 +33,12 @@ export default function BasicMenu() {
         onClose={handleClose}
         MenuListProps={{'aria-labelledby': 'basic-button'}}
       >
-        <MenuItem onClick={handleClose}>Edit</MenuItem>
-        <MenuItem onClick={handleClose}>Delete</MenuItem>
+        {menuItems.map(item => {
+          return(
+            <MenuItem onClick={handleClose}>{item}</MenuItem>
+          )
+        })
+        }
       </Menu>
     </div>
   );

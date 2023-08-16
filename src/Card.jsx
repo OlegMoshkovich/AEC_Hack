@@ -20,7 +20,7 @@ export default function MultiActionAreaCard() {
           </Avatar>
         }
         action={
-          <Menu/>
+          <Menu menuItems={['Edit', 'Delete']}/>
         }
         title="Welcome to Bldrs: Share"
         subheader="September 14, 2016"
@@ -41,7 +41,7 @@ export default function MultiActionAreaCard() {
           </Button>
           <IconButton
             aria-label="Comments"
-            size="small"
+            size="medium"
             sx={{ marginLeft: 'auto'}}>
             <QuestionAnswerOutlinedIcon fontSize="inherit" />
           </IconButton>
