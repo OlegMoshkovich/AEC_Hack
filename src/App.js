@@ -44,6 +44,7 @@ function App({changeTheme, darkTheme}) {
               direction="row"
               justifyContent="center"
               alignItems="center"
+              sx={{width:'100%'}}
             >
               <Tabs
                 tabList = {['General', 'Timeline', 'Tree', 'Card']}
