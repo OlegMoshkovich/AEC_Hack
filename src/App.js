@@ -1,9 +1,9 @@
 import React, {useState} from 'react'
 import './App.css';
-import Box from '@mui/material/Box'
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
+import SideDrawer from './SideDrawer'
 import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel'
@@ -47,7 +47,7 @@ function App({changeTheme, darkTheme}) {
               sx={{width:'100%'}}
             >
               <Tabs
-                tabList = {['General', 'Timeline', 'Tree', 'Card']}
+                tabList = {['General', 'Card', 'SideDrawer', 'Timeline', 'Tree', ]}
                 currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
               />
             </Stack>
@@ -82,14 +82,17 @@ function App({changeTheme, darkTheme}) {
                 <Accordian/>
               </Stack>
             }
-            {currentTab===1 &&
+            {currentTab===3 &&
                 <TimeLine/>
             }
-            {currentTab===2 &&
+            {currentTab===4 &&
                 <Tree/>
             }
-            {currentTab===3 &&
+            {currentTab===1 &&
                 <Card/>
+            }
+            {currentTab===2 &&
+                <SideDrawer/>
             }
           </Stack>
       </Paper>
