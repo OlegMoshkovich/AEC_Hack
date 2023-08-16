@@ -1,7 +1,6 @@
 import * as React from 'react';
 import IconButton from '@mui/material/IconButton';
 import MuiButtonGroup from '@mui/material/ButtonGroup';
-import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
 import FolderIcon from '@mui/icons-material/Folder';
 import SearchIcon from '@mui/icons-material/Search';
 import SegmentIcon from '@mui/icons-material/Segment';

@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './App.css';
+import Box from '@mui/material/Box'
 import Container from '@mui/material/Container';
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
@@ -39,11 +40,17 @@ function App({changeTheme, darkTheme}) {
               Bldrs UI components
             </Typography>
             <Logo/>
-            <Tabs
-              tabList = {['General', 'Timeline', 'Tree', 'Card']}
-              currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
-              variant = 'center'
-            />
+            <Stack
+              direction="row"
+              justifyContent="center"
+              alignItems="center"
+            >
+              <Tabs
+                tabList = {['General', 'Timeline', 'Tree', 'Card']}
+                currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
+              />
+            </Stack>
+
             {currentTab===0 &&
               <Stack
                 spacing={3}

@@ -15,8 +15,11 @@ export default function Tabs({currentTab, tabList}) {
       value={value}
       onChange={handleChange}
       aria-label="disabled tabs example"
-      scrollable
-      scrollButtons="auto">
+      variant="scrollable"
+      scrollButtons
+      allowScrollButtonsMobile
+      sx={{width:'90%'}}
+    >
       {tabList.map((tab) => <Tab label={tab} />)}
     </MuiTabs>
   );
