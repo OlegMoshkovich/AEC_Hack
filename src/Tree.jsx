@@ -9,17 +9,30 @@ import Tabs from './Tabs'
 
 export default function FileSystemNavigator() {
   return (
-    <Paper variant='background' elevation={1}>
-      <Stack spacing={2}>
-        <Tabs
-          tabList={['elements', 'types', 'sets']}
-          currentTab={(tab) => console.log(tab)}
-        />
+    <Paper
+      variant='background'
+      elevation={1}
+      sx={{width:'90%'}}
+      >
+      <Stack
+        spacing={2}
+      >
+        <Stack
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          sx={{width:'100%'}}
+        >
+          <Tabs
+            tabList={['elements', 'types', 'sets']}
+            currentTab={(tab) => console.log(tab)}
+          />
+        </Stack>
         <TreeView
             aria-label="Model navigator"
             defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpandIcon={<ChevronRightIcon />}
-            sx={{ height: 240, flexGrow: 1, width: 300, overflowY: 'auto' }}
+            sx={{ height: 240}}
         >
           <TreeItem nodeId="1" label="Model 1">
             <TreeItem nodeId="2" label="Item 1" />
