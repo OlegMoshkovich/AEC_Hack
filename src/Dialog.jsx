@@ -5,8 +5,10 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
+import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Tabs from './Tabs'
+import {Stack} from '@mui/system';
 
 export default function Dialog() {
   const [open, setOpen] = useState(false);
@@ -35,20 +37,22 @@ export default function Dialog() {
         <DialogTitle id="alert-dialog-title" >
           Open Project
         </DialogTitle>
-        <DialogContent >
-          <DialogContentText sx={{paddingBottom:'1em'}} >
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            <Stack spacing={1}>
             <Tabs
                 tabList = {['explore', 'open', 'save']}
                 currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
             />
-          </DialogContentText>
-          <DialogContentText id="alert-dialog-description">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-          sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-          Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-          Excepteur sint occaecat cupidatat non proident,
-          sunt in culpa qui officia deserunt mollit anim id est laborum.
+            <Typography variant={'body1'}>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+              Excepteur sint occaecat cupidatat non proident,
+              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </Typography>
+            </Stack>
           </DialogContentText>
         </DialogContent>
         <DialogActions>

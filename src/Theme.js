@@ -8,6 +8,18 @@ const themeComponent = {
     borderRadius: 20,
   },
   components: {
+    MuiPaper: {
+      variants: [
+        {
+          props: { variant: 'background' },
+          style: ({ ownerState, theme }) => ({
+            boxShadow: theme.shadows[ownerState.elevation],
+            padding:'1em',
+            overflow:'scroll'
+          })
+        },
+      ]
+    },
     MuiDialogTitle: {
       styleOverrides: {
         root: {

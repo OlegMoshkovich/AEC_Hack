@@ -6,21 +6,28 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import EditIcon from '@mui/icons-material/Edit';
 import TextField from '@mui/material/TextField';
 
 
 export default function DialogEdit() {
   const [open, setOpen] = useState(false);
-  const [currentTab, setCurrentTab] = useState(false);
-  console.log('currentTab dialog', currentTab)
+  const [openConfirm, setOpenConfirm] = useState(false);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
   const handleClose = () => {
+    setOpen(false);
+  };
+
+  const handleClickOpenConfirm = () => {
+    setOpenConfirm(true);
+  };
+
+  const handleCloseConfirm = () => {
+    setOpenConfirm(false);
     setOpen(false);
   };
 
@@ -55,7 +62,19 @@ export default function DialogEdit() {
           />
         </DialogContent>
         <DialogActions>
+          <Button onClick={handleClickOpenConfirm} variant='outline'>Delete</Button>
           <Button onClick={handleClose} variant='contained'>Submit</Button>
+        </DialogActions>
+      </MuiDialog>
+      <MuiDialog open={openConfirm} onClose={handleClose}>
+        <DialogTitle>Edit</DialogTitle>
+        <DialogContent>
+          <DialogContentText>
+            Are you sure you would like to delete the version.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseConfirm} variant='contained'>Confirm</Button>
         </DialogActions>
       </MuiDialog>
     </div>

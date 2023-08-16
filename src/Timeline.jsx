@@ -18,21 +18,18 @@ import DialogEdit from './DialogEdit'
 export default function CustomizedTimeline() {
   const [active, setActive] = useState(0)
   return (
-      <Stack
-        direction="row"
-        justifyContent="flex-start"
-        alignItems="center"
-        spacing={2}
+      <Paper
+        variant='background'
         sx={{
-          height: '300px',
-          overflow:'scroll',}}
-      >
+        height: '300px',
+        overflow: 'scroll'}}
+        >
       <Timeline>
-        <TimelineItem>
+        <TimelineItem onClick={()=>setActive(0)} sx={{cursor: 'pointer'}}>
           <TimelineOppositeContent
             sx={{ m: 'auto 0' }}
             align="center"
-            color="text.secondary"
+            color={active === 0 ? "text.primary" : "text.secondary"}
           >
               <Typography variant="body1" >
                 Version 1
@@ -47,9 +44,7 @@ export default function CustomizedTimeline() {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot
-                sx={{cursor: 'pointer'}}
                 color={active === 0 ? 'primary' : 'secondary'}
-                onClick={()=>setActive(0)}
               >
               <EngineeringIcon />
             </TimelineDot>
@@ -63,11 +58,11 @@ export default function CustomizedTimeline() {
             </Paper>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
+        <TimelineItem onClick={()=>setActive(1)} sx={{cursor: 'pointer'}}>
         <TimelineOppositeContent
             sx={{ m: 'auto 0' }}
             align="center"
-            color="text.secondary"
+            color={active === 1 ? "text.primary" : "text.secondary"}
           >
               <Typography variant="body1" >
                 Version 2
@@ -98,11 +93,11 @@ export default function CustomizedTimeline() {
             </Paper>
           </TimelineContent>
         </TimelineItem>
-        <TimelineItem>
+        <TimelineItem onClick={()=>setActive(2)} sx={{cursor: 'pointer'}}>
         <TimelineOppositeContent
             sx={{ m: 'auto 0' }}
             align="center"
-            color="text.secondary"
+            color={active === 2 ? "text.primary" : "text.secondary"}
           >
               <Typography variant="body1" >
                 Version 3
@@ -117,9 +112,7 @@ export default function CustomizedTimeline() {
           <TimelineSeparator>
             <TimelineConnector />
             <TimelineDot
-                sx={{cursor: 'pointer'}}
                 color={active === 2 ? 'primary' : 'secondary'}
-                onClick={()=>setActive(2)}
               >
               <ArchitectureIcon />
             </TimelineDot>
@@ -134,6 +127,6 @@ export default function CustomizedTimeline() {
           </TimelineContent>
         </TimelineItem>
       </Timeline>
-      </Stack>
+      </Paper>
   );
 }

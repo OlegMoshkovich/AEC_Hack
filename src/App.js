@@ -16,9 +16,7 @@ import Logo from './Logo'
 import Tabs from './Tabs'
 import TimeLine from './Timeline'
 import Tree from './Tree'
-
-
-
+import Card from './Card'
 
 
 function App({changeTheme, darkTheme}) {
@@ -27,13 +25,10 @@ function App({changeTheme, darkTheme}) {
     <Container
       maxWidth="sm"
       sx={{
-        paddingTop: '20px',
+        padding: '20px'
       }}
     >
-      <Paper
-        sx={{
-          padding: '20px',
-        }}>
+      <Paper variant='background'>
           <Stack
             spacing={3}
             direction="column"
@@ -45,7 +40,7 @@ function App({changeTheme, darkTheme}) {
             </Typography>
             <Logo/>
             <Tabs
-              tabList = {['General', 'Timeline', 'Tree']}
+              tabList = {['General', 'Timeline', 'Tree', 'Card']}
               currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
               variant = 'center'
             />
@@ -84,6 +79,9 @@ function App({changeTheme, darkTheme}) {
             }
             {currentTab===2 &&
                 <Tree/>
+            }
+            {currentTab===3 &&
+                <Card/>
             }
           </Stack>
       </Paper>
