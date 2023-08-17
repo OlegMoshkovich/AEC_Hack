@@ -5,7 +5,7 @@ import { grey } from '@mui/material/colors';
 const themeComponent = {
   spacing: 8,
   shape: {
-    borderRadius: 20,
+    borderRadius: 0,
   },
   components: {
     MuiPaper: {
