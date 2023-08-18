@@ -5,7 +5,7 @@ import { grey } from '@mui/material/colors';
 const themeComponent = {
   spacing: 8,
   shape: {
-    borderRadius: 0,
+    borderRadius: 10,
   },
   components: {
     MuiPaper: {
@@ -15,7 +15,7 @@ const themeComponent = {
           style: ({ ownerState, theme }) => ({
             boxShadow: theme.shadows[ownerState.elevation],
             padding:'1em',
-            overflow:'scroll'
+            overflow:'scroll',
           })
         },
       ]
@@ -71,7 +71,7 @@ const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#73ab34',
+      main: '#3C5414',
     },
     secondary: {
       main: grey[900],
@@ -88,7 +88,7 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#73ab34',
+      main: '#3C5414',
     },
     secondary: {
       main: grey[100],
@@ -99,6 +99,7 @@ const darkTheme = createTheme({
   },
   ...themeComponent,
 })
+
 
 
 export { lightTheme, darkTheme };

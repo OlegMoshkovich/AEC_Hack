@@ -8,20 +8,23 @@ import Switch from '@mui/material/Switch';
 import Typography from '@mui/material/Typography';
 import FormControlLabel from '@mui/material/FormControlLabel'
 import AutocompleteExample from './AutoComplete'
-import Accordian from './Accordian'
 import ButtonGroupControls from './ButtonGroupControls'
 import ButtonGroupOperations from './ButtonGroupOperations'
-import Dialog from './Dialog'
 import DialogEdit from './DialogEdit'
 import Logo from './Logo'
 import Tabs from './Tabs'
 import TimeLine from './Timeline'
 import Tree from './Tree'
 import Card from './Card'
+import useStore from './Store';
+import Dialog from './Dialog'
+import Slider from './Slider'
 
 
 function App({changeTheme, darkTheme}) {
   const [currentTab, setCurrentTab] = useState(0)
+  const { borderRadius, setBorderRadius } = useStore();
+  console.log('borderRadius', borderRadius)
   return (
     <Container
       maxWidth="sm"
@@ -61,6 +64,11 @@ function App({changeTheme, darkTheme}) {
               >
                 <ButtonGroupControls/>
                 <ButtonGroupOperations/>
+                {/* <MuiButtonGroup variant="outlined" size='small' aria-label="outlined primary button group">
+                  <Button onClick={increment}><AddIcon/></Button>
+                  <Button onClick={decrement}><RemoveIcon/></Button>
+                </MuiButtonGroup> */}
+                <Slider value={borderRadius} setValueCb={(value)=>setBorderRadius(value)}/>
                 <Typography variant="overline">
                   <FormControlLabel
                     value="switch"
@@ -79,7 +87,7 @@ function App({changeTheme, darkTheme}) {
                   <DialogEdit/>
                 </Stack>
                 <AutocompleteExample/>
-                <Accordian/>
+                {/* <Accordian/> */}
               </Stack>
             }
             {currentTab===3 &&

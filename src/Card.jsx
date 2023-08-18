@@ -36,7 +36,7 @@ export default function MultiActionAreaCard() {
         </CardContent>
       </CardActionArea>
       <CardActions disableSpacing>
-          <Button size="small" color="primary">
+          <Button size="small" color="secondary">
             Attached view
           </Button>
           <IconButton

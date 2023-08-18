@@ -51,7 +51,7 @@ export default function CustomizedTimeline() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
-          <Paper elevation={active === 0 ? 3 : 1} sx={{padding:'6px', borderRadius:'10px'}}>
+            <Paper elevation={active === 0 ? 3 : 1} sx={{padding:'6px 6px 6px 12px'}}>
               <Typography variant="caption">
                 Submit drawings to the structural engineer, waiting for the feedback
               </Typography>
@@ -86,7 +86,7 @@ export default function CustomizedTimeline() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
-          <Paper elevation={active === 1 ? 3 : 1} sx={{padding:'6px', borderRadius:'10px'}}>
+            <Paper elevation={active === 0 ? 3 : 1} sx={{padding:'6px 6px 6px 12px'}}>
               <Typography variant="caption">
                 Submit drawings to the structural engineer, waiting for the feedback
               </Typography>
@@ -119,7 +119,9 @@ export default function CustomizedTimeline() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
-            <Paper elevation={active === 2 ? 3 : 1} sx={{padding:'6px', borderRadius:'10px',}}>
+            <Paper
+              elevation={active === 0 ? 3 : 1}
+              sx={{padding:'6px 6px 6px 12px'}}>
               <Typography variant="caption">
                 Waiting for the architect of record
               </Typography>

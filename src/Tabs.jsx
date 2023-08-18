@@ -18,9 +18,10 @@ export default function Tabs({currentTab, tabList}) {
       variant="scrollable"
       scrollButtons
       allowScrollButtonsMobile
+      textColor="secondary"
       sx={{width:'90%'}}
     >
-      {tabList.map((tab) => <Tab label={tab} />)}
+      {tabList.map((tab) => <Tab label={tab} key={tab}/>)}
     </MuiTabs>
   );
 }

@@ -13,7 +13,6 @@ import {Stack} from '@mui/system';
 export default function Dialog() {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(false);
-  console.log('currentTab dialog', currentTab)
 
   const handleClickOpen = () => {
     setOpen(true);
