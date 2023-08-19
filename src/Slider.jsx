@@ -8,19 +8,19 @@ function ValueLabelComponent(props) {
   const { children, value } = props;
 
   return (
-    <Tooltip enterTouchDelay={0} placement="right" title={value}>
+    <Tooltip enterTouchDelay={0} placement="bottom" title={value}>
       {children}
     </Tooltip>
   );
 }
 
-export default function CustomizedSlider({value, setValueCb}) {
+export default function CustomizedSlider({value, setValueCb, label}) {
   const handleChange = (event, newValue) => {
     setValueCb(newValue);
   };
   return (
     <Box sx={{ width: 220 }}>
-      <Typography variant={'overline'} gutterBottom color='secondary'>Corner Radius</Typography>
+      <Typography variant={'overline'} gutterBottom color='secondary'>{label}</Typography>
       <Slider
         valueLabelDisplay="auto"
         max={26}

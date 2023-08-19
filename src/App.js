@@ -68,35 +68,42 @@ function App({changeTheme, darkTheme}) {
               >
                 <ButtonGroupControls/>
                 <ButtonGroupOperations/>
-                <Stack direction="row" alignItems="center" spacing={3}>
-                  <Stack direction="row" alignItems="center" spacing={1}>
-                    {colors.map((color, index)=>{
-                      return(
-                        <IconButton
-                        onClick={()=>setThemeScheme(index)}
-                        sx={{backgroundColor:color.primary}}
-                        size="small"
-                      >
-                        <CircleIcon fontSize="inherit" color='secondary'/>
-                      </IconButton>
-                      )
-                    })
-                    }
-                  </Stack>
-                  <Typography variant="overline">
-                  <FormControlLabel
-                    value="switch"
-                    control={<Switch onChange={changeTheme}/>}
-                    label={
-                      darkTheme ?
-                        <Typography variant={'overline'}>Dark</Typography> :
-                        <Typography variant={'overline'}>Light</Typography>
+                <Stack direction="column" alignItems="center" >
+                  <Typography variant='overline'>Theme colors</Typography>
+                  <Stack direction="row" alignItems="center" spacing={3}>
+                    <Stack direction="row" alignItems="center" spacing={1}>
+                      {colors.map((color, index)=>{
+                        return(
+                          <IconButton
+                          onClick={()=>setThemeScheme(index)}
+                          sx={{backgroundColor:color.primary}}
+                          size="small"
+                        >
+                          <CircleIcon fontSize="inherit" color='secondary'/>
+                        </IconButton>
+                        )
+                      })
                       }
-                    labelPlacement="end"
-                  />
-                </Typography>
+                    </Stack>
+                    <Typography variant="overline">
+                      <FormControlLabel
+                        value="switch"
+                        control={<Switch onChange={changeTheme}/>}
+                        label={
+                          darkTheme ?
+                            <Typography variant={'overline'}>Dark</Typography> :
+                            <Typography variant={'overline'}>Light</Typography>
+                          }
+                        labelPlacement="end"
+                      />
+                    </Typography>
+                  </Stack>
                 </Stack>
-                <Slider value={borderRadius} setValueCb={(value)=>setBorderRadius(value)}/>
+                <Slider
+                  value={borderRadius}
+                  setValueCb={(value)=>setBorderRadius(value)}
+                  label={'Component border radius'}
+                 />
                 <Stack
                   spacing={3}
                   direction="row"
