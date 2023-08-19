@@ -11,18 +11,14 @@ import {ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import useStore from './Store';
+import {colors} from './colors'
 
 const Sample = () =>{
 const [dark, setDark] = useState(false)
 const { borderRadius } = useStore();
 const { themeScheme } = useStore()
 
-const colors = [
-  {primary: '#253B1E'},
-  {primary: '#6D8752'},
-  {primary: '#70AB32'},
-  {primary: '#30443C'},
-]
+
 const themeComponent = {
   spacing: 8,
   shape: {

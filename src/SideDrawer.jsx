@@ -51,7 +51,7 @@ export default function TemporaryDrawer() {
               </Button>
               <Button
                 size='small'
-                variant={isProperties ? 'contained' : 'outlined'}
+                variant={'contained'}
                 onClick={toggleDrawer}
               >
                 Close drawer

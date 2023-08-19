@@ -21,6 +21,8 @@ import useStore from './Store';
 import Dialog from './Dialog'
 import Slider from './Slider'
 import CircleIcon from '@mui/icons-material/Circle';
+import CircleOutlinedIcon from '@mui/icons-material/CircleOutlined';
+import {colors} from './colors'
 
 
 function App({changeTheme, darkTheme}) {
@@ -67,34 +69,18 @@ function App({changeTheme, darkTheme}) {
                 <ButtonGroupControls/>
                 <ButtonGroupOperations/>
                 <Stack direction="row" alignItems="center" spacing={1}>
-                  <IconButton
-                    onClick={()=>setThemeScheme(0)}
-                    sx={{backgroundColor:'#3C5414'}}
-                    size="small"
-                  >
-                    <CircleIcon fontSize="inherit" color='secondary'/>
-                  </IconButton>
-                  <IconButton
-                    onClick={()=>setThemeScheme(1)}
-                    sx={{backgroundColor:'#6D8752'}}
-                    size="small"
-                  >
-                    <CircleIcon fontSize="inherit" color='secondary'/>
-                  </IconButton>
-                  <IconButton
-                    onClick={()=>setThemeScheme(2)}
-                    sx={{backgroundColor:'#70AB32'}}
-                    size="small"
-                  >
-                    <CircleIcon fontSize="inherit" color='secondary'/>
-                  </IconButton>
-                  <IconButton
-                    onClick={()=>setThemeScheme(3)}
-                    sx={{backgroundColor:'#30443C'}}
-                    size="small"
-                  >
-                    <CircleIcon fontSize="inherit" color='secondary'/>
-                  </IconButton>
+                  {colors.map((color, index)=>{
+                    return(
+                      <IconButton
+                      onClick={()=>setThemeScheme(index)}
+                      sx={{backgroundColor:color.primary}}
+                      size="small"
+                    >
+                      <CircleIcon fontSize="inherit" color='secondary'/>
+                    </IconButton>
+                    )
+                  })
+                  }
                 </Stack>
                 <Slider value={borderRadius} setValueCb={(value)=>setBorderRadius(value)}/>
                 <Typography variant="overline">
