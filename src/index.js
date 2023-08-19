@@ -9,9 +9,10 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import {ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material';
-import { grey } from '@mui/material/colors';
+import { grey, blueGrey } from '@mui/material/colors';
 import useStore from './Store';
 import {colors} from './colors'
+
 
 const Sample = () =>{
 const [dark, setDark] = useState(false)
@@ -89,7 +90,7 @@ const lightTheme = createTheme({
       main: colors[themeScheme].primary,
     },
     secondary: {
-      main: grey[700],
+      main: '#151521',
     },
     background: {
       paper: grey[100],  // Change to your desired color
@@ -104,7 +105,7 @@ const darkTheme = createTheme({
       main: colors[themeScheme].primary,
     },
     secondary: {
-      main: grey[500],
+      main: blueGrey[500],
     },
     background: {
       paper: grey[900],  // Change to your desired color

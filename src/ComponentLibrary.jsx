@@ -17,11 +17,12 @@ import Tabs from './Tabs'
 import TimeLine from './Timeline'
 import Tree from './Tree'
 import Card from './Card'
-import useStore from './Store';
+
 import Dialog from './Dialog'
 import Slider from './Slider'
 import CircleIcon from '@mui/icons-material/Circle';
 import {colors} from './colors'
+import useStore from './Store';
 
 
 function ComponentLibrary({changeTheme, darkTheme}) {
@@ -66,7 +67,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                 alignItems="center"
               >
                 <ButtonGroupControls/>
-                <ButtonGroupOperations/>
+                {/* <ButtonGroupOperations/> */}
                 <Stack direction="column" alignItems="center" >
                   <Typography variant='overline'>Theme colors</Typography>
                   <Stack direction="row" alignItems="center" spacing={3}>

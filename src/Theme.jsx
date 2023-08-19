@@ -1,5 +1,5 @@
 import { createTheme } from '@mui/material';
-import { grey } from '@mui/material/colors';
+import { grey,blueGrey } from '@mui/material/colors';
 
 
 const themeComponent = {
@@ -112,7 +112,7 @@ const lightTheme = createTheme({
       main: '#3C5414',
     },
     secondary: {
-      main: grey[900],
+      main: '#3C5414' ,
     },
     background: {
       paper: grey[100],  // Change to your desired color
@@ -129,7 +129,7 @@ const darkTheme = createTheme({
       main: '#3C5414',
     },
     secondary: {
-      main: grey[100],
+      main: blueGrey[100],
     },
     background: {
       paper: grey[900],  // Change to your desired color
