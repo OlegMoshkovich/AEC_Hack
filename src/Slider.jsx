@@ -1,7 +1,5 @@
 import * as React from 'react';
-import PropTypes from 'prop-types';
-import Slider, { SliderThumb } from '@mui/material/Slider';
-import { styled } from '@mui/material/styles';
+import Slider from '@mui/material/Slider';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import Box from '@mui/material/Box';
@@ -22,7 +20,7 @@ export default function CustomizedSlider({value, setValueCb}) {
   };
   return (
     <Box sx={{ width: 220 }}>
-      <Typography variant={'overline'} gutterBottom>Corner Radius</Typography>
+      <Typography variant={'overline'} gutterBottom color='secondary'>Corner Radius</Typography>
       <Slider
         valueLabelDisplay="auto"
         max={26}

@@ -10,6 +10,7 @@ import FormControlLabel from '@mui/material/FormControlLabel'
 import AutocompleteExample from './AutoComplete'
 import ButtonGroupControls from './ButtonGroupControls'
 import ButtonGroupOperations from './ButtonGroupOperations'
+import IconButton from '@mui/material/IconButton'
 import DialogEdit from './DialogEdit'
 import Logo from './Logo'
 import Tabs from './Tabs'
@@ -19,11 +20,12 @@ import Card from './Card'
 import useStore from './Store';
 import Dialog from './Dialog'
 import Slider from './Slider'
+import CircleIcon from '@mui/icons-material/Circle';
 
 
 function App({changeTheme, darkTheme}) {
   const [currentTab, setCurrentTab] = useState(0)
-  const { borderRadius, setBorderRadius } = useStore();
+  const { borderRadius, setBorderRadius, setThemeScheme } = useStore();
   console.log('borderRadius', borderRadius)
   return (
     <Container
@@ -64,10 +66,36 @@ function App({changeTheme, darkTheme}) {
               >
                 <ButtonGroupControls/>
                 <ButtonGroupOperations/>
-                {/* <MuiButtonGroup variant="outlined" size='small' aria-label="outlined primary button group">
-                  <Button onClick={increment}><AddIcon/></Button>
-                  <Button onClick={decrement}><RemoveIcon/></Button>
-                </MuiButtonGroup> */}
+                <Stack direction="row" alignItems="center" spacing={1}>
+                  <IconButton
+                    onClick={()=>setThemeScheme(0)}
+                    sx={{backgroundColor:'#3C5414'}}
+                    size="small"
+                  >
+                    <CircleIcon fontSize="inherit" color='secondary'/>
+                  </IconButton>
+                  <IconButton
+                    onClick={()=>setThemeScheme(1)}
+                    sx={{backgroundColor:'#6D8752'}}
+                    size="small"
+                  >
+                    <CircleIcon fontSize="inherit" color='secondary'/>
+                  </IconButton>
+                  <IconButton
+                    onClick={()=>setThemeScheme(2)}
+                    sx={{backgroundColor:'#70AB32'}}
+                    size="small"
+                  >
+                    <CircleIcon fontSize="inherit" color='secondary'/>
+                  </IconButton>
+                  <IconButton
+                    onClick={()=>setThemeScheme(3)}
+                    sx={{backgroundColor:'#30443C'}}
+                    size="small"
+                  >
+                    <CircleIcon fontSize="inherit" color='secondary'/>
+                  </IconButton>
+                </Stack>
                 <Slider value={borderRadius} setValueCb={(value)=>setBorderRadius(value)}/>
                 <Typography variant="overline">
                   <FormControlLabel

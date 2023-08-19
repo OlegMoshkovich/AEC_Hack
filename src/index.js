@@ -15,6 +15,14 @@ import useStore from './Store';
 const Sample = () =>{
 const [dark, setDark] = useState(false)
 const { borderRadius } = useStore();
+const { themeScheme } = useStore()
+
+const colors = [
+  {primary: '#253B1E'},
+  {primary: '#6D8752'},
+  {primary: '#70AB32'},
+  {primary: '#30443C'},
+]
 const themeComponent = {
   spacing: 8,
   shape: {
@@ -83,10 +91,10 @@ const lightTheme = createTheme({
   palette: {
     mode: 'light',
     primary: {
-      main: '#3C5414',
+      main: colors[themeScheme].primary,
     },
     secondary: {
-      main: grey[900],
+      main: grey[700],
     },
     background: {
       paper: grey[100],  // Change to your desired color
@@ -98,10 +106,10 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     primary: {
-      main: '#3C5414',
+      main: colors[themeScheme].primary,
     },
     secondary: {
-      main: grey[100],
+      main: grey[500],
     },
     background: {
       paper: grey[900],  // Change to your desired color

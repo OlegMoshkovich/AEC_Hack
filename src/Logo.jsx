@@ -3,6 +3,7 @@ import SvgIcon from '@mui/material/SvgIcon';
 
 
 export default function Logo(){
+
 return(
   <SvgIcon sx={{transform: 'scale(1.8)'}}>
   <svg width="104" height="150" viewBox="0 0 104 150" fill="none" xmlns="http://www.w3.org/2000/svg">
