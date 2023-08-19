@@ -214,8 +214,8 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
                 control={<Switch onChange={changeTheme}/>}
                 label={
                   darkTheme ?
-                    <Typography variant={'overline'}>Dark theme</Typography> :
-                    <Typography variant={'overline'}>Light theme</Typography>
+                    <Typography variant={'overline'}>Dark</Typography> :
+                    <Typography variant={'overline'}>Light</Typography>
                   }
                 labelPlacement="end"
               />
