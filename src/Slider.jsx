@@ -8,7 +8,7 @@ function ValueLabelComponent(props) {
   const { children, value } = props;
 
   return (
-    <Tooltip enterTouchDelay={0} placement="top" title={value}>
+    <Tooltip enterTouchDelay={0} placement="right" title={value}>
       {children}
     </Tooltip>
   );
