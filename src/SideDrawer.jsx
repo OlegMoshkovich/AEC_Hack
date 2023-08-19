@@ -54,7 +54,7 @@ export default function TemporaryDrawer() {
                 variant={'contained'}
                 onClick={toggleDrawer}
               >
-                Close drawer
+                Close
               </Button>
             </Stack>
             {isNotes &&
