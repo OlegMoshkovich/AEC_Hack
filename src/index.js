@@ -12,14 +12,11 @@ import { createTheme } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import useStore from './Store';
 import {colors} from './colors'
-import {BrowserRouter as Router} from 'react-router-dom';
 
 const Sample = () =>{
 const [dark, setDark] = useState(false)
 const { borderRadius } = useStore();
 const { themeScheme } = useStore()
-
-
 
 const themeComponent = {
   spacing: 8,
@@ -121,7 +118,7 @@ const darkTheme = createTheme({
         <ThemeProvider theme={dark ? darkTheme : lightTheme}>
           <App changeTheme={() => setDark(!dark)} darkTheme={dark}/>
         </ThemeProvider>
-    </React.StrictMode>
+      </React.StrictMode>
   )
 }
 
