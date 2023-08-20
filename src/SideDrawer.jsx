@@ -24,6 +24,7 @@ export default function TemporaryDrawer() {
             anchor={'right'}
             open={state}
             onClose={toggleDrawer}
+            permanent
           >
             <Stack
               direction="row"

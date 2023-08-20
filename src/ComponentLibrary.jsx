@@ -33,7 +33,8 @@ function ComponentLibrary({changeTheme, darkTheme}) {
     <Container
       maxWidth="sm"
       sx={{
-        padding: '20px'
+        padding: '20px',
+        marginTop: '40px',
       }}
     >
       <Paper variant='background'>
@@ -46,7 +47,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
             <Typography variant="button">
               Bldrs UI components
             </Typography>
-            <Logo/>
+            <Logo scaled={false}/>
             <Stack
               direction="row"
               justifyContent="center"

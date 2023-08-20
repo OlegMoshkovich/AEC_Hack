@@ -183,6 +183,17 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
               alignItems="center"
               spacing={1}
             >
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                  <Logo scaled={true}/>
+                </IconButton>
               {/* <Box>
                 <Logo/>
               </Box> */}
