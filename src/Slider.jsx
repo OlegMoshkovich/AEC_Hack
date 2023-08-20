@@ -20,7 +20,7 @@ export default function CustomizedSlider({value, setValueCb, label}) {
   };
   return (
     <Box sx={{ width: 220 }}>
-      <Typography variant={'overline'} gutterBottom color='secondary'>{label}</Typography>
+      <Typography variant={'overline'} gutterBottom color='default'>{label}</Typography>
       <Slider
         valueLabelDisplay="auto"
         max={26}

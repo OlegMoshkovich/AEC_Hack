@@ -18,7 +18,7 @@ export default function Tabs({currentTab, tabList}) {
       variant="scrollable"
       scrollButtons
       allowScrollButtonsMobile
-      textColor="secondary"
+      textColor="default"
       sx={{width:'90%'}}
     >
       {tabList.map((tab) => <Tab label={tab} key={tab}/>)}

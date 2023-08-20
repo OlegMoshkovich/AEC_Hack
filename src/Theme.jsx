@@ -112,7 +112,7 @@ const lightTheme = createTheme({
       main: '#3C5414',
     },
     secondary: {
-      main: '#3C5414' ,
+      main: 'grey[100]' ,
     },
     background: {
       paper: grey[100],  // Change to your desired color
@@ -129,7 +129,7 @@ const darkTheme = createTheme({
       main: '#3C5414',
     },
     secondary: {
-      main: blueGrey[100],
+      main: 'grey[900]'
     },
     background: {
       paper: grey[900],  // Change to your desired color

@@ -9,7 +9,7 @@ export default function Logo(){
 
 
 return(
-  <SvgIcon sx={{transform: 'scale(1.8)'}}>
+  <SvgIcon sx={{transform: 'scale(1.4)'}}>
   <svg width="104" height="150" viewBox="0 0 104 150" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M23.4853 1L1 11.4931V149.403H23.4853V1Z" fill={colors[themeScheme].primary}/>
     <path d="M26.2524 72.9077V149.349L54.9647 149.403L55.0463 65.3628L26.2524 72.9077Z"fill={colors[themeScheme].primary}/>

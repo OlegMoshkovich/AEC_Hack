@@ -24,6 +24,16 @@ import useStore from './Store';
 import CircleIcon from '@mui/icons-material/Circle';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import ModeCommentIcon from '@mui/icons-material/ModeComment';
+import AutocompleteExample from './AutoComplete'
+import ModeCommentOutlinedIcon from '@mui/icons-material/ModeCommentOutlined';
+import FolderOpenOutlinedIcon from '@mui/icons-material/FolderOpenOutlined';
+import FolderIcon from '@mui/icons-material/Folder';
+import ChatBubbleIcon from '@mui/icons-material/ChatBubble';
+import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
+import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
+import SentimentSatisfiedAltOutlinedIcon from '@mui/icons-material/SentimentSatisfiedAltOutlined';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -166,63 +176,16 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color='default' elevation={0} variant="dense">
+      <AppBar position="static" color='secondary' elevation={0} variant="dense">
         <Toolbar>
-            <Logo/>
-          <Search>
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search by Ifc names"
-              inputProps={{ 'aria-label': 'search' }}
-            />
-          </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Stack direction="row" alignItems="center" sx={{width: '20%'}}>
-            <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-controls={menuId}
-                  aria-haspopup="true"
-                  onClick={handleProfileMenuOpen}
-                  color="inherit"
-                >
-                  <ModeCommentIcon size='inherit'color='secondary'/>
-            </IconButton>
-          </Stack>
-          <Stack direction="row" alignItems="center" spacing={4}>
-            <Stack direction="row" alignItems="center" spacing={1}>
-                        {colors.map((color, index)=>{
-                          return(
-                            <IconButton
-                            onClick={()=>setThemeScheme(index)}
-                            sx={{backgroundColor:color.primary}}
-                            size="small"
-                          >
-                            <CircleIcon fontSize="inherit" color='secondary'/>
-                          </IconButton>
-                          )
-                        })
-                        }
-                      </Stack>
-            <Stack direction="row" alignItems="center">
-            <Typography variant="overline">
-              <FormControlLabel
-                value="switch"
-                control={<Switch onChange={changeTheme}/>}
-                label={
-                  darkTheme ?
-                    <Typography variant={'overline'}>Dark</Typography> :
-                    <Typography variant={'overline'}>Light</Typography>
-                  }
-                labelPlacement="end"
-              />
-            </Typography>
-            <Button variant="contained"  size="small" color='primary'>
-              Share
-            </Button>
+            <Stack
+              direction='row'
+              alignItems="center"
+              spacing={1}
+            >
+              {/* <Box>
+                <Logo/>
+              </Box> */}
               <IconButton
                   size="large"
                   edge="end"
@@ -232,40 +195,65 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
                   onClick={handleProfileMenuOpen}
                   color="inherit"
                 >
-                  <InfoOutlinedIcon size='inherit'color='secondary'/>
-              </IconButton>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle size='inherit'color='secondary'/>
-              </IconButton>
+                  <FolderIcon size='inherit' color='primary'/>
+                </IconButton>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <MapsUgcOutlinedIcon size='inherit' color='default'/>
+                </IconButton>
+            </Stack>
+            <Box sx={{ flexGrow: 1 }} />
+            <Stack direction="row" justifyContent="center" sx={{width: '100%'}}>
+            {/* <Search>
+                <SearchIconWrapper>
+                  <SearchIcon />
+                </SearchIconWrapper>
+                <StyledInputBase
+                  placeholder="Search by Ifc names"
+                  inputProps={{ 'aria-label': 'search' }}
+                />
+              </Search> */}
 
             </Stack>
-
-          </Stack>
-
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-            <IconButton
-              size="large"
-              aria-label="show more"
-              aria-controls={mobileMenuId}
-              aria-haspopup="true"
-              onClick={handleMobileMenuOpen}
-              color="inherit"
-            >
-              <MoreIcon />
-            </IconButton>
-          </Box>
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <Button variant="contained"  size="small" color='primary'>
+                  Share
+                </Button>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="inherit"
+                >
+                  <PortraitOutlinedIcon size='inherit' color='default'/>
+                </IconButton>
+              </Stack>
+            {/* <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+              <IconButton
+                size="large"
+                aria-label="show more"
+                aria-controls={mobileMenuId}
+                aria-haspopup="true"
+                onClick={handleMobileMenuOpen}
+                color="inherit"
+              >
+                <MoreIcon />
+              </IconButton>
+            </Box> */}
         </Toolbar>
       </AppBar>
-      {renderMobileMenu}
-      {renderMenu}
+      {/* {renderMobileMenu}
+      {renderMenu} */}
     </Box>
   );
 }

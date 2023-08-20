@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 
 export default function AutocompleteExample() {
   return (
-    <Stack spacing={3} sx={{minWidth:'300px'}}>
+    <Stack spacing={3} sx={{minWidth:'200px'}}>
       <Autocomplete
         multiple
         id="tags-outlined"
@@ -17,8 +17,9 @@ export default function AutocompleteExample() {
         renderInput={(params) => (
           <TextField
             {...params}
-            label="Search"
-            placeholder="Search criteria"
+            // label="Search"
+            placeholder="Search by ifc Name"
+            size='small'
           />
         )}
       />
