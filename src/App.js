@@ -20,8 +20,8 @@ import VersionPanel from './VersionPanel'
 
 
 function App({changeTheme, darkTheme}) {
-  const[left, setLeft] = useState(true)
-  const[right, setRight] = useState(true)
+  const[left, setLeft] = useState(false)
+  const[right, setRight] = useState(false)
 
   return (
     <>
