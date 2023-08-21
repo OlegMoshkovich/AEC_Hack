@@ -128,13 +128,13 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
       anchorEl={mobileMoreAnchorEl}
       anchorOrigin={{
         vertical: 'top',
-        horizontal: 'right',
+        horizontal: 'left',
       }}
       id={mobileMenuId}
       keepMounted
       transformOrigin={{
         vertical: 'top',
-        horizontal: 'right',
+        horizontal: 'left',
       }}
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
@@ -237,6 +237,17 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
                 <Button variant="contained"  size="small" color='primary'>
                   Share
                 </Button>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleMobileMenuOpen}
+                  color="inherit"
+                >
+                  <MoreIcon size='inherit' color='default'/>
+                </IconButton>
                 <IconButton
                   size="large"
                   edge="end"

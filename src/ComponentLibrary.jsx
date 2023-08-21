@@ -44,7 +44,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
             <Typography variant="button">
               Bldrs UI components
             </Typography>
-            <Logo scaled={false}/>
+            {/* <Logo scaled={false}/> */}
             <Stack
               direction="row"
               justifyContent="center"
@@ -104,7 +104,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                  />
               </Stack>
             }
-            {currentTab==='TimeLine' &&
+            {currentTab==='Timeline' &&
                 <TimeLine/>
             }
             {currentTab==='Tree' &&
