@@ -28,7 +28,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', top: '70px', height:'88%'}}
+        sx={{position:'fixed',  left: '10px', top: '70px', height:'88%'}}
       >
       <IconButton
           size="large"
@@ -53,7 +53,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', right: '14px', top: '70px', height:'88%'}}
+        sx={{position:'fixed', right: '22px', top: '70px', height:'88%'}}
       >
       <IconButton
           size="large"
