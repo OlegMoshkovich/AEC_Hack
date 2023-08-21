@@ -64,7 +64,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                 justifyContent="center"
                 alignItems="center"
               >
-                <ButtonGroupControls/>
+                {/* <ButtonGroupControls/> */}
                 {/* <ButtonGroupOperations/> */}
                 <Stack direction="column" alignItems="center" >
                   <Typography variant='overline'>Theme colors</Typography>

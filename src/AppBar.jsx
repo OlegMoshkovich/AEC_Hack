@@ -234,9 +234,6 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
 
             </Stack>
               <Stack direction="row" alignItems="center" spacing={1}>
-                <Button variant="contained"  size="small" color='primary'>
-                  Share
-                </Button>
                 <IconButton
                   size="large"
                   edge="end"
@@ -248,6 +245,9 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
                 >
                   <MoreIcon size='inherit' color='default'/>
                 </IconButton>
+                <Button variant="contained"  size="small" color='primary'>
+                  Share
+                </Button>
                 <IconButton
                   size="large"
                   edge="end"
