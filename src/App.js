@@ -24,7 +24,7 @@ function App({changeTheme, darkTheme}) {
         }}>
         <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
       </Box>
-      <Stack
+      {/* <Stack
         direction="column"
         justifyContent="space-between"
         alignItems="center"
@@ -73,7 +73,7 @@ function App({changeTheme, darkTheme}) {
         >
           <AutoFixHighOutlinedIcon size='inherit' color='default'/>
         </IconButton>
-      </Stack>
+      </Stack> */}
     </>
   );
 }
