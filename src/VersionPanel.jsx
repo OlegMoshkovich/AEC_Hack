@@ -4,17 +4,17 @@ import Stack from '@mui/material/Stack';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import CloseIcon from '@mui/icons-material/Close';
-import Card from './Card'
 import {Typography} from '@mui/material';
 import ListSubheader from '@mui/material/ListSubheader';
 import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
+import Timeline from './Timeline'
 
-export default function NotesList() {
+export default function TreePanel() {
   return (
     <Stack>
       <List
       spacing={1}
-
       >
         <ListSubheader>
         <Stack
@@ -24,7 +24,7 @@ export default function NotesList() {
           sx={{height: '60px'}}
         >
             <Typography variant="body1">
-              Notes
+              Version History
             </Typography>
             <Stack
               direction="row"
@@ -33,7 +33,7 @@ export default function NotesList() {
               spacing={.5}
             >
             <IconButton aria-label="comments" size='small'>
-              <AddCommentOutlinedIcon fontSize='small'/>
+              <SaveOutlinedIcon fontSize='small'/>
             </IconButton>
             <IconButton aria-label="comments" size='small'>
               <CloseIcon fontSize='small'/>
@@ -41,11 +41,9 @@ export default function NotesList() {
           </Stack>
           </Stack>
         </ListSubheader>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem >
-              <Card/>
-            </ListItem>
-        ))}
+        <ListItem >
+          <Timeline/>
+        </ListItem>
     </List>
   </Stack>
   );

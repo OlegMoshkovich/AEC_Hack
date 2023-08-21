@@ -10,7 +10,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Tabs from './Tabs'
 import {Stack} from '@mui/system';
 
-export default function Dialog() {
+export default function Dialog({label}) {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(false);
 
@@ -25,7 +25,7 @@ export default function Dialog() {
   return (
     <div>
       <Button variant="contained" size='small' onClick={handleClickOpen}>
-        Open Dialog
+        {label}
       </Button>
       <MuiDialog
         open={open}

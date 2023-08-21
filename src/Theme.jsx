@@ -16,6 +16,7 @@ const themeComponent = {
             boxShadow: theme.shadows[ownerState.elevation],
             padding:'1em',
             overflow:'scroll',
+            backgroundColor:theme.palette.background.default
           })
         },
       ]

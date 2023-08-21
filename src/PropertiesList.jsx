@@ -14,7 +14,6 @@ export default function PropertiesList() {
     <Stack>
       <List
       spacing={1}
-      sx={{padding: '0px 10px 60px 0px'}}
       >
         <ListSubheader>
         <Stack
@@ -42,7 +41,7 @@ export default function PropertiesList() {
           </Stack>
         </ListSubheader>
         {[1,2,3,4,5,6,7,8,9].map((text, index) => (
-            <ListItem sx={{width:'378px'}}>
+            <ListItem >
               <Accordion/>
             </ListItem>
         ))}

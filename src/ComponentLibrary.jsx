@@ -33,6 +33,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
   return (
     <Container
       maxWidth="sm"
+      sx={{marginTop: '100px'}}
     >
       <Paper variant='background'>
           <Stack
@@ -102,6 +103,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                   setValueCb={(value)=>setBorderRadius(value)}
                   label={'Component border radius'}
                  />
+                 <Dialog label={'Welcome'}/>
               </Stack>
             }
             {currentTab==='Timeline' &&
@@ -123,7 +125,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                 justifyContent="center"
                 alignItems="center"
               >
-                <Dialog/>
+                <Dialog label={'Standard Dialog'}/>
                 <DialogEdit/>
               </Stack>
             }

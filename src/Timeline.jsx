@@ -19,7 +19,6 @@ export default function CustomizedTimeline() {
   const [active, setActive] = useState(0)
   return (
       <Paper
-        variant='background'
         sx={{
         height: '300px',
         overflow: 'scroll'}}

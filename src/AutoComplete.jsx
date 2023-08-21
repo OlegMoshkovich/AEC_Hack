@@ -17,7 +17,7 @@ export default function AutocompleteExample() {
         renderInput={(params) => (
           <TextField
             {...params}
-            // label="Search"
+            label="Search"
             placeholder="Search by ifc Name"
             size='small'
           />

@@ -7,15 +7,15 @@ import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import TreeItem from '@mui/lab/TreeItem';
 import Tabs from './Tabs'
 
+
 export default function FileSystemNavigator() {
   return (
     <Paper
       variant='background'
-      elevation={1}
-      sx={{width:'90%'}}
+      elevation={0}
       >
       <Stack
-        spacing={2}
+        spacing={4}
       >
         <Stack
           direction="row"
@@ -26,6 +26,7 @@ export default function FileSystemNavigator() {
           <Tabs
             tabList={['elements', 'types', 'sets']}
             currentTab={(tab) => console.log(tab)}
+            scrollable={false}
           />
         </Stack>
         <TreeView

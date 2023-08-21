@@ -33,9 +33,41 @@ const themeComponent = {
             boxShadow: theme.shadows[ownerState.elevation],
             padding:'1em',
             overflow:'scroll',
+            backgroundColor:theme.palette.background.default,
           })
         },
       ]
+    },
+    MuiList: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.palette.background.default, // use palette color here
+          padding:'0px',
+        }),
+      }
+    },
+    MuiListSubheader: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.palette.background.default, // use palette color here
+          borderBottom:`1px solid ${theme.palette.background.paper}`,
+        }),
+      },
+    },
+    MuiAppBar: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          backgroundColor: theme.palette.background.default, // use palette color here
+          borderBottom:'1px solid lightGray'
+        }),
+      },
+    },
+    MuiDrawer: {
+      styleOverrides: {
+        paper: ({ theme }) => ({
+          backgroundColor: theme.palette.secondary.main, // use palette color here
+        }),
+      },
     },
     MuiDialogTitle: {
       styleOverrides: {
@@ -94,13 +126,11 @@ const lightTheme = createTheme({
     },
     background: {
       paper: grey[300],  // Change to your desired color
-      default: grey[300],  // Change to your desired color
+      default: grey[100],  // Change to your desired color
     },
   },
   ...themeComponent,
 })
-
-
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',

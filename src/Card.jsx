@@ -12,7 +12,7 @@ import Menu from './Menu'
 
 export default function MultiActionAreaCard() {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 260 }}>
       <CardHeader
         avatar={
           <Avatar aria-label="card">
