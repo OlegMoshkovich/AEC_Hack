@@ -15,7 +15,13 @@ function App({changeTheme, darkTheme}) {
   return (
     <>
       <PrimaryAppBar changeTheme={changeTheme} darkTheme={darkTheme}/>
-      <Box sx={{marginTop: '100px'}}>
+      <Box
+        sx={{
+          marginTop: '100px',
+          '@media (max-width:600px)': {
+            marginTop: '140px',
+          },
+        }}>
         <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
       </Box>
       <Stack
