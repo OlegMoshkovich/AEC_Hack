@@ -176,7 +176,7 @@ export default function PrimaryAppBar({changeTheme, darkTheme}) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" color='secondary' elevation={0} variant="dense">
+      <AppBar position="absolute" color='secondary' elevation={0} variant="dense">
         <Toolbar>
             <Stack
               direction='row'

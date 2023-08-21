@@ -4,6 +4,7 @@ import ComponentLibrary from './ComponentLibrary'
 import PrimaryAppBar from './AppBar'
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import SegmentIcon from '@mui/icons-material/Segment';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -14,11 +15,14 @@ function App({changeTheme, darkTheme}) {
   return (
     <>
       <PrimaryAppBar changeTheme={changeTheme} darkTheme={darkTheme}/>
+      <Box sx={{marginTop: '100px'}}>
+        <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
+      </Box>
       <Stack
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', left: '14px', marginTop: '10px', height:'88%'}}
+        sx={{position:'fixed', top: '70px', height:'88%'}}
       >
       <IconButton
           size="large"
@@ -43,7 +47,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', right: '26px', marginTop: '10px', height:'88%'}}
+        sx={{position:'fixed', right: '14px', top: '70px', height:'88%'}}
       >
       <IconButton
           size="large"
@@ -64,7 +68,6 @@ function App({changeTheme, darkTheme}) {
           <AutoFixHighOutlinedIcon size='inherit' color='default'/>
         </IconButton>
       </Stack>
-      <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
     </>
   );
 }

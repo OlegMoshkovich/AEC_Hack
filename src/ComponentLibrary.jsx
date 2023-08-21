@@ -26,17 +26,13 @@ import useStore from './Store';
 
 
 function ComponentLibrary({changeTheme, darkTheme}) {
-  const [currentTab, setCurrentTab] = useState(0)
+  const [currentTab, setCurrentTab] = useState('General')
   const { borderRadius, setBorderRadius, setThemeScheme } = useStore();
   console.log('borderRadius', borderRadius)
   const tabList=['General', 'Card', 'Dialog', 'Input', 'SideDrawer', 'Timeline', 'Tree' ]
   return (
     <Container
       maxWidth="sm"
-      sx={{
-        padding: '20px',
-        marginTop: '40px',
-      }}
     >
       <Paper variant='background'>
           <Stack
@@ -120,7 +116,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
             {currentTab==='SideDrawer' &&
                 <SideDrawer/>
             }
-            {currentTab==='Dialogs' &&
+            {currentTab==='Dialog' &&
               <Stack
                 spacing={3}
                 direction="row"
