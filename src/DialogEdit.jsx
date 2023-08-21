@@ -40,13 +40,13 @@ export default function DialogEdit() {
         <DialogTitle>Edit</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Please edit version information using controls below.
+            Make a chnage
           </DialogContentText>
           <TextField
             autoFocus
             margin="dense"
             id="name"
-            label="Version Name"
+            label="Field 1"
             fullWidth
             variant="outlined"
           />
@@ -54,7 +54,7 @@ export default function DialogEdit() {
             autoFocus
             margin="dense"
             id="Description"
-            label="Version Description"
+            label="Field 2"
             fullWidth
             variant="outlined"
             multiline
@@ -63,18 +63,18 @@ export default function DialogEdit() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClickOpenConfirm} variant='outline'>Delete</Button>
-          <Button onClick={handleClose} variant='contained'>Submit</Button>
+          <Button onClick={handleClose}  size='small' variant='contained'>Submit</Button>
         </DialogActions>
       </MuiDialog>
       <MuiDialog open={openConfirm} onClose={handleClose}>
         <DialogTitle>Edit</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Are you sure you would like to delete the version.
+            Are you sure you?
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseConfirm} variant='contained'>Confirm</Button>
+          <Button onClick={handleCloseConfirm}  size='small' variant='contained'>Confirm</Button>
         </DialogActions>
       </MuiDialog>
     </div>

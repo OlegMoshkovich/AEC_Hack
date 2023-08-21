@@ -29,6 +29,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
   const [currentTab, setCurrentTab] = useState(0)
   const { borderRadius, setBorderRadius, setThemeScheme } = useStore();
   console.log('borderRadius', borderRadius)
+  const tabList=['General', 'Card', 'Dialog', 'Input', 'SideDrawer', 'Timeline', 'Tree' ]
   return (
     <Container
       maxWidth="sm"
@@ -55,12 +56,12 @@ function ComponentLibrary({changeTheme, darkTheme}) {
               sx={{width:'100%'}}
             >
               <Tabs
-                tabList = {['General', 'Card', 'SideDrawer', 'Timeline', 'Tree', ]}
-                currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
+                tabList = {tabList}
+                currentTab={(tabNumber)=>setCurrentTab(tabList[tabNumber])}
               />
             </Stack>
 
-            {currentTab===0 &&
+            {currentTab==='General' &&
               <Stack
                 spacing={3}
                 direction="column"
@@ -105,30 +106,33 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                   setValueCb={(value)=>setBorderRadius(value)}
                   label={'Component border radius'}
                  />
-                <Stack
-                  spacing={3}
-                  direction="row"
-                  justifyContent="center"
-                  alignItems="center"
-                >
-                  <Dialog/>
-                  <DialogEdit/>
-                </Stack>
-                <AutocompleteExample/>
-                {/* <Accordian/> */}
               </Stack>
             }
-            {currentTab===3 &&
+            {currentTab==='TimeLine' &&
                 <TimeLine/>
             }
-            {currentTab===4 &&
+            {currentTab==='Tree' &&
                 <Tree/>
             }
-            {currentTab===1 &&
+            {currentTab==='Card' &&
                 <Card/>
             }
-            {currentTab===2 &&
+            {currentTab==='SideDrawer' &&
                 <SideDrawer/>
+            }
+            {currentTab==='Dialogs' &&
+              <Stack
+                spacing={3}
+                direction="row"
+                justifyContent="center"
+                alignItems="center"
+              >
+                <Dialog/>
+                <DialogEdit/>
+              </Stack>
+            }
+            {currentTab==='Input' &&
+                <AutocompleteExample/>
             }
           </Stack>
       </Paper>

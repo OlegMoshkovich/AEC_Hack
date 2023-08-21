@@ -24,8 +24,8 @@ export default function Dialog() {
 
   return (
     <div>
-      <Button variant="contained" onClick={handleClickOpen}>
-        Open Project
+      <Button variant="contained" size='small' onClick={handleClickOpen}>
+        Open Dialog
       </Button>
       <MuiDialog
         open={open}
@@ -34,13 +34,13 @@ export default function Dialog() {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title" >
-          Open Project
+          Dialog title
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <Stack spacing={1}>
             <Tabs
-                tabList = {['explore', 'open', 'save']}
+                tabList = {['tab 1', 'tab 2', 'tab 3']}
                 currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
             />
             <Typography variant={'body1'}>
@@ -55,7 +55,7 @@ export default function Dialog() {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" onClick={handleClose} startIcon={<GitHubIcon /> }>Open</Button>
+          <Button variant="contained" size='small' onClick={handleClose} startIcon={<GitHubIcon /> }>ok</Button>
         </DialogActions>
       </MuiDialog>
     </div>
