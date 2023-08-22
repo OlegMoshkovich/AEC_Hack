@@ -43,6 +43,20 @@ export default function SideDrawer2({side, isOpen, topPanel, bottomPanel}) {
         elevation={0}
         hideBackdrop
         disableScrollLock
+        ModalProps={{
+          slots: { backdrop: "div" },
+          slotProps: {
+            root: { //override the fixed position + the size of backdrop
+              style: {
+                position: "absolute",
+                top: "unset",
+                bottom: "unset",
+                left: "unset",
+                right: "unset",
+              },
+            },
+          },
+        }}
         sx={{
           width: drawerWidth,
           flexShrink: 0,
