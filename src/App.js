@@ -18,12 +18,16 @@ import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import Tree from './Tree'
 import VersionPanel from './VersionPanel'
 import TreePanel from './TreePanel'
+import MobileDrawer from './DrawerMobile'
+import useMediaQuery from '@mui/material/useMediaQuery';
+
 
 
 
 function App({changeTheme, darkTheme}) {
   const[left, setLeft] = useState(false)
   const[right, setRight] = useState(false)
+  const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
     <>
@@ -38,6 +42,7 @@ function App({changeTheme, darkTheme}) {
       bottomPanel={<VersionPanel/>}
       side={'left'}
       isOpen={left}/>
+      {isMobile && <MobileDrawer/>}
     <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
       <Stack
         direction="column"
