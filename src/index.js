@@ -9,7 +9,7 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/700.css';
 import {ThemeProvider } from '@mui/material/styles';
 import { createTheme } from '@mui/material';
-import { grey, blueGrey } from '@mui/material/colors';
+import { grey } from '@mui/material/colors';
 import useStore from './Store';
 import {colors} from './colors'
 
@@ -51,6 +51,7 @@ const themeComponent = {
         root: ({ theme }) => ({
           backgroundColor: theme.palette.background.default, // use palette color here
           borderBottom:`1px solid ${theme.palette.background.paper}`,
+          borderTop:`1px solid ${theme.palette.background.paper}`,
         }),
       },
     },
@@ -142,7 +143,7 @@ const darkTheme = createTheme({
     },
     background: {
       paper: grey[900],  // Change to your desired color
-      default: grey[300],  // Change to your desired color
+      default: grey[900],  // Change to your desired color
     },
   },
   ...themeComponent,

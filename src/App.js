@@ -14,8 +14,10 @@ import AppBar from './AppBar'
 import Drawer from './SideDrawer2'
 import NotesList from './NotesList'
 import PropertiesList from './PropertiesList'
+import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
 import Tree from './Tree'
 import VersionPanel from './VersionPanel'
+import TreePanel from './TreePanel'
 
 
 
@@ -32,11 +34,11 @@ function App({changeTheme, darkTheme}) {
       side={'right'}
       isOpen={right}/>
     <Drawer
-      topPanel={<Tree/>}
+      topPanel={<TreePanel/>}
       bottomPanel={<VersionPanel/>}
       side={'left'}
       isOpen={left}/>
-    <ComponentLibrary/>
+    <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
       <Stack
         direction="column"
         justifyContent="space-between"
