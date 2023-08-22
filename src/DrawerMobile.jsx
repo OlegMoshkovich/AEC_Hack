@@ -9,8 +9,9 @@ import Box from '@mui/material/Box';
 import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
+import Tabs from './Tabs'
 
-const drawerBleeding = 56;
+const drawerBleeding = 80;
 
 const Root = styled('div')(({ theme }) => ({
   height: '100%',
@@ -54,12 +55,10 @@ function SwipeableEdgeDrawer(props) {
           },
         }}
       />
-      <Box sx={{ textAlign: 'center', pt: 1 }}>
-        <Button onClick={toggleDrawer(true)}>Open</Button>
-      </Box>
       <SwipeableDrawer
         container={container}
         anchor="bottom"
+        hideBackdrop
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
@@ -67,6 +66,18 @@ function SwipeableEdgeDrawer(props) {
         disableSwipeToOpen={false}
         ModalProps={{
           keepMounted: true,
+          slots: { backdrop: "div" },
+          slotProps: {
+            root: { //override the fixed position + the size of backdrop
+              style: {
+                position: "absolute",
+                top: "unset",
+                bottom: "unset",
+                left: "unset",
+                right: "unset",
+              },
+            },
+          },
         }}
       >
         <StyledBox
@@ -81,7 +92,9 @@ function SwipeableEdgeDrawer(props) {
           }}
         >
           <Puller />
-          <Typography sx={{ p: 2, color: 'text.secondary' }}>51 results</Typography>
+          <Typography sx={{ p: 2, color: 'text.secondary' }}>
+            <Tabs tabList={['Navigation', 'Properties', 'Notes', 'Versions']} currentTab={(tab)=>console.log(tab)}/>
+          </Typography>
         </StyledBox>
         <StyledBox
           sx={{
@@ -91,7 +104,7 @@ function SwipeableEdgeDrawer(props) {
             overflow: 'auto',
           }}
         >
-          <Skeleton variant="rectangular" height="100%" />
+        {props.panel}
         </StyledBox>
       </SwipeableDrawer>
     </Root>

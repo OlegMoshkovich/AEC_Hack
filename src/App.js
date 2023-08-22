@@ -32,17 +32,19 @@ function App({changeTheme, darkTheme}) {
   return (
     <>
     <AppBar/>
-    <Drawer
+    {!isMobile &&
+      <Drawer
       topPanel={<NotesList/>}
       bottomPanel={<PropertiesList/>}
       side={'right'}
       isOpen={right}/>
-    <Drawer
+    }
+    {!isMobile && <Drawer
       topPanel={<TreePanel/>}
       bottomPanel={<VersionPanel/>}
       side={'left'}
-      isOpen={left}/>
-      {isMobile && <MobileDrawer/>}
+      isOpen={left}/>}
+      {isMobile && <MobileDrawer panel={<NotesList/>}/>}
     <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
       <Stack
         direction="column"
@@ -50,16 +52,18 @@ function App({changeTheme, darkTheme}) {
         alignItems="center"
         sx={{position:'fixed',  left: left ? '280px': '14px', top: '70px', height:'88%', zIndex:100}}
       >
-      <IconButton
+        {!isMobile &&
+          <IconButton
           size="large"
           edge="end"
           aria-label="account of current user"
           aria-haspopup="true"
           color="inherit"
           onClick={()=>setLeft(!left)}
-        >
-          <SegmentIcon size='inherit' color='default'/>
-        </IconButton>
+          >
+            <SegmentIcon size='inherit' color='default'/>
+          </IconButton>
+        }
         <IconButton
           size="large"
           edge="end"
@@ -76,16 +80,18 @@ function App({changeTheme, darkTheme}) {
         alignItems="center"
         sx={{position:'fixed', right: right ? '300px' : '20px', top: '70px', height:'88%'}}
       >
-      <IconButton
-          size="large"
-          edge="end"
-          aria-label="account of current user"
-          aria-haspopup="true"
-          color="inherit"
-          onClick={()=>setRight(!right)}
-        >
-          <MenuOutlinedIcon size='inherit' color='default'/>
-        </IconButton>
+        {!isMobile &&
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            aria-haspopup="true"
+            color="inherit"
+            onClick={()=>setRight(!right)}
+          >
+            <MenuOutlinedIcon size='inherit' color='default'/>
+          </IconButton>
+        }
         <IconButton
           size="large"
           edge="end"
