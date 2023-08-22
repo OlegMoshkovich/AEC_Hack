@@ -22,8 +22,6 @@ import MobileDrawer from './DrawerMobile'
 import useMediaQuery from '@mui/material/useMediaQuery';
 
 
-
-
 function App({changeTheme, darkTheme}) {
   const[left, setLeft] = useState(false)
   const[right, setRight] = useState(false)
@@ -92,6 +90,7 @@ function App({changeTheme, darkTheme}) {
             <MenuOutlinedIcon size='inherit' color='default'/>
           </IconButton>
         }
+
         <IconButton
           size="large"
           edge="end"
