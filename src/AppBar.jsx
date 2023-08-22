@@ -43,7 +43,7 @@ export default function PrimaryAppBar() {
                   <FileOpenIcon size='inherit' color='default'/>
                 </IconButton> */}
                 <Button variant="outlined"  size="small" color='primary' >
-                  Files
+                  Projects
                 </Button>
                 <IconButton
                   size="large"
@@ -57,7 +57,7 @@ export default function PrimaryAppBar() {
             </Stack>
             {
               !isMobile && <Stack
-              sx={{width:'80%'}}
+              sx={{width:'72%'}}
               direction='row'
               alignItems="center"
               justifyContent="center"

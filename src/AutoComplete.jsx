@@ -19,7 +19,7 @@ export default function AutocompleteExample() {
           <TextField
             {...params}
             // label="Search"
-            placeholder="Search by ifc Name"
+            placeholder="Search"
             size='small'
           />
         )}
