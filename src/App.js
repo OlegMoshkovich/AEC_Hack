@@ -48,7 +48,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed',  left: left ? '280px': '14px', top: '70px', height:'88%', zIndex:100}}
+        sx={{position:'fixed',  left: left ? '288px': '14px', top: '70px', height:'88%', zIndex:100}}
       >
         {!isMobile &&
           <IconButton

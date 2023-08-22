@@ -8,7 +8,7 @@ import {Typography} from '@mui/material';
 import ListSubheader from '@mui/material/ListSubheader';
 import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
-import TimelineBasic from './TimelineBasic'
+import Timeline from './Timeline'
 
 export default function TreePanel() {
   return (
@@ -42,7 +42,7 @@ export default function TreePanel() {
           </Stack>
         </ListSubheader>
         <ListItem >
-          <TimelineBasic/>
+          <Timeline/>
         </ListItem>
     </List>
   </Stack>
