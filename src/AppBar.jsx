@@ -43,7 +43,7 @@ export default function PrimaryAppBar() {
                   <FileOpenIcon size='inherit' color='default'/>
                 </IconButton> */}
                 <Button variant="outlined"  size="small" color='primary' >
-                  Projects
+                  Files
                 </Button>
                 <IconButton
                   size="large"
