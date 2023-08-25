@@ -4,12 +4,12 @@ import useStore from './Store';
 import {colors} from './colors'
 
 
-export default function Logo({scaled=false}){
+export default function Logo({scale=1.0}){
   const { themeScheme } = useStore()
 
 
 return(
-  <SvgIcon sx={{transform: scaled ? 'scale(1.0)' : 'scale(2.0)'}}>
+  <SvgIcon sx={{transform: `scale(${scale})`}}>
   <svg width="104" height="150" viewBox="0 0 104 150" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path d="M23.4853 1L1 11.4931V149.403H23.4853V1Z" fill={colors[themeScheme].primary}/>
     <path d="M26.2524 72.9077V149.349L54.9647 149.403L55.0463 65.3628L26.2524 72.9077Z" fill={colors[themeScheme].primary}/>

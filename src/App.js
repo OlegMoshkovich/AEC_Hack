@@ -4,7 +4,9 @@ import ComponentLibrary from './ComponentLibrary'
 import PrimaryAppBar from './AppBar'
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import SegmentIcon from '@mui/icons-material/Segment';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -20,11 +22,13 @@ import VersionPanel from './VersionPanel'
 import TreePanel from './TreePanel'
 import MobileDrawer from './DrawerMobile'
 import useMediaQuery from '@mui/material/useMediaQuery';
+import Logo from './Logo'
 
 
 function App({changeTheme, darkTheme}) {
   const[left, setLeft] = useState(false)
   const[right, setRight] = useState(false)
+  const[components, setComponents] = useState(true)
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
@@ -43,7 +47,25 @@ function App({changeTheme, darkTheme}) {
       side={'left'}
       isOpen={left}/>}
       {isMobile && <MobileDrawer panel={<NotesList/>}/>}
-    <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
+
+    <Container
+      // maxWidth="sm"
+      sx={{marginTop: '140px', marginBottom: '20px', width:'300px'}}
+    >
+    <Stack
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Logo scale={4}/>
+      <Typography variant={'overline'} color='primary'
+      sx={{marginTop: '40px'}}
+      >bldrs.ai</Typography>
+    </Stack>
+    </Container>
+    {
+      components &&   <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
+    }
       <Stack
         direction="column"
         justifyContent="space-between"
