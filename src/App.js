@@ -26,9 +26,9 @@ import Logo from './Logo'
 
 
 function App({changeTheme, darkTheme}) {
-  const[left, setLeft] = useState(false)
-  const[right, setRight] = useState(false)
-  const[components, setComponents] = useState(true)
+  const [left, setLeft] = useState(false)
+  const [right, setRight] = useState(false)
+  const [componentsVisible, setComponentsVisible] = useState(false)
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
@@ -57,14 +57,14 @@ function App({changeTheme, darkTheme}) {
       justifyContent="center"
       alignItems="center"
     >
-      <Logo scale={4}/>
+      <Logo scale={4} onClick={()=>setComponentsVisible(!componentsVisible)}/>
       <Typography variant={'overline'} color='primary'
       sx={{marginTop: '40px'}}
       >bldrs.ai</Typography>
     </Stack>
     </Container>
     {
-      components &&   <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
+      componentsVisible &&   <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
     }
       <Stack
         direction="column"
