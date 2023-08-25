@@ -3,6 +3,7 @@ import './App.css';
 import ComponentLibrary from './ComponentLibrary'
 import PrimaryAppBar from './AppBar'
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
 import Box from '@mui/material/Box';
@@ -28,7 +29,7 @@ import Logo from './Logo'
 function App({changeTheme, darkTheme}) {
   const [left, setLeft] = useState(false)
   const [right, setRight] = useState(false)
-  const [componentsVisible, setComponentsVisible] = useState(false)
+  const [componentsVisible, setComponentsVisible] = useState(true)
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
@@ -57,9 +58,11 @@ function App({changeTheme, darkTheme}) {
       justifyContent="center"
       alignItems="center"
     >
-      <Logo scale={4} onClick={()=>setComponentsVisible(!componentsVisible)}/>
+      <Button disableFocusRipple={true} disableRipple={true} onClick={()=>setComponentsVisible(!componentsVisible)}>
+        <Logo scale={4} />
+      </Button>
       <Typography variant={'overline'} color='primary'
-      sx={{marginTop: '40px'}}
+      sx={{marginTop: '30px'}}
       >bldrs.ai</Typography>
     </Stack>
     </Container>
