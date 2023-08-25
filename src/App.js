@@ -29,7 +29,7 @@ import Logo from './Logo'
 function App({changeTheme, darkTheme}) {
   const [left, setLeft] = useState(false)
   const [right, setRight] = useState(false)
-  const [componentsVisible, setComponentsVisible] = useState(true)
+  const [componentsVisible, setComponentsVisible] = useState(false)
   const isMobile = useMediaQuery('(max-width:600px)');
 
   return (
@@ -67,7 +67,7 @@ function App({changeTheme, darkTheme}) {
     </Stack>
     </Container>
     {
-      componentsVisible &&   <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
+      componentsVisible && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
     }
       <Stack
         direction="column"
