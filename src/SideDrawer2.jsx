@@ -26,6 +26,7 @@ import Card from './Card'
 import {Typography} from '@mui/material';
 import ListSubheader from '@mui/material/ListSubheader';
 import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
+import {ThemeContext} from '@emotion/react';
 const drawerWidth = 280;
 
 
@@ -73,6 +74,7 @@ export default function SideDrawer2({side, isOpen, setIsOpen, topPanel, topPanel
           flexShrink: 0,
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
+            backgroundColor: (theme) => theme.palette.background.default,
             boxSizing: 'border-box',
             overflow:'hidden'},
         }}

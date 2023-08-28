@@ -33,7 +33,7 @@ export default function FileSystemNavigator() {
             aria-label="Model navigator"
             defaultCollapseIcon={<ExpandMoreIcon />}
             defaultExpandIcon={<ChevronRightIcon />}
-            sx={{ height: 240}}
+            sx={{ height: '100%'}}
         >
           <TreeItem nodeId="1" label="Model 1">
             <TreeItem nodeId="2" label="Item 1" />
