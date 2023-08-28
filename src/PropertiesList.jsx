@@ -15,31 +15,6 @@ export default function PropertiesList() {
       <List
       spacing={1}
       >
-        <ListSubheader>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          sx={{height: '60px'}}
-        >
-            <Typography variant="body1">
-              Properties
-            </Typography>
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              spacing={.5}
-            >
-            <IconButton aria-label="comments" size='small'>
-              <AddIcon fontSize='small'/>
-            </IconButton>
-            <IconButton aria-label="comments" size='small'>
-              <CloseIcon fontSize='small'/>
-            </IconButton>
-          </Stack>
-          </Stack>
-        </ListSubheader>
         {[1,2,3,4,5,6,7,8,9].map((text, index) => (
             <ListItem >
               <Accordion/>

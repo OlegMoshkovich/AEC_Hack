@@ -14,33 +14,7 @@ export default function NotesList() {
     <Stack>
       <List
       spacing={1}
-
       >
-        <ListSubheader>
-        <Stack
-          direction="row"
-          justifyContent="space-between"
-          alignItems="center"
-          sx={{height: '60px'}}
-        >
-            <Typography variant="body1">
-              Notes
-            </Typography>
-            <Stack
-              direction="row"
-              justifyContent="center"
-              alignItems="center"
-              spacing={.5}
-            >
-            <IconButton aria-label="comments" size='small'>
-              <AddCommentOutlinedIcon fontSize='small'/>
-            </IconButton>
-            <IconButton aria-label="comments" size='small'>
-              <CloseIcon fontSize='small'/>
-            </IconButton>
-          </Stack>
-          </Stack>
-        </ListSubheader>
         {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem >
               <Card/>

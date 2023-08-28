@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React, {useEffect} from 'react';
 import Box from '@mui/material/Box';
 import Drawer from '@mui/material/Drawer';
 import Toolbar from '@mui/material/Toolbar';
@@ -21,17 +21,28 @@ import MoreIcon from '@mui/icons-material/MoreVert';
 import AppBar from './AppBar'
 import NotesList from './NotesList'
 import PropertiesList from './PropertiesList'
+import CloseIcon from '@mui/icons-material/Close';
+import Card from './Card'
+import {Typography} from '@mui/material';
+import ListSubheader from '@mui/material/ListSubheader';
+import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 const drawerWidth = 280;
 
 
-export default function SideDrawer2({side, isOpen, topPanel, bottomPanel}) {
-  const [state, setState] = React.useState(false)
+
+export default function SideDrawer2({side, isOpen, setIsOpen, topPanel, topPanelName, topPanelButton, bottomPanelName, bottomPanelButton, bottomPanel}) {
+  // const [state, setState] = React.useState(true)
   const [isFirstPanel, setIsFirstPanel] = React.useState(true)
   const [isSecondPanel, setIsSecondPanel] = React.useState(true)
 
-  const toggleDrawer = () => {
-    setState(!state)
-  }
+  useEffect(() => {
+    if(!isFirstPanel && !isSecondPanel){
+      setIsOpen(false)
+      setIsFirstPanel(true)
+      setIsSecondPanel(true)
+    }
+  }, [setIsFirstPanel,setIsSecondPanel, isFirstPanel, isSecondPanel])
+
 
   return (
     <Box sx={{ display: 'flex' }}>
@@ -73,16 +84,72 @@ export default function SideDrawer2({side, isOpen, topPanel, bottomPanel}) {
                   minHeight:'50%',
                   overflow: 'scroll'
                 }}>
-                {topPanel}
+                <List
+                  spacing={1}
+                  >
+                    <ListSubheader>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      sx={{height: '60px'}}
+                    >
+                        <Typography variant="body1">
+                          {topPanelName}
+                        </Typography>
+                        <Stack
+                          direction="row"
+                          justifyContent="center"
+                          alignItems="center"
+                          spacing={.5}
+                        >
+                          {topPanelButton}
+                        <IconButton aria-label="comments" size='small' onClick={()=>setIsFirstPanel(false)}>
+                          <CloseIcon fontSize='small'/>
+                        </IconButton>
+                      </Stack>
+                      </Stack>
+                    </ListSubheader>
+                    {topPanel}
+                </List>
+                {/* {topPanel} */}
               </Box>
             }
             {isSecondPanel &&
               <Box
                 sx={{
                   minHeight:'50%',
-                  overflow: 'scroll',
+                  overflow: 'scroll'
                 }}>
-              {bottomPanel}
+                <List
+                  spacing={1}
+                  >
+                    <ListSubheader>
+                    <Stack
+                      direction="row"
+                      justifyContent="space-between"
+                      alignItems="center"
+                      sx={{height: '60px'}}
+                    >
+                        <Typography variant="body1">
+                          {bottomPanelName}
+                        </Typography>
+                        <Stack
+                          direction="row"
+                          justifyContent="center"
+                          alignItems="center"
+                          spacing={.5}
+                        >
+                          {bottomPanelButton}
+                        <IconButton aria-label="comments" size='small' onClick={()=>setIsSecondPanel(false)}>
+                          <CloseIcon fontSize='small'/>
+                        </IconButton>
+                      </Stack>
+                      </Stack>
+                    </ListSubheader>
+                    {bottomPanel}
+                </List>
+                {/* {topPanel} */}
               </Box>
             }
       </Drawer>
