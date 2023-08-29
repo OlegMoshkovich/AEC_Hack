@@ -6,8 +6,6 @@ export default function Tabs({currentTab, tabList, scrollable=true}) {
   const [value, setValue] = React.useState(0);
 
   const handleChange = (event, newValue) => {
-    console.log('event', event)
-    console.log('newValue', newValue)
     setValue(newValue);
     currentTab(newValue)
   };
@@ -20,7 +18,6 @@ export default function Tabs({currentTab, tabList, scrollable=true}) {
       variant={scrollable?'scrollable':'standard'}
       scrollButtons
       allowScrollButtonsMobile
-      textColor="default"
     >
       {tabList.map((tab) => <Tab label={tab} key={tab}/>)}
     </MuiTabs>

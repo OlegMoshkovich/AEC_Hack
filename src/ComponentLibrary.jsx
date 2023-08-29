@@ -24,7 +24,6 @@ import useStore from './Store';
 function ComponentLibrary({changeTheme, darkTheme}) {
   const [currentTab, setCurrentTab] = useState('General')
   const { borderRadius, setBorderRadius, setThemeScheme } = useStore();
-  console.log('borderRadius', borderRadius)
   const tabList=['General', 'Card', 'Dialog', 'Input', 'SideDrawer', 'Timeline', 'Tree' ]
   return (
     <Container

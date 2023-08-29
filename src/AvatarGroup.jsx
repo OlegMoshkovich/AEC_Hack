@@ -4,7 +4,7 @@ import AvatarGroup from '@mui/material/AvatarGroup';
 
 export default function GroupAvatars() {
   return (
-    <AvatarGroup max={1}
+    <AvatarGroup max={2}
       sx={{
         '& .MuiAvatar-root': { width: 24, height: 24, fontSize: 15 },
       }}

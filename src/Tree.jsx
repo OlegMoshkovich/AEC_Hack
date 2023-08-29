@@ -26,7 +26,6 @@ export default function FileSystemNavigator() {
         >
           <Tabs
             tabList={['elements', 'types', 'sets']}
-            currentTab={(tab) => console.log(tab)}
             scrollable={true}
           />
         </Stack>
