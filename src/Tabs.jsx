@@ -19,7 +19,6 @@ export default function Tabs({currentTab, tabList, scrollable=true}) {
       scrollButtons
       allowScrollButtonsMobile
       textColor="default"
-      // sx={{width:'90%'}}
     >
       {tabList.map((tab) => <Tab label={tab} key={tab}/>)}
     </MuiTabs>

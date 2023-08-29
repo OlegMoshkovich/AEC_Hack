@@ -29,7 +29,6 @@ function ComponentLibrary({changeTheme, darkTheme}) {
   return (
     <Container
       maxWidth="sm"
-      // sx={{marginTop: '130px'}}
     >
       <Paper variant='background'>
           <Stack

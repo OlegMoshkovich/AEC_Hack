@@ -74,7 +74,7 @@ function App({changeTheme, darkTheme}) {
       isOpen={left}
       setIsOpen={()=>setLeft()}/>
     }
-      {isMobile && <MobileDrawer panel={<NotesList/>}/>}
+      {isMobile && <MobileDrawer panels={[<NotesList/>, <PropertiesList/>,<VersionPanel/>]}/>}
     <Container
       // maxWidth="sm"
       sx={{marginTop: '140px', marginBottom: '20px', width:'300px'}}

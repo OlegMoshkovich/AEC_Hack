@@ -1,12 +1,10 @@
-import * as React from 'react';
+import React, {useState} from 'react';
 import PropTypes from 'prop-types';
 import { Global } from '@emotion/react';
 import { styled } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import { grey } from '@mui/material/colors';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
-import Skeleton from '@mui/material/Skeleton';
 import Typography from '@mui/material/Typography';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Tabs from './Tabs'
@@ -36,6 +34,7 @@ const Puller = styled(Box)(({ theme }) => ({
 function SwipeableEdgeDrawer(props) {
   const { window } = props;
   const [open, setOpen] = React.useState(false);
+  const [currentTab, setCurrentTab] = useState(0)
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -43,14 +42,14 @@ function SwipeableEdgeDrawer(props) {
 
   // This is used only for the example
   const container = window !== undefined ? () => window().document.body : undefined;
-
+  const tabList = ['Navigation', 'Properties', 'Notes', 'Versions']
   return (
     <Root>
       <CssBaseline />
       <Global
         styles={{
           '.MuiDrawer-root > .MuiPaper-root': {
-            height: `calc(50% - ${drawerBleeding}px)`,
+            height: `calc(60% - ${drawerBleeding}px)`,
             overflow: 'visible',
           },
         }}
@@ -93,7 +92,10 @@ function SwipeableEdgeDrawer(props) {
         >
           <Puller />
           <Typography sx={{ p: 2, color: 'text.secondary' }}>
-            <Tabs tabList={['Navigation', 'Properties', 'Notes', 'Versions']} currentTab={(tab)=>console.log(tab)}/>
+            <Tabs
+              tabList = {tabList}
+              currentTab={(tabNumber)=>setCurrentTab(tabList[tabNumber])}
+            />
           </Typography>
         </StyledBox>
         <StyledBox
@@ -104,12 +106,13 @@ function SwipeableEdgeDrawer(props) {
             overflow: 'auto',
           }}
         >
-        {props.panel}
+        {props.panels[currentTab]}
         </StyledBox>
       </SwipeableDrawer>
     </Root>
   );
 }
+
 
 SwipeableEdgeDrawer.propTypes = {
   /**
