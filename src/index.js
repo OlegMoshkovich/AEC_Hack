@@ -59,7 +59,7 @@ const themeComponent = {
       styleOverrides: {
         root: ({ theme }) => ({
           backgroundColor: theme.palette.background.default, // use palette color here
-          // borderBottom:'1px solid lightGray'
+          borderBottom:`1px solid ${theme.palette.secondary.main}`
         }),
       },
     },

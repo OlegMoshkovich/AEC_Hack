@@ -10,6 +10,7 @@ import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import AutocompleteExample from './AutoComplete'
+import AvatarGroup from './AvatarGroup'
 
 
 export default function PrimaryAppBar() {
@@ -58,6 +59,7 @@ export default function PrimaryAppBar() {
             }
             <Box sx={{ flexGrow: 1 }} />
               <Stack direction="row" alignItems="center" spacing={1}>
+                <AvatarGroup/>
                 <Button variant="contained"  size="small" color='primary' disableElevation>
                   Share
                 </Button>
