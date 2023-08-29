@@ -20,7 +20,6 @@ export default function CustomizedTimeline() {
   return (
       <Paper
         sx={{
-        height: '300px',
         overflow: 'scroll'}}
         >
       <Timeline>

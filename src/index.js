@@ -59,7 +59,7 @@ const themeComponent = {
       styleOverrides: {
         root: ({ theme }) => ({
           backgroundColor: theme.palette.background.default, // use palette color here
-          borderBottom:'1px solid lightGray'
+          // borderBottom:'1px solid lightGray'
         }),
       },
     },
@@ -112,6 +112,13 @@ const themeComponent = {
         backgroundColor: '#fafafa',
         opacity: 1,
         transition: 'background-color 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms,border 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms',
+      },
+    },
+    MuiTreeItem: {
+      styleOverrides: {
+        content: {
+          width: '93%',
+        }
       },
     },
   },

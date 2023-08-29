@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton';
-import MoreIcon from '@mui/icons-material/MoreVert';
 import Logo from './Logo'
 import Stack from '@mui/material/Stack'
 import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
@@ -33,16 +32,7 @@ export default function PrimaryAppBar() {
               >
                   <Logo scaled={true}/>
                 </IconButton>
-              {/* <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <FileOpenIcon size='inherit' color='default'/>
-                </IconButton> */}
-                <Button variant="outlined"  size="small" color='primary' >
+                <Button variant="contained"  size="small" color='secondary' disableElevation>
                   Files
                 </Button>
                 <IconButton
@@ -68,16 +58,7 @@ export default function PrimaryAppBar() {
             }
             <Box sx={{ flexGrow: 1 }} />
               <Stack direction="row" alignItems="center" spacing={1}>
-                {/* <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <MoreIcon size='inherit' color='default'/>
-                </IconButton> */}
-                <Button variant="contained"  size="small" color='primary'>
+                <Button variant="contained"  size="small" color='primary' disableElevation>
                   Share
                 </Button>
                 <IconButton
@@ -92,8 +73,6 @@ export default function PrimaryAppBar() {
               </Stack>
       </Toolbar>
       </AppBar>
-      {/* {renderMobileMenu}
-      {renderMenu} */}
     </Box>
   );
 }

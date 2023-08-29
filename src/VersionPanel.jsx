@@ -13,9 +13,7 @@ import Timeline from './Timeline'
 export default function TreePanel() {
   return (
     <Stack>
-      <List
-      spacing={1}
-      >
+      <List>
         <ListItem >
           <Timeline/>
         </ListItem>

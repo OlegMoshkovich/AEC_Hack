@@ -94,7 +94,7 @@ export default function SideDrawer2({side, isOpen, setIsOpen, topPanel, topPanel
                       direction="row"
                       justifyContent="space-between"
                       alignItems="center"
-                      sx={{height: '60px'}}
+                      sx={{height: '40px'}}
                     >
                         <Typography variant="body1">
                           {topPanelName}
@@ -131,7 +131,7 @@ export default function SideDrawer2({side, isOpen, setIsOpen, topPanel, topPanel
                       direction="row"
                       justifyContent="space-between"
                       alignItems="center"
-                      sx={{height: '60px'}}
+                      sx={{height: '40px'}}
                     >
                         <Typography variant="body1">
                           {bottomPanelName}
