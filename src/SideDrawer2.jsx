@@ -8,6 +8,7 @@ import Stack from '@mui/material/Stack'
 import CloseIcon from '@mui/icons-material/Close';
 import {Typography} from '@mui/material';
 import ListSubheader from '@mui/material/ListSubheader';
+import ListIcon from '@mui/icons-material/List';
 const drawerWidth = 280;
 
 
@@ -94,6 +95,11 @@ export default function SideDrawer2({
                           alignItems="center"
                           spacing={.5}
                         >
+                          {!isSecondPanel &&
+                              <IconButton aria-label="comments" size='small' onClick={()=>setIsSecondPanel(true)}>
+                                <ListIcon fontSize='small'/>
+                              </IconButton>
+                          }
                           {topPanelButton}
                         <IconButton aria-label="comments" size='small' onClick={()=>setIsFirstPanel(false)}>
                           <CloseIcon fontSize='small'/>
@@ -109,7 +115,7 @@ export default function SideDrawer2({
             {isSecondPanel &&
               <Box
                 sx={{
-                  minHeight:'50%',
+                  minHeight:'40%',
                   overflow: 'scroll'
                 }}>
                 <List
@@ -131,6 +137,11 @@ export default function SideDrawer2({
                           alignItems="center"
                           spacing={.5}
                         >
+                        {!isFirstPanel &&
+                              <IconButton aria-label="comments" size='small' onClick={()=>setIsFirstPanel(true)}>
+                                <ListIcon fontSize='small'/>
+                              </IconButton>
+                        }
                           {bottomPanelButton}
                         <IconButton aria-label="comments" size='small' onClick={()=>setIsSecondPanel(false)}>
                           <CloseIcon fontSize='small'/>

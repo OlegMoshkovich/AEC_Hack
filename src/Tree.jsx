@@ -13,7 +13,8 @@ export default function FileSystemNavigator() {
     <Paper
       elevation={0}
       sx={{
-        width: '100%'
+        width: '100%',
+        paddingBottom: '10px'
       }}
       >
       <Stack
@@ -26,6 +27,7 @@ export default function FileSystemNavigator() {
         >
           <Tabs
             tabList={['elements', 'types', 'sets']}
+            currentTab={()=>console.log('')}
             scrollable={true}
           />
         </Stack>
