@@ -11,7 +11,7 @@ import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 
 export default function NotesList() {
   return (
-    <Stack>
+    <Stack justifyContent={'center'} alignItems={'center'}>
       <List
       spacing={1}
       >

@@ -42,7 +42,7 @@ function SwipeableEdgeDrawer(props) {
 
   // This is used only for the example
   const container = window !== undefined ? () => window().document.body : undefined;
-  const tabList = ['Navigation', 'Properties', 'Notes', 'Versions']
+  const tabList = ['Navigation', 'Properties', 'Notes']
   return (
     <Root>
       <CssBaseline />
@@ -94,7 +94,7 @@ function SwipeableEdgeDrawer(props) {
           <Typography sx={{ p: 2, color: 'text.secondary' }}>
             <Tabs
               tabList = {tabList}
-              currentTab={(tabNumber)=>setCurrentTab(tabList[tabNumber])}
+              currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
             />
           </Typography>
         </StyledBox>
