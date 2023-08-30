@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
 import './App.css';
+import useStore from './Store';
 import ComponentLibrary from './ComponentLibrary'
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
@@ -30,11 +31,13 @@ function App({changeTheme, darkTheme}) {
   const [left, setLeft] = useState(false)
   const [right, setRight] = useState(false)
   const [componentsVisible, setComponentsVisible] = useState(false)
+  const {showComponents} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
+
 
   return (
     <>
-    <AppBar/>
+    <AppBar darkTheme={darkTheme} changeTheme={changeTheme}/>
     {!isMobile &&
       <Drawer
       topPanel={<NotesList/>}
@@ -75,6 +78,31 @@ function App({changeTheme, darkTheme}) {
       setIsOpen={()=>setLeft()}/>
     }
       {isMobile && <MobileDrawer panels={[<TreePanel/>, <PropertiesList/>,<NotesList/>]}/>}
+      <div
+        style={{
+          position:'absolute',
+          textAlign: 'center',
+          backgroundColor: '#F5F5F5',
+          zIndex:-100}}
+      >
+        {darkTheme ?
+          <img
+            alt="bldrs"
+            src={`${process.env.PUBLIC_URL}/bldrs_dark.png`}
+            style={{
+              maxWidth: '100%',
+              zIndex:-100}}
+          />:  <img
+          alt="bldrs"
+          src={`${process.env.PUBLIC_URL}/bldrs.png`}
+          style={{
+            maxWidth: '100%',
+            zIndex:-100}}
+        />
+        }
+
+      </div>
+
     <Container
       // maxWidth="sm"
       sx={{marginTop: '140px', marginBottom: '20px', width:'300px'}}
@@ -84,16 +112,16 @@ function App({changeTheme, darkTheme}) {
       justifyContent="center"
       alignItems="center"
     >
-      <Button disableFocusRipple={true} disableRipple={true} onClick={()=>setComponentsVisible(!componentsVisible)}>
+      {/* <Button disableFocusRipple={true} disableRipple={true} onClick={()=>setComponentsVisible(!componentsVisible)}>
         <Logo scale={4} />
       </Button>
       <Typography variant={'overline'} color='primary'
       sx={{marginTop: '30px'}}
-      >bldrs.ai</Typography>
+      >bldrs.ai</Typography> */}
     </Stack>
     </Container>
     {
-      componentsVisible && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
+      showComponents && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
     }
       <Stack
         direction="column"

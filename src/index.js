@@ -126,6 +126,9 @@ const themeComponent = {
 const lightTheme = createTheme({
   palette: {
     mode: 'light',
+    default: {
+      main: grey[800],
+    },
     primary: {
       main: colors[themeScheme].primary,
     },
@@ -133,8 +136,8 @@ const lightTheme = createTheme({
       main: grey[300],
     },
     background: {
-      paper: grey[300],  // Change to your desired color
-      default: grey[100],  // Change to your desired color
+      paper: grey[100],  // Change to your desired color
+      default: grey[200],  // Change to your desired color
     },
   },
   ...themeComponent,
@@ -142,6 +145,9 @@ const lightTheme = createTheme({
 const darkTheme = createTheme({
   palette: {
     mode: 'dark',
+    default: {
+      main: grey[300],
+    },
     primary: {
       main: colors[themeScheme].primary,
     },
