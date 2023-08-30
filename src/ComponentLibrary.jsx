@@ -19,17 +19,33 @@ import Slider from './Slider'
 import CircleIcon from '@mui/icons-material/Circle';
 import {colors} from './colors'
 import useStore from './Store';
+import CloseIcon from '@mui/icons-material/Close';
 
 
 function ComponentLibrary({changeTheme, darkTheme}) {
   const [currentTab, setCurrentTab] = useState('General')
   const { borderRadius, setBorderRadius, setThemeScheme } = useStore();
-  const tabList=['General', 'Card', 'Dialog', 'Input', 'SideDrawer', 'Timeline', 'Tree' ]
+  const {toggleShowComponents} = useStore();
+  const tabList=['Theme', 'Card', 'Dialog', 'Input', 'SideDrawer', 'Timeline', 'Tree' ]
   return (
     <Container
       maxWidth="sm"
     >
-      <Paper variant='background'>
+      <Paper variant='background'
+        sx={{
+          maxHeight: '400px',
+          overflow: 'scroll',
+      }}
+      >
+      <Stack
+            spacing={3}
+            direction="row"
+            justifyContent="flex-end"
+          >
+        <IconButton onClick={toggleShowComponents}>
+            <CloseIcon/>
+          </IconButton>
+        </Stack>
           <Stack
             spacing={3}
             direction="column"
@@ -39,7 +55,6 @@ function ComponentLibrary({changeTheme, darkTheme}) {
             <Typography variant="button">
               Bldrs UI components
             </Typography>
-            {/* <Logo scaled={false}/> */}
             <Stack
               direction="row"
               justifyContent="center"
@@ -59,8 +74,6 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                 justifyContent="center"
                 alignItems="center"
               >
-                {/* <ButtonGroupControls/> */}
-                {/* <ButtonGroupOperations/> */}
                 <Stack direction="column" alignItems="center" >
                   <Typography variant='overline'>Theme colors</Typography>
                   <Stack direction="row" alignItems="center" spacing={3}>

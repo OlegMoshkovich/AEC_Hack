@@ -14,7 +14,7 @@ export default function FileSystemNavigator() {
       elevation={0}
       sx={{
         width: '100%',
-        paddingBottom: '10px'
+        paddingBottom: '20px'
       }}
       >
       <Stack
@@ -42,10 +42,10 @@ export default function FileSystemNavigator() {
           <TreeItem nodeId="5" label="Model 2">
             <TreeItem nodeId="10" label="Item 1" />
             <TreeItem nodeId="6" label="Item 2">
+              <TreeItem nodeId="7" label="Sub Item 1" />
               <TreeItem nodeId="8" label="Sub Item 1" />
-              <TreeItem nodeId="8" label="Sub Item 1" />
-              <TreeItem nodeId="8" label="Sub Item 1" />
-              <TreeItem nodeId="8" label="Sub Item 1" />
+              <TreeItem nodeId="9" label="Sub Item 1" />
+              <TreeItem nodeId="11" label="Sub Item 1" />
             </TreeItem>
           </TreeItem>
         </TreeView>

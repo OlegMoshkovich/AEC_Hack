@@ -10,7 +10,6 @@ import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
-import HelpOutlineOutlinedIcon from '@mui/icons-material/HelpOutlineOutlined';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import AutocompleteExample from './AutoComplete'
 import AvatarGroup from './AvatarGroup'

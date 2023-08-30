@@ -136,7 +136,7 @@ const lightTheme = createTheme({
       main: grey[300],
     },
     background: {
-      paper: grey[100],  // Change to your desired color
+      paper: grey[300],  // Change to your desired color
       default: grey[200],  // Change to your desired color
     },
   },
@@ -156,7 +156,7 @@ const darkTheme = createTheme({
     },
     background: {
       paper: grey[800],  // Change to your desired color
-      default: grey[900],  // Change to your desired color
+      default: '#101010',  // Change to your desired color
     },
   },
   ...themeComponent,

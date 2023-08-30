@@ -10,15 +10,13 @@ export default function AutocompleteExample() {
       <Autocomplete
         multiple
         id="tags-outlined"
-        options={walls}
+        options={elements}
         getOptionLabel={(option) => option.title}
-        // defaultValue={[walls[1]]}
         filterSelectedOptions
         size='small'
         renderInput={(params) => (
           <TextField
             {...params}
-            // label="Search"
             placeholder="Search"
             size='small'
           />
@@ -28,8 +26,7 @@ export default function AutocompleteExample() {
   );
 }
 
-// Top 100 films as rated by IMDb users. http://www.imdb.com/chart/top
-const walls = [
+const elements = [
   { title: 'Wall' },
   { title: 'Slab' },
   { title: 'Door' },
