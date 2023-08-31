@@ -33,7 +33,8 @@ function ComponentLibrary({changeTheme, darkTheme}) {
     >
       <Paper variant='background'
         sx={{
-          maxHeight: '400px',
+          height: '400px',
+          maxHeight: '500px',
           overflow: 'scroll',
       }}
       >
