@@ -32,11 +32,6 @@ function ComponentLibrary({changeTheme, darkTheme}) {
       maxWidth="sm"
     >
       <Paper variant='background'
-        sx={{
-          height: '400px',
-          maxHeight: '500px',
-          overflow: 'scroll',
-      }}
       >
       <Stack
             spacing={3}
