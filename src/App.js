@@ -24,7 +24,7 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import Logo from './Logo'
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddIcon from '@mui/icons-material/Add';
-
+import { useTheme } from '@mui/material/styles';
 
 
 function App({changeTheme, darkTheme}) {
@@ -33,6 +33,7 @@ function App({changeTheme, darkTheme}) {
   const [componentsVisible, setComponentsVisible] = useState(false)
   const {showComponents} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
+  const theme = useTheme();
 
 
   return (
@@ -82,7 +83,7 @@ function App({changeTheme, darkTheme}) {
         style={{
           position:'absolute',
           textAlign: 'center',
-          backgroundColor: '#F5F5F5',
+          backgroundColor: `${theme.palette.background.default}`,
           zIndex:-100}}
       >
         {darkTheme ?
