@@ -15,7 +15,7 @@ import {colors} from './colors'
 
 
 const Sample = () =>{
-const [dark, setDark] = useState(false)
+const [dark, setDark] = useState(true)
 const { borderRadius } = useStore();
 const { themeScheme } = useStore()
 
