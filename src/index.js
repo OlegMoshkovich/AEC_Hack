@@ -50,8 +50,8 @@ const themeComponent = {
       styleOverrides: {
         root: ({ theme }) => ({
           backgroundColor: theme.palette.background.default, // use palette color here
-          borderBottom:`1px solid ${theme.palette.background.paper}`,
-          borderTop:`1px solid ${theme.palette.background.paper}`,
+          // borderBottom:`1px solid ${theme.palette.background.paper}`,
+          // borderTop:`1px solid ${theme.palette.background.paper}`,
         }),
       },
     },
@@ -67,6 +67,7 @@ const themeComponent = {
       styleOverrides: {
         paper: ({ theme }) => ({
           backgroundColor: theme.palette.secondary.main, // use palette color here
+          // border:`1px solid ${theme.palette.background.paper}`,
         }),
       },
     },
@@ -137,7 +138,7 @@ const lightTheme = createTheme({
     },
     background: {
       paper: grey[300],  // Change to your desired color
-      default: grey[200],  // Change to your desired color
+      default: 'white',  // Change to your desired color
     },
   },
   ...themeComponent,
@@ -155,7 +156,7 @@ const darkTheme = createTheme({
       main: grey[800]
     },
     background: {
-      paper: grey[800],  // Change to your desired color
+      paper: grey[900],  // Change to your desired color
       default: '#101010',  // Change to your desired color
     },
   },

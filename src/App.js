@@ -82,22 +82,27 @@ function App({changeTheme, darkTheme}) {
       <div
         style={{
           position:'absolute',
+          width:'100%',
+          height: '100%',
           textAlign: 'center',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
           backgroundColor: `${theme.palette.background.default}`,
           zIndex:-100}}
       >
         {darkTheme ?
           <img
             alt="bldrs"
-            src={`${process.env.PUBLIC_URL}/bldrs_dark.png`}
+            src={`${process.env.PUBLIC_URL}/engine_dark.png`}
             style={{
-              maxWidth: '100%',
+              maxWidth: '70%',
               zIndex:-100}}
           />:  <img
           alt="bldrs"
-          src={`${process.env.PUBLIC_URL}/bldrs.png`}
+          src={`${process.env.PUBLIC_URL}/engine_light.png`}
           style={{
-            maxWidth: '100%',
+            maxWidth: '70%',
             zIndex:-100}}
         />
         }
