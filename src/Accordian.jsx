@@ -5,7 +5,7 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function BasicAccordion() {
+export default function BasicAccordion({title, content}) {
   return (
       <Accordion elevation={0}>
         <AccordionSummary
@@ -13,7 +13,7 @@ export default function BasicAccordion() {
           aria-controls="panel1a-content"
           id="panel1a-header"
         >
-          <Typography>Accordion 1</Typography>
+          <Typography>{title}</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <Typography>

@@ -51,7 +51,7 @@ const themeComponent = {
         root: ({ theme }) => ({
           backgroundColor: theme.palette.background.default, // use palette color here
           // borderBottom:`1px solid ${theme.palette.background.paper}`,
-          // borderTop:`1px solid ${theme.palette.background.paper}`,
+          borderTop:`1px solid ${theme.palette.background.paper}`,
         }),
       },
     },

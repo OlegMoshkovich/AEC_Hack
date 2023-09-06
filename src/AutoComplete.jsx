@@ -26,8 +26,8 @@ export default function AutocompleteExample() {
 }
 
 const elements = [
-  { title: 'Wall' },
-  { title: 'Slab' },
-  { title: 'Door' },
-  { title: 'Ceiling' },
+  { title: 'Surfaces' },
+  { title: 'Case' },
+  { title: 'Gears' },
+  { title: 'Electonics' },
 ];

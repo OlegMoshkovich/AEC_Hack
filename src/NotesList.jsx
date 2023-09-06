@@ -1,23 +1,40 @@
 import * as React from 'react';
-import IconButton from '@mui/material/IconButton'
-import Stack from '@mui/material/Stack';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
-import CloseIcon from '@mui/icons-material/Close';
+import Stack from '@mui/material/Stack';
 import Card from './Card'
-import {Typography} from '@mui/material';
-import ListSubheader from '@mui/material/ListSubheader';
-import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
 
 export default function NotesList() {
+  const data=[
+    {
+    title:'Welcome to Share',
+    date: '17.09.2023',
+    content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    type:'image',
+    src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
+    },
+    {
+      title:'Note 1',
+      date: '17.09.2023',
+      content:'Sample Video about innner organization of an engine',
+      type:'video',
+      src:'https://www.youtube.com/embed/ZQvfHyfgBtA'
+      },
+  ]
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
       <List
       spacing={1}
       >
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+        {data.map((item, index) => (
             <ListItem >
-              <Card/>
+              <Card
+              title={item.title}
+              date={item.date}
+              content={item.content}
+              type={item.type}
+              src={item.src}
+              />
             </ListItem>
         ))}
     </List>
