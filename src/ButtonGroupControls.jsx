@@ -1,9 +1,9 @@
-import * as React from 'react';
-import IconButton from '@mui/material/IconButton';
-import MuiButtonGroup from '@mui/material/ButtonGroup';
-import FolderIcon from '@mui/icons-material/Folder';
-import SearchIcon from '@mui/icons-material/Search';
-import SegmentIcon from '@mui/icons-material/Segment';
+import React from 'react'
+import IconButton from '@mui/material/IconButton'
+import MuiButtonGroup from '@mui/material/ButtonGroup'
+import FolderIcon from '@mui/icons-material/Folder'
+import SearchIcon from '@mui/icons-material/Search'
+import SegmentIcon from '@mui/icons-material/Segment'
 
 
 export default function ButtonGroup() {
@@ -19,5 +19,5 @@ export default function ButtonGroup() {
         <SegmentIcon />
       </IconButton>
     </MuiButtonGroup>
-  );
+  )
 }

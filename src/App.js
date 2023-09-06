@@ -3,10 +3,8 @@ import './App.css';
 import useStore from './Store';
 import ComponentLibrary from './ComponentLibrary'
 import IconButton from '@mui/material/IconButton';
-import Button from '@mui/material/Button';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-import Typography from '@mui/material/Typography';
 import SegmentIcon from '@mui/icons-material/Segment';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -21,7 +19,6 @@ import VersionPanel from './VersionPanel'
 import TreePanel from './TreePanel'
 import MobileDrawer from './DrawerMobile'
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Logo from './Logo'
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import { useTheme } from '@mui/material/styles';
@@ -30,7 +27,6 @@ import { useTheme } from '@mui/material/styles';
 function App({changeTheme, darkTheme}) {
   const [left, setLeft] = useState(false)
   const [right, setRight] = useState(false)
-  const [componentsVisible, setComponentsVisible] = useState(false)
   const {showComponents} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
   const theme = useTheme();
@@ -79,15 +75,14 @@ function App({changeTheme, darkTheme}) {
       setIsOpen={()=>setLeft()}/>
     }
       {isMobile && <MobileDrawer panels={[<TreePanel/>, <PropertiesList/>,<NotesList/>]}/>}
-      <div
-        style={{
+      <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
           position:'absolute',
           width:'100%',
-          height: '100%',
-          textAlign: 'center',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
+          height: isMobile ? '30%' : '100%',
           backgroundColor: `${theme.palette.background.default}`,
           zIndex:-100}}
       >
@@ -106,11 +101,8 @@ function App({changeTheme, darkTheme}) {
             zIndex:-100}}
         />
         }
-
-      </div>
-
+      </Stack>
     <Container
-      // maxWidth="sm"
       sx={{marginTop: '140px', marginBottom: '20px', width:'300px'}}
     >
     <Stack
@@ -118,12 +110,6 @@ function App({changeTheme, darkTheme}) {
       justifyContent="center"
       alignItems="center"
     >
-      {/* <Button disableFocusRipple={true} disableRipple={true} onClick={()=>setComponentsVisible(!componentsVisible)}>
-        <Logo scale={4} />
-      </Button>
-      <Typography variant={'overline'} color='primary'
-      sx={{marginTop: '30px'}}
-      >bldrs.ai</Typography> */}
     </Stack>
     </Container>
     {

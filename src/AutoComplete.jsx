@@ -1,9 +1,9 @@
-import * as React from 'react';
-import Autocomplete from '@mui/material/Autocomplete';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
+import React from 'react'
+import Autocomplete from '@mui/material/Autocomplete'
+import TextField from '@mui/material/TextField'
+import Stack from '@mui/material/Stack'
 
-export default function AutocompleteExample() {
+export default function AutocompleteInput() {
   return (
     <Stack spacing={3} sx={{minWidth:'280px'}}>
       <Autocomplete
@@ -22,7 +22,7 @@ export default function AutocompleteExample() {
         )}
       />
     </Stack>
-  );
+  )
 }
 
 const elements = [
@@ -30,4 +30,4 @@ const elements = [
   { title: 'Case' },
   { title: 'Gears' },
   { title: 'Electonics' },
-];
+]

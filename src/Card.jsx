@@ -23,18 +23,10 @@ export default function MultiActionAreaCard({title, date, content, type='noImage
   return (
     <Card sx={{ maxWidth: 260 }}>
       <CardHeader
-        avatar={
-          <Avatar
-            aria-label="card"
-          >
-            R
-          </Avatar>
-        }
-        action={
-          <Menu menuItems={['Edit', 'Delete']}/>
-        }
+        avatar={ <Avatar aria-label="card"> R </Avatar>}
+        action={<Menu menuItems={['Edit', 'Delete']}/>}
         title={title}
-        subheader={date}
+        subheader={date }
       />
       <CardActionArea>
         <CardMedia

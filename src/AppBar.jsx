@@ -22,77 +22,82 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar color='default' size='small' position="fixed" sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }} elevation={0}>
+      <AppBar
+        color='default'
+        elevation={0}
+        position="fixed"
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
+        size='small'
+      >
       <Toolbar>
-            <Stack
-              direction='row'
-              alignItems="center"
-              spacing={1}
+        <Stack
+          direction='row'
+          alignItems="center"
+          spacing={1}
+        >
+          <IconButton
+            size="large"
+            edge="end"
+            aria-label="account of current user"
+            aria-haspopup="true"
+            color="inherit"
+            onClick={toggleShowComponents}
+          >
+              <Logo scaled={true}/>
+            </IconButton>
+            <Button variant="contained"  size="small" color='secondary' disableElevation>
+              Files
+            </Button>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              color="inherit"
             >
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-haspopup="true"
-                color="inherit"
-                onClick={toggleShowComponents}
-              >
-                  <Logo scaled={true}/>
-                </IconButton>
-                <Button variant="contained"  size="small" color='secondary' disableElevation>
-                  Files
-                </Button>
-                <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <MapsUgcOutlinedIcon size='inherit' color='default'/>
-                </IconButton>
-            </Stack>
-            {
-              !isMobile && <Stack
-              sx={{width:'72%'}}
-              direction='row'
-              alignItems="center"
-              justifyContent="center"
-              spacing={1}
+              <MapsUgcOutlinedIcon size='inherit' color='default'/>
+            </IconButton>
+        </Stack>
+        {!isMobile && <Stack
+          direction='row'
+          alignItems="center"
+          justifyContent="center"
+          sx={{width:'72%'}}
+          spacing={1}
+        >
+          <AutocompleteExample/>
+        </Stack>
+        }
+        <Box sx={{ flexGrow: 1 }} />
+          <Stack direction="row" alignItems="center" spacing={1}>
+          <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              color="inherit"
+              onClick={changeTheme}
             >
-              <AutocompleteExample/>
-            </Stack>
-            }
-            <Box sx={{ flexGrow: 1 }} />
-              <Stack direction="row" alignItems="center" spacing={1}>
-              <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-haspopup="true"
-                  color="inherit"
-                  onClick={changeTheme}
-                >
-                  {darkTheme ?
-                    <NightlightOutlinedIcon size='inherit' color='default'/>:
-                    <LightModeOutlinedIcon size='inherit' color='default'/>
-                  }
-                </IconButton>
-                {!isMobile && <AvatarGroup/>}
-                <Button variant="contained"  size="small" color='primary' disableElevation>
-                  Share
-                </Button>
-                <IconButton
-                  size="large"
-                  edge="end"
-                  aria-label="account of current user"
-                  aria-haspopup="true"
-                  color="inherit"
-                >
-                  <PortraitOutlinedIcon size='inherit' color='default'/>
-                </IconButton>
-              </Stack>
-      </Toolbar>
+              {darkTheme ?
+                <NightlightOutlinedIcon size='inherit' color='default'/>:
+                <LightModeOutlinedIcon size='inherit' color='default'/>
+              }
+            </IconButton>
+            {!isMobile && <AvatarGroup/>}
+            <Button variant="contained"  size="small" color='primary' disableElevation>
+              Share
+            </Button>
+            <IconButton
+              size="large"
+              edge="end"
+              aria-label="account of current user"
+              aria-haspopup="true"
+              color="inherit"
+            >
+              <PortraitOutlinedIcon size='inherit' color='default'/>
+            </IconButton>
+          </Stack>
+        </Toolbar>
       </AppBar>
     </Box>
   );

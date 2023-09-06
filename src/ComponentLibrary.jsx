@@ -1,13 +1,13 @@
 import React, {useState} from 'react'
-import './App.css';
-import Container from '@mui/material/Container';
+import './App.css'
+import Container from '@mui/material/Container'
 import Paper from '@mui/material/Paper'
 import Stack from '@mui/material/Stack'
 import SideDrawer from './SideDrawer'
-import Switch from '@mui/material/Switch';
-import Typography from '@mui/material/Typography';
+import Switch from '@mui/material/Switch'
+import Typography from '@mui/material/Typography'
 import FormControlLabel from '@mui/material/FormControlLabel'
-import AutocompleteExample from './AutoComplete'
+import AutocompleteInput from './AutoComplete'
 import IconButton from '@mui/material/IconButton'
 import DialogEdit from './DialogEdit'
 import Tabs from './Tabs'
@@ -16,16 +16,16 @@ import Tree from './Tree'
 import Card from './Card'
 import Dialog from './Dialog'
 import Slider from './Slider'
-import CircleIcon from '@mui/icons-material/Circle';
+import CircleIcon from '@mui/icons-material/Circle'
 import {colors} from './colors'
-import useStore from './Store';
-import CloseIcon from '@mui/icons-material/Close';
+import useStore from './Store'
+import CloseIcon from '@mui/icons-material/Close'
 
 
 function ComponentLibrary({changeTheme, darkTheme}) {
   const [currentTab, setCurrentTab] = useState('General')
-  const { borderRadius, setBorderRadius, setThemeScheme } = useStore();
-  const {toggleShowComponents} = useStore();
+  const { borderRadius, setBorderRadius, setThemeScheme } = useStore()
+  const {toggleShowComponents} = useStore()
   const tabList=['Theme', 'Card', 'Dialog', 'Input', 'SideDrawer', 'Timeline', 'Tree' ]
   return (
     <Container
@@ -133,12 +133,12 @@ function ComponentLibrary({changeTheme, darkTheme}) {
               </Stack>
             }
             {currentTab==='Input' &&
-                <AutocompleteExample/>
+                <AutocompleteInput/>
             }
           </Stack>
       </Paper>
     </Container>
-  );
+  )
 }
 
-export default ComponentLibrary;
+export default ComponentLibrary
