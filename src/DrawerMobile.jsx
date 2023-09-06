@@ -18,13 +18,13 @@ const Root = styled('div')(({ theme }) => ({
 }));
 
 const StyledBox = styled(Box)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'light' ? '#fff' : grey[800],
+  backgroundColor: theme.palette.background.default
 }));
 
 const Puller = styled(Box)(({ theme }) => ({
   width: 30,
   height: 6,
-  backgroundColor: theme.palette.mode === 'light' ? grey[300] : grey[900],
+  backgroundColor: theme.palette.secondary.main,
   borderRadius: 3,
   position: 'absolute',
   top: 8,
