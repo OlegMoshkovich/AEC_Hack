@@ -54,7 +54,7 @@ export default function CustomizedTimeline() {
               elevation={active === 0 ? 4 : 1}
               sx={{padding:'8px'}}
             >
-              <Typography variant="caption">
+              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
                 Add initial model
               </Typography>
             </Paper>
@@ -93,7 +93,7 @@ export default function CustomizedTimeline() {
             elevation={active === 1 ? 4 : 1}
             sx={{padding:'8px'}}
             >
-              <Typography variant="caption">
+              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
                 Change exterior form based on structural input
               </Typography>
             </Paper>
@@ -130,7 +130,7 @@ export default function CustomizedTimeline() {
               variant='background'
               sx={{padding:'8px'}}
             >
-              <Typography variant="caption">
+              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
                 Cost corrected mechanism
               </Typography>
             </Paper>
@@ -167,7 +167,7 @@ export default function CustomizedTimeline() {
               elevation={active === 3 ? 4 : 1}
               sx={{padding:'8px'}}
             >
-              <Typography variant="caption">
+              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
                 Add initial model
               </Typography>
             </Paper>
@@ -206,7 +206,7 @@ export default function CustomizedTimeline() {
             elevation={active === 4 ? 4 : 1}
             sx={{padding:'8px'}}
             >
-              <Typography variant="caption">
+              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
                 Change exterior form based on structural input
               </Typography>
             </Paper>
@@ -243,7 +243,7 @@ export default function CustomizedTimeline() {
               variant='background'
               sx={{padding:'8px'}}
             >
-              <Typography variant="caption">
+              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
                 Cost corrected mechanism
               </Typography>
             </Paper>

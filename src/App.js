@@ -74,7 +74,7 @@ function App({changeTheme, darkTheme}) {
       isOpen={left}
       setIsOpen={()=>setLeft()}/>
     }
-      {isMobile && <MobileDrawer panels={[<TreePanel/>, <PropertiesList/>,<NotesList/>]}/>}
+      {isMobile && <MobileDrawer panels={[<TreePanel/>, <PropertiesList/>,<NotesList/>, <VersionPanel/>]}/>}
       <Stack
         direction="column"
         justifyContent="center"
