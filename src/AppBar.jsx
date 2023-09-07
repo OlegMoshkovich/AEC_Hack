@@ -14,7 +14,37 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import AutocompleteExample from './AutoComplete'
 import AvatarGroup from './AvatarGroup'
 import useStore from './Store';
+import Dialog from './Dialog'
 
+
+const industries=[
+  '.IFC',
+  '.OBJ',
+  '.STL',
+  '.STEP',
+  '.IGES',
+  '.SLDPRT/SLDASM',
+  '.FBX',
+  '.SKP',
+  '.3DM',]
+
+function Files(){
+
+  return(
+    <Stack
+      spacing={2}
+    >
+      {industries.map((item,index) => {
+        return(
+          <Button key={item} variant='contained' color='primary' onClick={()=>console.log(item)}>
+            {item}
+          </Button>
+        )
+      })
+      }
+    </Stack>
+  )
+}
 
 export default function PrimaryAppBar({darkTheme, changeTheme}) {
   const isMobile = useMediaQuery('(max-width:600px)');
@@ -45,9 +75,13 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
           >
               <Logo scaled={true}/>
             </IconButton>
-            <Button variant="contained"  size="small" color='secondary' disableElevation>
-              Files
-            </Button>
+            <Dialog
+              buttonLabel={'Files'}
+              buttonColor={'secondary'}
+              dialogTitle={'Formats'}
+              dialogContent={<Files/>}
+              actionTitle={'OK'}
+            />
             <IconButton
               size="large"
               edge="end"

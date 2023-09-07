@@ -116,7 +116,7 @@ function ComponentLibrary({changeTheme, darkTheme}) {
                 <Tree/>
             }
             {currentTab==='Card' &&
-                <Card/>
+                <Card content={'Sample card'} title={'Sample Card'} date={'09.17.2023'}/>
             }
             {currentTab==='SideDrawer' &&
                 <SideDrawer/>

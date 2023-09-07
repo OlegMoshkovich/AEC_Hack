@@ -10,7 +10,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import Tabs from './Tabs'
 import {Stack} from '@mui/system';
 
-export default function Dialog({label}) {
+export default function Dialog({
+  buttonLabel='dialog',
+  buttonColor='primary',
+  dialogTitle='dialog',
+  dialogContent='sample content',
+  tabs=false,
+  actionTitle='ok'
+}) {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(false);
 
@@ -24,8 +31,8 @@ export default function Dialog({label}) {
 
   return (
     <div>
-      <Button variant="contained" size='small' onClick={handleClickOpen}>
-        {label}
+      <Button variant="contained" size='small' onClick={handleClickOpen} color={buttonColor}>
+        {buttonLabel}
       </Button>
       <MuiDialog
         open={open}
@@ -34,28 +41,25 @@ export default function Dialog({label}) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title" >
-          Dialog title
+          {dialogTitle}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
             <Stack spacing={1}>
-            <Tabs
+              {tabs &&
+               <Tabs
                 tabList = {['tab 1', 'tab 2', 'tab 3']}
                 currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
-            />
+              />
+              }
             <Typography variant={'body1'}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-              sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-              Excepteur sint occaecat cupidatat non proident,
-              sunt in culpa qui officia deserunt mollit anim id est laborum.
+            {dialogContent}
             </Typography>
             </Stack>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" size='small' onClick={handleClose} startIcon={<GitHubIcon /> }>ok</Button>
+          <Button variant="contained" size='small' onClick={handleClose} startIcon={<GitHubIcon /> }>{actionTitle}</Button>
         </DialogActions>
       </MuiDialog>
     </div>

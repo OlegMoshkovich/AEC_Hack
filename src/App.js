@@ -105,12 +105,12 @@ function App({changeTheme, darkTheme}) {
     <Container
       sx={{marginTop: '140px', marginBottom: '20px', width:'300px'}}
     >
-    <Stack
+    {/* <Stack
       direction="column"
       justifyContent="center"
       alignItems="center"
     >
-    </Stack>
+    </Stack> */}
     </Container>
     {
       showComponents && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
@@ -119,7 +119,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed',  left: left ? '288px': '14px', top: '70px', height:'88%', zIndex:100}}
+        sx={{position:'fixed',  left: left ? '288px': '14px', top: '64px', height:'88%', zIndex:100}}
       >
         {!isMobile &&
           <IconButton
