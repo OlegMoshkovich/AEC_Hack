@@ -57,14 +57,14 @@ function App({changeTheme, darkTheme}) {
     }
     {!isMobile && <Drawer
       topPanel={<TreePanel/>}
-      topPanelName={'Navigation'}
+      topPanelName={'Spatial navigation'}
       topPanelButton={
         <IconButton aria-label="comments" size='small'>
           <AddOutlinedIcon fontSize='small'/>
         </IconButton>
       }
       bottomPanel={<VersionPanel/>}
-      bottomPanelName={'Versions'}
+      bottomPanelName={'Timeline'}
       bottomPanelButton={
         <IconButton aria-label="comments" size='small'>
           <SaveOutlinedIcon fontSize='small'/>

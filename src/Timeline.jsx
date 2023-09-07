@@ -51,11 +51,11 @@ export default function CustomizedTimeline() {
           <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
             <Paper
               variant='background'
-              elevation={active === 0 ? 3 : 1}
-              sx={{padding:'6px 6px 6px 12px'}}
+              elevation={active === 0 ? 4 : 1}
+              sx={{padding:'8px'}}
             >
               <Typography variant="caption">
-                Submit drawings to the structural engineer, waiting for the feedback
+                Add initial model
               </Typography>
             </Paper>
           </TimelineContent>
@@ -88,9 +88,13 @@ export default function CustomizedTimeline() {
             <TimelineConnector />
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
-            <Paper elevation={active === 1 ? 3 : 1} sx={{padding:'6px 6px 6px 12px'}}>
+            <Paper
+            variant='background'
+            elevation={active === 1 ? 4 : 1}
+            sx={{padding:'8px'}}
+            >
               <Typography variant="caption">
-                Submit drawings to the structural engineer, waiting for the feedback
+                Change exterior form based on structural input
               </Typography>
             </Paper>
           </TimelineContent>
@@ -122,11 +126,125 @@ export default function CustomizedTimeline() {
           </TimelineSeparator>
           <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
             <Paper
-              elevation={active === 2 ? 3 : 1}
+              elevation={active === 2 ? 4 : 1}
               variant='background'
-              sx={{padding:'6px 6px 6px 12px'}}>
+              sx={{padding:'8px'}}
+            >
               <Typography variant="caption">
-                Waiting for the architect of record
+                Cost corrected mechanism
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem onClick={()=>setActive(3)} sx={{cursor: 'pointer'}}>
+          <TimelineOppositeContent
+            sx={{ m: 'auto 0' }}
+            align="center"
+            color={active === 3 ? "text.primary" : "text.secondary"}
+          >
+              <Typography variant="body1" >
+                Version 4
+              </Typography>
+              <Typography variant="caption" >
+                10.01.2023
+              </Typography>
+              <Box>
+                <DialogEdit/>
+              </Box>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineConnector />
+            <TimelineDot
+                color={active === 3 ? 'primary' : 'secondary'}
+              >
+              <EngineeringIcon />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
+            <Paper
+              variant='background'
+              elevation={active === 3 ? 4 : 1}
+              sx={{padding:'8px'}}
+            >
+              <Typography variant="caption">
+                Add initial model
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem onClick={()=>setActive(4)} sx={{cursor: 'pointer'}}>
+        <TimelineOppositeContent
+            sx={{ m: 'auto 0' }}
+            align="center"
+            color={active === 4 ? "text.primary" : "text.secondary"}
+          >
+              <Typography variant="body1" >
+                Version 5
+              </Typography>
+              <Typography variant="caption" >
+                10.01.2023
+              </Typography>
+              <Box>
+                <DialogEdit/>
+              </Box>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineConnector />
+            <TimelineDot
+                sx={{cursor: 'pointer'}}
+                color={active === 4 ? 'primary' : 'secondary'}
+                onClick={()=>setActive(5)}
+              >
+              <ArchitectureIcon />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
+            <Paper
+            variant='background'
+            elevation={active === 4 ? 4 : 1}
+            sx={{padding:'8px'}}
+            >
+              <Typography variant="caption">
+                Change exterior form based on structural input
+              </Typography>
+            </Paper>
+          </TimelineContent>
+        </TimelineItem>
+        <TimelineItem onClick={()=>setActive(6)} sx={{cursor: 'pointer'}}>
+        <TimelineOppositeContent
+            sx={{ m: 'auto 0' }}
+            align="center"
+            color={active === 6 ? "text.primary" : "text.secondary"}
+          >
+              <Typography variant="body1" >
+                Version 6
+              </Typography>
+              <Typography variant="caption" >
+                10.01.2023
+              </Typography>
+              <Box>
+                <DialogEdit/>
+              </Box>
+          </TimelineOppositeContent>
+          <TimelineSeparator>
+            <TimelineConnector />
+            <TimelineDot
+                color={active === 6 ? 'primary' : 'secondary'}
+              >
+              <ArchitectureIcon />
+            </TimelineDot>
+            <TimelineConnector />
+          </TimelineSeparator>
+          <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
+            <Paper
+              elevation={active === 6 ? 4 : 1}
+              variant='background'
+              sx={{padding:'8px'}}
+            >
+              <Typography variant="caption">
+                Cost corrected mechanism
               </Typography>
             </Paper>
           </TimelineContent>
