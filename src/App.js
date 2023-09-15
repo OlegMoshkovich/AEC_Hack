@@ -29,9 +29,10 @@ function App({changeTheme, darkTheme}) {
   const [right, setRight] = useState(false)
   const {showComments} = useStore();
   const {showComponents} = useStore();
+  const {notes} = useStore();
+  const {setNotes} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
   const theme = useTheme();
-  const [circles, setCircles] = useState([]); // State to store circle information
 
   const handleWindowClick = (e) => {
     // Get the click coordinates
@@ -39,13 +40,13 @@ function App({changeTheme, darkTheme}) {
     const y = e.clientY;
 
     // Create a new circle
-    const newCircle = <Circle key={`${Date.now()}-circle`} x={x} y={y} />;
+    const newNote = <Circle key={`${Date.now()}-circle`} x={x} y={y} />;
 
     // Create a new card
 
 
     // Add the new elements to the state
-    setCircles([...circles, newCircle]);
+    setNotes([...notes, newNote]);
   };
 
 
@@ -103,6 +104,7 @@ function App({changeTheme, darkTheme}) {
           width:'100%',
           height: isMobile ? '30%' : '100%',
           backgroundColor: `${theme.palette.background.default}`,
+          cursor: 'grabbing',
           zIndex:-100}}
       >
         {darkTheme ?
@@ -122,7 +124,7 @@ function App({changeTheme, darkTheme}) {
         }
       </Stack>
       <div>
-        {showComments && circles}
+        {showComments && notes}
       </div>
     {
       showComponents && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
