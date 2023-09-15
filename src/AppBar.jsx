@@ -10,6 +10,7 @@ import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
+import Tooltip from '@mui/material/Tooltip';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import AutocompleteExample from './AutoComplete'
 import AvatarGroup from './AvatarGroup'
@@ -49,6 +50,7 @@ function Files(){
 export default function PrimaryAppBar({darkTheme, changeTheme}) {
   const isMobile = useMediaQuery('(max-width:600px)');
   const {toggleShowComponents} = useStore();
+  const {toggleShowComments, showComments} = useStore();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -82,15 +84,17 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               dialogContent={<Files/>}
               actionTitle={'OK'}
             />
-            <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              color="inherit"
-            >
-              <MapsUgcOutlinedIcon size='inherit' color='default'/>
-            </IconButton>
+            <Tooltip title={showComments ? 'Hide notes' : 'Show notes'} placement={'right'}>
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-haspopup="true"
+                color="inherit"
+              >
+                <MapsUgcOutlinedIcon size='inherit' color= {showComments ? 'primary' : 'default'} onClick={toggleShowComments}/>
+              </IconButton>
+            </Tooltip>
         </Stack>
         {!isMobile && <Stack
           direction='row'

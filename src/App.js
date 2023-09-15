@@ -4,7 +4,6 @@ import useStore from './Store';
 import ComponentLibrary from './ComponentLibrary'
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import Container from '@mui/material/Container';
 import SegmentIcon from '@mui/icons-material/Segment';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
@@ -22,14 +21,33 @@ import useMediaQuery from '@mui/material/useMediaQuery';
 import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import { useTheme } from '@mui/material/styles';
+import Circle from './Circle';
 
 
 function App({changeTheme, darkTheme}) {
   const [left, setLeft] = useState(false)
   const [right, setRight] = useState(false)
+  const {showComments} = useStore();
   const {showComponents} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
   const theme = useTheme();
+  const [circles, setCircles] = useState([]); // State to store circle information
+
+  const handleWindowClick = (e) => {
+    // Get the click coordinates
+    const x = e.clientX;
+    const y = e.clientY;
+
+    // Create a new circle
+    const newCircle = <Circle key={`${Date.now()}-circle`} x={x} y={y} />;
+
+    // Create a new card
+
+
+    // Add the new elements to the state
+    setCircles([...circles, newCircle]);
+  };
+
 
 
   return (
@@ -79,6 +97,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="center"
         alignItems="center"
+        onClick={showComments ? (e)=>handleWindowClick(e) : ()=>{}}
         sx={{
           position:'absolute',
           width:'100%',
@@ -102,16 +121,9 @@ function App({changeTheme, darkTheme}) {
         />
         }
       </Stack>
-    <Container
-      sx={{marginTop: '140px', marginBottom: '20px', width:'300px'}}
-    >
-    {/* <Stack
-      direction="column"
-      justifyContent="center"
-      alignItems="center"
-    >
-    </Stack> */}
-    </Container>
+      <div>
+        {showComments && circles}
+      </div>
     {
       showComponents && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
     }
