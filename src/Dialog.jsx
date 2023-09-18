@@ -9,17 +9,24 @@ import Typography from '@mui/material/Typography';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import Tabs from './Tabs'
 import {Stack} from '@mui/system';
+import IconButton from '@mui/material/IconButton';
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function Dialog({
   buttonLabel='dialog',
+  iconButton=false,
+  icon,
   buttonColor='primary',
   dialogTitle='dialog',
   dialogContent='sample content',
+  dialogContent1='sample content 1',
+  dialogContent2='sample content 2',
   tabs=false,
+  tabList= ['tab 1', 'tab 2', 'tab 3'],
   actionTitle='ok'
 }) {
   const [open, setOpen] = useState(false);
-  const [currentTab, setCurrentTab] = useState(false);
+  const [currentTab, setCurrentTab] = useState(0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -29,11 +36,18 @@ export default function Dialog({
     setOpen(false);
   };
 
+  console.log('currentTab', currentTab)
   return (
     <div>
-      <Button variant="contained" size='small' onClick={handleClickOpen} color={buttonColor}>
-        {buttonLabel}
-      </Button>
+      {iconButton ?
+        <IconButton aria-label="edit" size='small' onClick={handleClickOpen}>
+          {icon}
+        </IconButton>:
+        <Button variant="contained" size='small' onClick={handleClickOpen} color={buttonColor}>
+          {buttonLabel}
+        </Button>
+      }
+
       <MuiDialog
         open={open}
         onClose={handleClose}
@@ -43,23 +57,27 @@ export default function Dialog({
         <DialogTitle id="alert-dialog-title" >
           {dialogTitle}
         </DialogTitle>
-        <DialogContent>
+        <DialogContent
+          sx={{maxWidth:'300px'}}
+        >
           <DialogContentText id="alert-dialog-description">
             <Stack spacing={1}>
               {tabs &&
                <Tabs
-                tabList = {['tab 1', 'tab 2', 'tab 3']}
+                tabList = {tabList}
                 currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
               />
               }
             <Typography variant={'body1'}>
-            {dialogContent}
+              {tabs && currentTab===0 && dialogContent1}
+              {tabs && currentTab===1 && dialogContent2}
+              {!tabs && dialogContent}
             </Typography>
             </Stack>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button variant="contained" size='small' onClick={handleClose} startIcon={<GitHubIcon /> }>{actionTitle}</Button>
+          <Button variant="contained" size='small' onClick={handleClose}>{actionTitle}</Button>
         </DialogActions>
       </MuiDialog>
     </div>

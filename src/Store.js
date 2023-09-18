@@ -4,13 +4,17 @@ const useStore = create((set) => ({
   borderRadius: 20,
   themeScheme: 0,
   showComponents: false,
-  showComments: true,
+  showComments: false,
   notes:[],
-  setNotes: (value) => set((state) => ({ notes: value})),
-  setBorderRadius: (value) => set((state) => ({ borderRadius: value})),
-  setThemeScheme: (value) => set((state) => ({ themeScheme: value})),
-  toggleShowComponents: (value) => set((state) => ({ showComponents: !state.showComponents})),
-  toggleShowComments: (value) => set((state) => ({ showComments: !state.showComments})),
+  rightDrawer:false,
+  leftDrawer: false,
+  setNotes: (value) => set(() => ({ notes: value})),
+  setBorderRadius: (value) => set(() => ({ borderRadius: value})),
+  setThemeScheme: (value) => set(() => ({ themeScheme: value})),
+  toggleShowComponents: () => set((state) => ({ showComponents: !state.showComponents})),
+  toggleShowComments: () => set((state) => ({ showComments: !state.showComments})),
+  toggleRightDrawer: () => set((state) => ({ rightDrawer: !state.rightDrawer})),
+  toggleLeftDrawer: () => set((state) => ({ leftDrawer: !state.leftDrawer})),
 }));
 
 export default useStore;

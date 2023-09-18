@@ -28,7 +28,7 @@ export default function SideDrawer2({
 
   useEffect(() => {
     if(!isFirstPanel && !isSecondPanel){
-      setIsOpen(false)
+      setIsOpen()
       setIsFirstPanel(true)
       setIsSecondPanel(true)
     }

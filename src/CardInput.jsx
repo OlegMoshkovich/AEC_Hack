@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -7,6 +8,11 @@ import TextField from '@mui/material/TextField';
 import IconButton from '@mui/material/IconButton';
 import SaveIcon from '@mui/icons-material/Save';
 import ImageIcon from '@mui/icons-material/Image'; // Import Image icon
+import AutocompleteInput from './AutoComplete';
+const tags=[
+  { title: 'Note'},
+  { title: 'Issue'},
+]
 
 function CustomCard({ date, type, src ,onSave }) {
   const [title, setTitle] = useState('');
@@ -27,7 +33,7 @@ function CustomCard({ date, type, src ,onSave }) {
   };
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 300 }}>
       {type === 'image' && (
         <CardMedia
           component="img"
@@ -42,6 +48,7 @@ function CustomCard({ date, type, src ,onSave }) {
           label="Title"
           variant="outlined"
           value={title}
+          size='small'
           onChange={handleTitleChange}
           sx={{ marginBottom: '10px' }}
         />
@@ -50,10 +57,15 @@ function CustomCard({ date, type, src ,onSave }) {
           label="Content"
           variant="outlined"
           multiline
+          size='small'
           rows={4}
           value={content}
           onChange={handleContentChange}
+          sx={{ marginBottom: '10px' }}
         />
+        <Box sx={{width:'270px'}}>
+          <AutocompleteInput title={'Tags'} elements={tags}/>
+        </Box>
       </CardContent>
       <CardActions sx={{ justifyContent: 'space-between' }}> {/* Updated justifyContent */}
       <IconButton aria-label="image" onClick={() => { /* Image action here */ }}>

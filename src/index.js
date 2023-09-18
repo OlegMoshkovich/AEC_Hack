@@ -82,6 +82,7 @@ const themeComponent = {
       styleOverrides: {
         root: {
           justifyContent: 'center',
+          marginBottom:'10px'
         }
       },
     },

@@ -3,9 +3,16 @@ import Autocomplete from '@mui/material/Autocomplete'
 import TextField from '@mui/material/TextField'
 import Stack from '@mui/material/Stack'
 
-export default function AutocompleteInput() {
+
+export default function AutocompleteInput({title, elements=[
+    { title: 'Option1'},
+    { title: 'Option2'},
+    { title: 'Option3' },
+    { title: 'Option4' },
+  ]
+}) {
   return (
-    <Stack spacing={3} sx={{minWidth:'280px'}}>
+    <Stack spacing={3} sx={{minWidth:'250px'}}>
       <Autocomplete
         multiple
         id="tags-outlined"
@@ -16,7 +23,7 @@ export default function AutocompleteInput() {
         renderInput={(params) => (
           <TextField
             {...params}
-            placeholder="Search"
+            placeholder={title}
             size='small'
           />
         )}
@@ -25,9 +32,4 @@ export default function AutocompleteInput() {
   )
 }
 
-const elements = [
-  { title: 'Surfaces' },
-  { title: 'Case' },
-  { title: 'Gears' },
-  { title: 'Electonics' },
-]
+

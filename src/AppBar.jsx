@@ -23,17 +23,24 @@ const industries=[
   '.OBJ',
   '.STL',
   '.STEP',
-  '.IGES',
-  '.SLDPRT/SLDASM',
   '.FBX',
-  '.SKP',
+  '.SLDPRT/SLDASM',
   '.3DM',]
+
+const searchElements = [
+  { title: 'Surfaces' },
+  { title: 'Case' },
+  { title: 'Gears' },
+  { title: 'Electonics' },
+]
+
 
 function Files(){
 
   return(
     <Stack
       spacing={2}
+      sx={{marginTop:'10px'}}
     >
       {industries.map((item,index) => {
         return(
@@ -51,6 +58,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
   const isMobile = useMediaQuery('(max-width:600px)');
   const {toggleShowComponents} = useStore();
   const {toggleShowComments, showComments} = useStore();
+  const {toggleRightDrawer, rightDrawer} = useStore();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -66,6 +74,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
           direction='row'
           alignItems="center"
           spacing={1}
+          sx={{marginLeft:'-10px'}}
         >
           <IconButton
             size="large"
@@ -81,8 +90,21 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               buttonLabel={'Files'}
               buttonColor={'secondary'}
               dialogTitle={'Formats'}
-              dialogContent={<Files/>}
+              dialogContent1={<Files/>}
+              dialogContent2={
+                <Stack
+                direction='row'
+                justifyContent="center"
+                sx={{marginTop:'10px'}}
+                >
+                  <Button key={1} variant='contained' color='primary' onClick={()=>console.log(1)}>
+                  Open model
+                  </Button>
+                </Stack>
+              }
               actionTitle={'OK'}
+              tabs={true}
+              tabList={['Samples','Open']}
             />
             <Tooltip title={showComments ? 'Hide notes' : 'Show notes'} placement={'right'}>
               <IconButton
@@ -92,7 +114,15 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
                 aria-haspopup="true"
                 color="inherit"
               >
-                <MapsUgcOutlinedIcon size='inherit' color= {showComments ? 'primary' : 'default'} onClick={toggleShowComments}/>
+                <MapsUgcOutlinedIcon
+                size='inherit'
+                color= {showComments ? 'primary' : 'default'}
+                onClick={
+                  ()=>{
+                    toggleRightDrawer()
+                    toggleShowComments()
+                  }
+                }/>
               </IconButton>
             </Tooltip>
         </Stack>
@@ -103,11 +133,16 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
           sx={{width:'72%'}}
           spacing={1}
         >
-          <AutocompleteExample/>
+          <AutocompleteExample title={"Search"} elements={searchElements}/>
         </Stack>
         }
         <Box sx={{ flexGrow: 1 }} />
-          <Stack direction="row" alignItems="center" spacing={1}>
+          <Stack
+          direction="row"
+          alignItems="center"
+          spacing={1}
+          sx={{marginRight:'-15px'}}
+          >
           <IconButton
               size="large"
               edge="end"
