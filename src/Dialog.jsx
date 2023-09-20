@@ -21,6 +21,7 @@ export default function Dialog({
   dialogContent='sample content',
   dialogContent1='sample content 1',
   dialogContent2='sample content 2',
+  dialogContent3='sample content 3',
   tabs=false,
   tabList= ['tab 1', 'tab 2', 'tab 3'],
   actionTitle='ok'
@@ -57,7 +58,7 @@ export default function Dialog({
           {dialogTitle}
         </DialogTitle>
         <DialogContent
-          sx={{maxWidth:'300px'}}
+          sx={{maxWidth:'260px'}}
         >
           <DialogContentText id="alert-dialog-description">
             <Stack spacing={1}>
@@ -70,6 +71,7 @@ export default function Dialog({
             <Typography variant={'body1'}>
               {tabs && currentTab===0 && dialogContent1}
               {tabs && currentTab===1 && dialogContent2}
+              {tabs && currentTab===2 && dialogContent3}
               {!tabs && dialogContent}
             </Typography>
             </Stack>

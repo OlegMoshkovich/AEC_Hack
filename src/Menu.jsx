@@ -13,6 +13,7 @@ export default function BasicMenu({menuItems, actionCb}) {
   const handleClose = (item) => {
     // console.log('event from the menu', item)
     actionCb(item)
+    setAnchorEl(null);
   };
 
   return (

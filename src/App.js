@@ -5,6 +5,7 @@ import ComponentLibrary from './ComponentLibrary'
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 import Tooltip from '@mui/material/Tooltip';
 import SegmentIcon from '@mui/icons-material/Segment';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
@@ -25,6 +26,7 @@ import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import { useTheme } from '@mui/material/styles';
 import Circle from './Circle';
+import Logo from './Logo'
 
 
 function App({changeTheme, darkTheme}) {
@@ -36,10 +38,10 @@ function App({changeTheme, darkTheme}) {
 
   } = useStore();
 
-  const {showComments} = useStore();
+  const {showComments, toggleShowComments} = useStore();
   const {showComponents} = useStore();
-  const {notes} = useStore();
-  const {setNotes} = useStore();
+  const {circles} = useStore();
+  const {setCircles} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
   const theme = useTheme();
 
@@ -49,14 +51,16 @@ function App({changeTheme, darkTheme}) {
     const y = e.clientY;
 
     // Create a new circle
-    const newNote = <Circle key={`${Date.now()}-circle`} x={x} y={y} />;
+    const newCircle = <Circle key={`${Date.now()}-circle`} x={x} y={y} />;
 
     // Create a new card
 
 
     // Add the new elements to the state
-    setNotes([...notes, newNote]);
+    setCircles([...circles, newCircle]);
   };
+
+  console.log('circles', circles)
 
 
 
@@ -69,7 +73,7 @@ function App({changeTheme, darkTheme}) {
       topPanelName={'Notes'}
       topPanelButton={
         <IconButton aria-label="comments" size='small'>
-          <AddCommentOutlinedIcon fontSize='small'/>
+          <AddCommentOutlinedIcon fontSize='small' onClick={toggleShowComments} color={showComments ? 'primary' : 'default'}/>
         </IconButton>
       }
       bottomPanel={<PropertiesList/>}
@@ -133,7 +137,7 @@ function App({changeTheme, darkTheme}) {
         }
       </Stack>
       <div>
-        {showComments && notes}
+        {showComments && circles}
       </div>
     {
       showComponents && <ComponentLibrary changeTheme={changeTheme} darkTheme={darkTheme}/>
@@ -160,21 +164,55 @@ function App({changeTheme, darkTheme}) {
         }
       <Dialog
         iconButton={true}
+        tabs={true}
+        tabList={['Share', 'Imagine', 'Repo']}
         dialogTitle={
-        <Typography variant='overline'>
-          bldrs.ai
-        </Typography>}
-        dialogContent={
+        <Stack sx={{paddingTop: '10px'}}>
+          <Typography>
+            <Logo/>
+          </Typography>
+          <Typography variant='overline'>
+            bldrs.ai
+          </Typography>
+        </Stack>
+        }
+        dialogContent1={
           <Stack>
-            <Typography variant='body2' color='defult'>
+            <Typography variant='body2' color='default' sx={{fontWeight:'bold'}}>
               Welcome to Share - CAD integration environment.
-            </Typography>
-            <Typography variant='body2'>
-              With a share link everyone has access to the same context in digital space.
             </Typography>
             <Typography variant='body2'>
               Upload your model to Share, position the camera, and share the generated link.
             </Typography>
+            <Typography variant='body2'>
+              With a share link everyone has access to the same context in digital space.
+            </Typography>
+          </Stack>
+        }
+        dialogContent2={
+          <Stack>
+            <Typography variant='body2' color='default' sx={{fontWeight:'bold'}}>
+              Welcome to Imagine - AI renderer.
+            </Typography>
+            <Typography variant='body2'>
+              Upload your model to Share, position the camera, and generate a share link.
+            </Typography>
+            <Typography variant='body2'>
+              Paste the link to the imagine input and create a prompt description, our copilot will take care of the rest.
+            </Typography>
+          </Stack>
+        }
+        dialogContent3={
+          <Stack>
+            <Typography variant='body2' color='default' sx={{fontWeight:'bold'}}>
+              We are open source.
+            </Typography>
+            <Typography variant='body2'>
+              Please visit our repo, give us star, fork it and contribute to the project.
+            </Typography>
+            <Link variant='body2' color='primary'>
+            wwww.github.com
+            </Link>
           </Stack>
         }
         icon={<InfoOutlinedIcon size='inherit' color='default'/>}

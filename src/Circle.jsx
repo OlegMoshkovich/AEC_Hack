@@ -4,17 +4,28 @@ import Box from '@mui/material/Box';
 import Tooltip from '@mui/material/Tooltip';
 import Card from './Card'
 import { useTheme } from '@mui/material/styles';
+import useStore from './Store';
 
 function Circle({ x, y }) {
   const [hover, setHover] = useState(false);
   const [clicked, setClicked] = useState(true);
   const [info, setInfo] = useState(null); // To store title and content
   const theme = useTheme();
+  const {notes} = useStore();
+  const {setNotes} = useStore();
 
   const handleSave = (title, content) => {
     setInfo({ title, content });
-    // setClicked(false); // Hide the card input form after saving
+    setNotes([...notes,   {
+      title:title,
+      date: '17.09.2023',
+      content:content,
+      type:'image',
+      src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
+    },]);
   };
+
+
 
   return (
     <div

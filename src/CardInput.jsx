@@ -45,7 +45,15 @@ function CardInput({ type, src ,onSave }) {
       <CardHeader
         avatar={ <Avatar aria-label="card"> R </Avatar>}
         action={<Menu menuItems={['Edit', 'Delete']} actionCb={(item)=>menuSelect(item)}/>}
-        title={title}
+        title={  <TextField
+          fullWidth
+          label="Title"
+          variant="outlined"
+          value={title}
+          size='small'
+          onChange={handleTitleChange}
+          sx={{ marginBottom: '10px' }}
+        />}
         subheader={date}
       />
       {type === 'image' && (
@@ -57,15 +65,6 @@ function CardInput({ type, src ,onSave }) {
         />
       )}
       <CardContent>
-        <TextField
-          fullWidth
-          label="Title"
-          variant="outlined"
-          value={title}
-          size='small'
-          onChange={handleTitleChange}
-          sx={{ marginBottom: '10px' }}
-        />
         <TextField
           fullWidth
           label="Content"

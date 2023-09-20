@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton';
+import Typography from '@mui/material/Typography';
 import Logo from './Logo'
 import Stack from '@mui/material/Stack'
 import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
@@ -16,6 +17,7 @@ import AutocompleteExample from './AutoComplete'
 import AvatarGroup from './AvatarGroup'
 import useStore from './Store';
 import Dialog from './Dialog'
+
 
 
 const industries=[
@@ -44,7 +46,7 @@ function Files(){
     >
       {industries.map((item,index) => {
         return(
-          <Button key={item} variant='contained' color='primary' onClick={()=>console.log(item)}>
+          <Button key={item} variant='contained' size='small' color='primary' onClick={()=>console.log(item)}>
             {item}
           </Button>
         )
@@ -89,7 +91,11 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
             <Dialog
               buttonLabel={'Files'}
               buttonColor={'secondary'}
-              dialogTitle={'Formats'}
+              dialogTitle={
+              <Typography variant='overline'>
+                Open
+              </Typography>
+              }
               dialogContent1={<Files/>}
               dialogContent2={
                 <Stack
@@ -97,14 +103,14 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
                 justifyContent="center"
                 sx={{marginTop:'10px'}}
                 >
-                  <Button key={1} variant='contained' color='primary' onClick={()=>console.log(1)}>
-                  Open model
+                  <Button key={1} variant='contained' size='small' color='primary' onClick={()=>console.log(1)}>
+                  Open Local model
                   </Button>
                 </Stack>
               }
               actionTitle={'OK'}
               tabs={true}
-              tabList={['Samples','Open']}
+              tabList={['Samples','Model']}
             />
             <Tooltip title={showComments ? 'Hide notes' : 'Show notes'} placement={'right'}>
               <IconButton

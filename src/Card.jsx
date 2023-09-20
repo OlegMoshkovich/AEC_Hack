@@ -12,7 +12,7 @@ import Typography from '@mui/material/Typography';
 import QuestionAnswerOutlinedIcon from '@mui/icons-material/QuestionAnswerOutlined';
 import Menu from './Menu'
 
-export default function MultiActionAreaCard({title, date, content, type='noImage', src}) {
+export default function MultiActionAreaCard({title, date, content, type='noImage', src,}) {
   let component
   if(type==='video'){
     component='iframe'
@@ -20,11 +20,15 @@ export default function MultiActionAreaCard({title, date, content, type='noImage
     component='img'
   }
 
+  const menuSelect = (item) => {
+    console.log('item', item)
+  }
+
   return (
     <Card sx={{ maxWidth: 260 }}>
       <CardHeader
         avatar={ <Avatar aria-label="card"> R </Avatar>}
-        action={<Menu menuItems={['Edit', 'Delete']}/>}
+        action={<Menu menuItems={['Edit', 'Delete']} actionCb={(item)=>menuSelect(item)}/>}
         title={title}
         subheader={date}
       />
