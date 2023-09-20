@@ -1,10 +1,9 @@
-import React, {useState} from 'react'
+import React from 'react'
 import './App.css';
 import useStore from './Store';
 import ComponentLibrary from './ComponentLibrary'
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
-import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Tooltip from '@mui/material/Tooltip';
 import SegmentIcon from '@mui/icons-material/Segment';
@@ -29,13 +28,14 @@ import Circle from './Circle';
 
 
 function App({changeTheme, darkTheme}) {
-  const [left, setLeft] = useState(false)
-  const [right, setRight] = useState(false)
   const {
     rightDrawer,
     leftDrawer,
     toggleRightDrawer,
-    toggleLeftDrawer} = useStore();
+    toggleLeftDrawer
+
+  } = useStore();
+
   const {showComments} = useStore();
   const {showComponents} = useStore();
   const {notes} = useStore();
@@ -81,7 +81,7 @@ function App({changeTheme, darkTheme}) {
       }
       side={'right'}
       isOpen={rightDrawer}
-      setIsOpen={()=>toggleRightDrawer()}/>
+      setIsOpen={toggleRightDrawer}/>
     }
     {!isMobile && <Drawer
       topPanel={<TreePanel/>}
@@ -100,7 +100,7 @@ function App({changeTheme, darkTheme}) {
       }
       side={'left'}
       isOpen={leftDrawer}
-      setIsOpen={()=>toggleLeftDrawer()}/>
+      setIsOpen={toggleLeftDrawer}/>
     }
       {isMobile && <MobileDrawer panels={[<TreePanel/>, <PropertiesList/>,<NotesList/>,<VersionPanel/>]}/>}
       <Stack
@@ -166,13 +166,13 @@ function App({changeTheme, darkTheme}) {
         </Typography>}
         dialogContent={
           <Stack>
-            <Typography variant='body2'>
+            <Typography variant='body2' color='defult'>
               Welcome to Share - CAD integration environment.
             </Typography>
             <Typography variant='body2'>
-              With a share link all of the stakeholders have access to the same context in digital space.
+              With a share link everyone has access to the same context in digital space.
             </Typography>
-            <Typography variant='body2' sx={{marginTop: '10px', fontWeight:'bold'}}>
+            <Typography variant='body2'>
               Upload your model to Share, position the camera, and share the generated link.
             </Typography>
           </Stack>

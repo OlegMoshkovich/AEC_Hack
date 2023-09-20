@@ -7,19 +7,19 @@ import Card from './Card'
 export default function NotesList() {
   const data=[
     {
-    title:'Welcome to Share',
-    date: '17.09.2023',
-    content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    type:'image',
-    src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
-    },
-    {
-      title:'Note 1',
+      title:'Welcome to Share',
       date: '17.09.2023',
-      content:'Sample Video about innner organization of an engine',
-      type:'video',
-      src:'https://www.youtube.com/embed/ZQvfHyfgBtA'
-      },
+      content:'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      type:'image',
+      src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
+    },
+    // {
+    //   title:'Note 1',
+    //   date: '17.09.2023',
+    //   content:'Sample Video about innner organization of an engine',
+    //   type:'video',
+    //   src:'https://www.youtube.com/embed/ZQvfHyfgBtA'
+    //   },
   ]
   return (
     <Stack justifyContent={'center'} alignItems={'center'}>
@@ -27,8 +27,9 @@ export default function NotesList() {
       spacing={1}
       >
         {data.map((item, index) => (
-            <ListItem >
+            <ListItem key={index}>
               <Card
+              key={item.title}
               title={item.title}
               date={item.date}
               content={item.content}

@@ -36,7 +36,6 @@ export default function Dialog({
     setOpen(false);
   };
 
-  console.log('currentTab', currentTab)
   return (
     <div>
       {iconButton ?

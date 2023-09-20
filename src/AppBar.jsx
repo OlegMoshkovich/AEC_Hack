@@ -113,16 +113,17 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
                 aria-label="account of current user"
                 aria-haspopup="true"
                 color="inherit"
+                onClick={
+                  ()=>{
+                    //  toggleRightDrawer()
+                    toggleShowComments()
+                  }
+                }
               >
                 <MapsUgcOutlinedIcon
                 size='inherit'
                 color= {showComments ? 'primary' : 'default'}
-                onClick={
-                  ()=>{
-                    toggleRightDrawer()
-                    toggleShowComments()
-                  }
-                }/>
+                />
               </IconButton>
             </Tooltip>
         </Stack>

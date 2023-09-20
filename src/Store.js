@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 
 const useStore = create((set) => ({
-  borderRadius: 20,
+  borderRadius: 4,
   themeScheme: 0,
   showComponents: false,
   showComments: false,

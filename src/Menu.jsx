@@ -4,14 +4,15 @@ import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 
-export default function BasicMenu({menuItems}) {
+export default function BasicMenu({menuItems, actionCb}) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
-  const handleClose = () => {
-    setAnchorEl(null);
+  const handleClose = (item) => {
+    // console.log('event from the menu', item)
+    actionCb(item)
   };
 
   return (
@@ -35,7 +36,7 @@ export default function BasicMenu({menuItems}) {
       >
         {menuItems.map(item => {
           return(
-            <MenuItem onClick={handleClose}>{item}</MenuItem>
+            <MenuItem key={item} onClick={()=>handleClose(item)}>{item}</MenuItem>
           )
         })
         }

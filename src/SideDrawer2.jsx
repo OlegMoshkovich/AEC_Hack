@@ -21,7 +21,9 @@ export default function SideDrawer2({
     topPanelButton,
     bottomPanelName,
     bottomPanelButton,
-    bottomPanel
+    bottomPanel,
+    firstPanelGlobal,
+    secondPanelGlobal,
   }) {
   const [isFirstPanel, setIsFirstPanel] = React.useState(true)
   const [isSecondPanel, setIsSecondPanel] = React.useState(true)
@@ -31,6 +33,7 @@ export default function SideDrawer2({
       setIsOpen()
       setIsFirstPanel(true)
       setIsSecondPanel(true)
+      console.log('in the use effect')
     }
   }, [setIsFirstPanel, setIsSecondPanel, isFirstPanel, isSecondPanel, setIsOpen])
 

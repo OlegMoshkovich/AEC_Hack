@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Stack from '@mui/material/Paper';
 import Timeline from '@mui/lab/Timeline';
+import Tooltip from '@mui/material/Tooltip';
 import TimelineItem from '@mui/lab/TimelineItem';
 import TimelineSeparator from '@mui/lab/TimelineSeparator';
 import TimelineConnector from '@mui/lab/TimelineConnector';
@@ -29,7 +29,7 @@ export default function CustomizedTimeline() {
             align="center"
             color={active === 0 ? "text.primary" : "text.secondary"}
           >
-              <Typography variant="body1" >
+              <Typography variant="body2" >
                 Version 1
               </Typography>
               <Typography variant="caption" >
@@ -48,17 +48,21 @@ export default function CustomizedTimeline() {
             </TimelineDot>
             <TimelineConnector />
           </TimelineSeparator>
-          <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
-            <Paper
-              variant='background'
-              elevation={active === 0 ? 4 : 1}
-              sx={{padding:'8px'}}
-            >
-              <Typography variant="caption" sx={{wordBreak: 'normal'}}>
-                Add initial model
-              </Typography>
-            </Paper>
-          </TimelineContent>
+          <Tooltip title={'Add initial model'} placement={'right'}>
+            <TimelineContent sx={{ py: '12px', px: 2, lineHeight:'1em' }} >
+              <Paper
+                variant='background'
+                elevation={active === 0 ? 4 : 1}
+                sx={{padding:'8px'}}
+              >
+                <Typography
+                  variant="caption"
+                  sx={{wordBreak: 'normal'}}>
+                  Add initial model
+                </Typography>
+              </Paper>
+            </TimelineContent>
+          </Tooltip>
         </TimelineItem>
         <TimelineItem onClick={()=>setActive(1)} sx={{cursor: 'pointer'}}>
         <TimelineOppositeContent
@@ -66,7 +70,7 @@ export default function CustomizedTimeline() {
             align="center"
             color={active === 1 ? "text.primary" : "text.secondary"}
           >
-              <Typography variant="body1" >
+              <Typography variant="body2" >
                 Version 2
               </Typography>
               <Typography variant="caption" >
@@ -105,7 +109,7 @@ export default function CustomizedTimeline() {
             align="center"
             color={active === 2 ? "text.primary" : "text.secondary"}
           >
-              <Typography variant="body1" >
+              <Typography variant="body2" >
                 Version 3
               </Typography>
               <Typography variant="caption" >
@@ -142,7 +146,7 @@ export default function CustomizedTimeline() {
             align="center"
             color={active === 3 ? "text.primary" : "text.secondary"}
           >
-              <Typography variant="body1" >
+              <Typography variant="body2" >
                 Version 4
               </Typography>
               <Typography variant="caption" >
@@ -179,7 +183,7 @@ export default function CustomizedTimeline() {
             align="center"
             color={active === 4 ? "text.primary" : "text.secondary"}
           >
-              <Typography variant="body1" >
+              <Typography variant="body2" >
                 Version 5
               </Typography>
               <Typography variant="caption" >
@@ -218,7 +222,7 @@ export default function CustomizedTimeline() {
             align="center"
             color={active === 6 ? "text.primary" : "text.secondary"}
           >
-              <Typography variant="body1" >
+              <Typography variant="body2" >
                 Version 6
               </Typography>
               <Typography variant="caption" >

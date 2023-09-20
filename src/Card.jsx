@@ -26,7 +26,7 @@ export default function MultiActionAreaCard({title, date, content, type='noImage
         avatar={ <Avatar aria-label="card"> R </Avatar>}
         action={<Menu menuItems={['Edit', 'Delete']}/>}
         title={title}
-        subheader={date }
+        subheader={date}
       />
       <CardActionArea>
         <CardMedia
