@@ -115,7 +115,7 @@ function App({changeTheme, darkTheme}) {
         sx={{
           position:'absolute',
           width:'100%',
-          height: isMobile ? '70%' : '100%',
+          height: '100%',
           backgroundColor: `${theme.palette.background.default}`,
           cursor: showComments ? 'context-menu':'default',
           zIndex:-100}}
