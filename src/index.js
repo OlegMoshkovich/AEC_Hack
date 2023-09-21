@@ -75,6 +75,7 @@ const themeComponent = {
       styleOverrides: {
         root: {
           textAlign: 'center',
+          paddingTop: '30px',
         }
       },
     },

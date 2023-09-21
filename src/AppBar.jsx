@@ -42,7 +42,7 @@ function Files(){
   return(
     <Stack
       spacing={1}
-      sx={{marginTop:'10px'}}
+        sx={{height: '280px', overflow: 'scroll', marginTop: '10px'}}
     >
       {industries.map((item,index) => {
         return(
@@ -91,13 +91,17 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
             <Dialog
               buttonLabel={'Files'}
               buttonColor={'secondary'}
-              dialogTitle={'OPEN'}
+              dialogTitle={
+                <Typography>
+                  OPEN
+                </Typography>
+              }
               dialogContent1={<Files/>}
               dialogContent2={
                 <Stack
                 direction='row'
                 justifyContent="center"
-                sx={{marginTop:'10px'}}
+                sx={{height: '280px', overflow: 'scroll', marginTop: '10px'}}
                 >
                   <Button key={1} variant='contained' size='small' color='primary' onClick={()=>console.log(1)}>
                   Open Local model

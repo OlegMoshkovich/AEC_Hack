@@ -167,7 +167,7 @@ function App({changeTheme, darkTheme}) {
         tabs={true}
         tabList={['Share', 'Imagine', 'Repo']}
         dialogTitle={
-          <Typography  sx={{paddingTop: '10px'}}>
+          <Typography>
             BLDRS.AI
           </Typography>
         }
