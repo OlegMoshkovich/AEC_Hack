@@ -167,50 +167,45 @@ function App({changeTheme, darkTheme}) {
         tabs={true}
         tabList={['Share', 'Imagine', 'Repo']}
         dialogTitle={
-        <Stack sx={{paddingTop: '10px'}}>
-          <Typography>
-            <Logo/>
+          <Typography  sx={{paddingTop: '10px'}}>
+            BLDRS.AI
           </Typography>
-          <Typography variant='overline'>
-            bldrs.ai
-          </Typography>
-        </Stack>
         }
         dialogContent1={
           <Stack>
-            <Typography variant='body2' color='default' sx={{fontWeight:'bold'}}>
+            <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               Welcome to Share - CAD integration environment.
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Upload your model to Share, position the camera, and share the generated link.
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               With a share link everyone has access to the same context in digital space.
             </Typography>
           </Stack>
         }
         dialogContent2={
           <Stack>
-            <Typography variant='body2' color='default' sx={{fontWeight:'bold'}}>
+            <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               Welcome to Imagine - AI renderer.
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Upload your model to Share, position the camera, and generate a share link.
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Paste the link to the imagine input and create a prompt description, our copilot will take care of the rest.
             </Typography>
           </Stack>
         }
         dialogContent3={
           <Stack>
-            <Typography variant='body2' color='default' sx={{fontWeight:'bold'}}>
+            <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               We are open source.
             </Typography>
-            <Typography variant='body2'>
+            <Typography variant='body1'>
               Please visit our repo, give us star, fork it and contribute to the project.
             </Typography>
-            <Link variant='body2' color='primary'>
+            <Link variant='body1' color='primary'>
             wwww.github.com
             </Link>
           </Stack>

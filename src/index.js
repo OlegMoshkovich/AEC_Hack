@@ -86,24 +86,6 @@ const themeComponent = {
         }
       },
     },
-    MuiTab: {
-      styleOverrides: {
-        root: {
-          fontSize: '12px',
-          padding: '0px',
-          minHeight: '30px',
-        }
-      },
-    },
-    MuiTabs: {
-      styleOverrides: {
-        root: {
-          padding:0,
-          minHeight: '30px',
-          paddingBottom:'10px',
-        }
-      },
-    },
     MuiSwitch: {
       root: {
         width: 42,
