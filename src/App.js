@@ -172,7 +172,7 @@ function App({changeTheme, darkTheme}) {
           </Typography>
         }
         dialogContent1={
-          <Stack sx={{height: '200px', overflow: 'scroll'}}>
+          <Stack sx={{height: '240px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               Welcome to Share - integration 3D development environment.
             </Typography>
@@ -185,7 +185,7 @@ function App({changeTheme, darkTheme}) {
           </Stack>
         }
         dialogContent2={
-          <Stack sx={{height: '200px', overflow: 'scroll'}}>
+          <Stack sx={{height: '240px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               Welcome to Imagine - AI renderer.
             </Typography>
@@ -203,7 +203,7 @@ function App({changeTheme, darkTheme}) {
           </Stack>
         }
         dialogContent3={
-          <Stack sx={{height: '200px', overflow: 'scroll'}}>
+          <Stack sx={{height: '240px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               We are open source.
             </Typography>
