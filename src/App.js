@@ -174,10 +174,10 @@ function App({changeTheme, darkTheme}) {
         dialogContent1={
           <Stack sx={{height: '240px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-              Welcome to Share - integration 3D development environment.
+              Welcome to Share, 3D integration environment.
             </Typography>
             <Typography variant='body1'>
-              Upload your 3D/CAD/BIM model to Share, position the camera and grab the generated link.
+              Upload your 3D/CAD/BIM model, position the camera and share the link.
             </Typography>
             <Typography variant='body1'>
               With Share link everyone has access to the same context in digital space.
