@@ -11,6 +11,9 @@ export default function AutocompleteInput({title, elements=[
     { title: 'Option4' },
   ]
 }) {
+  const handleContentChange = (e) => {
+    console.log('e from change', e)
+  };
   return (
     <Stack spacing={3} sx={{minWidth:'250px'}}>
       <Autocomplete
@@ -24,6 +27,7 @@ export default function AutocompleteInput({title, elements=[
           <TextField
             {...params}
             placeholder={title}
+            onChange={handleContentChange}
             size='small'
           />
         )}
