@@ -24,6 +24,9 @@ function Circle({ x, y }) {
       src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
     },]);
   };
+  const regularDiameter = '14px'
+  const largeDiameter = '24px'
+
 
 
 
@@ -44,14 +47,14 @@ function Circle({ x, y }) {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           style={{
-            width: '14px',
-            height: '14px',
-            borderRadius: '10px',
+            width: hover ? largeDiameter : regularDiameter,
+            height: hover ? largeDiameter : regularDiameter,
+            borderRadius: hover ? largeDiameter : regularDiameter,
             backgroundColor: hover || clicked ? 'lime':`${theme.palette.primary.main}`,
           }}
         />
       </Tooltip>
-      {((hover && info) || (clicked && info)) &&  (
+      {/* {((hover && info) || (clicked && info)) &&  (
         <Box sx={{ zIndex: 1000}}>
           <Card title={info.title} content={info.content} date={'today'}/>
         </Box>
@@ -61,7 +64,7 @@ function Circle({ x, y }) {
         <Box sx={{ zIndex: 1000 }}>
           <CardInput onSave={handleSave} />
         </Box>
-      )}
+      )} */}
     </div>
   );
 }

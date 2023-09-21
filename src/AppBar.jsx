@@ -41,7 +41,7 @@ function Files(){
 
   return(
     <Stack
-      spacing={2}
+      spacing={1}
       sx={{marginTop:'10px'}}
     >
       {industries.map((item,index) => {
@@ -91,11 +91,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
             <Dialog
               buttonLabel={'Files'}
               buttonColor={'secondary'}
-              dialogTitle={
-              <Typography variant='overline'>
-                Open
-              </Typography>
-              }
+              dialogTitle={'OPEN'}
               dialogContent1={<Files/>}
               dialogContent2={
                 <Stack
@@ -110,7 +106,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               }
               actionTitle={'OK'}
               tabs={true}
-              tabList={['Samples','Model']}
+              tabList={['Samples','Projects']}
             />
             <Tooltip title={showComments ? 'Hide notes' : 'Show notes'} placement={'right'}>
               <IconButton
@@ -121,7 +117,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
                 color="inherit"
                 onClick={
                   ()=>{
-                    //  toggleRightDrawer()
+                     toggleRightDrawer()
                     toggleShowComments()
                   }
                 }

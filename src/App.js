@@ -172,42 +172,48 @@ function App({changeTheme, darkTheme}) {
           </Typography>
         }
         dialogContent1={
-          <Stack>
+          <Stack sx={{height: '200px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-              Welcome to Share - CAD integration environment.
+              Welcome to Share - integration 3D development environment.
             </Typography>
             <Typography variant='body1'>
-              Upload your model to Share, position the camera, and share the generated link.
+              Upload your 3D/CAD/BIM model to Share, position the camera and grab the generated link.
             </Typography>
             <Typography variant='body1'>
-              With a share link everyone has access to the same context in digital space.
+              With Share link everyone has access to the same context in digital space.
             </Typography>
           </Stack>
         }
         dialogContent2={
-          <Stack>
+          <Stack sx={{height: '200px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               Welcome to Imagine - AI renderer.
             </Typography>
             <Typography variant='body1'>
-              Upload your model to Share, position the camera, and generate a share link.
+              Upload your model to Share, position the camera and grab Share link.
             </Typography>
+
             <Typography variant='body1'>
-              Paste the link to the imagine input and create a prompt description, our copilot will take care of the rest.
+
+              Paste the link&nbsp;
+              <Link href="https://discord.com/channels/853953158560743424/1126526910495740005" color="inherit">
+                here
+              </Link>&nbsp;and input a prompt, our copilot will take care of the rest.
             </Typography>
           </Stack>
         }
         dialogContent3={
-          <Stack>
+          <Stack sx={{height: '200px', overflow: 'scroll'}}>
             <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
               We are open source.
             </Typography>
             <Typography variant='body1'>
-              Please visit our repo, give us star, fork it and contribute to the project.
+              Please visit  &nbsp;
+              <Link href="https://github.com/bldrs-ai/Share" color="inherit">
+              GitHub
+              </Link>
+            , give us a star, fork Share, contribute to the project.
             </Typography>
-            <Link variant='body1' color='primary'>
-            wwww.github.com
-            </Link>
           </Stack>
         }
         icon={<InfoOutlinedIcon size='inherit' color='default'/>}

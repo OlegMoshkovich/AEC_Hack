@@ -42,6 +42,7 @@ export default function SideDrawer2({
     <Box sx={{ display: 'flex' }}>
       <Drawer
         variant="temporary"
+        disableEnforceFocus
         anchor={side}
         open={isOpen}
         color='primary'

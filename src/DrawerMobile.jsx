@@ -58,6 +58,7 @@ function SwipeableEdgeDrawer(props) {
         container={container}
         anchor="bottom"
         hideBackdrop
+        disableEnforceFocus
         open={open}
         onClose={toggleDrawer(false)}
         onOpen={toggleDrawer(true)}
