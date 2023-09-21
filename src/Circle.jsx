@@ -40,17 +40,19 @@ function Circle({ x, y }) {
         zIndex: 10,
       }}
     >
-      <Tooltip title={clicked?"Click to hide a note":'Click to show a note'} placement={'top'}>
+      <Tooltip title={clicked?"Click to show a note":'Click to hide a note'} placement={'top'}>
         <div
           className="circle"
           onClick={() => setClicked(!clicked)}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           style={{
-            width: hover ? largeDiameter : regularDiameter,
-            height: hover ? largeDiameter : regularDiameter,
-            borderRadius: hover ? largeDiameter : regularDiameter,
-            backgroundColor: hover || clicked ? 'lime':`${theme.palette.primary.main}`,
+            width: hover ? '30px':'10px',
+            height: hover ? '30px':'10px',
+            borderRadius:'14px',
+            backgroundColor: hover || clicked ? `${theme.palette.primary.main}`:'lime',
+            transform: 'translate(-50%, -50%)',
+            transition: 'width 0.5s, height 0.5s'
           }}
         />
       </Tooltip>
