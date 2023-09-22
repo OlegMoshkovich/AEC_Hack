@@ -293,7 +293,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', right: rightDrawer ? '300px' : '20px', top: '64px', height:'88%'}}
+        sx={{position:'fixed', right: (rightDrawer && !isMobile) ? '300px' : '20px', top: '64px', height:'88%'}}
       >
         {!isMobile &&
           <Stack spacing={0}>
