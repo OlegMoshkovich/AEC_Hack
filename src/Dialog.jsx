@@ -40,7 +40,7 @@ export default function Dialog({
   return (
     <div>
       {iconButton ?
-        <IconButton aria-label="edit" size='large' onClick={handleClickOpen}>
+        <IconButton aria-label="edit" size='small' onClick={handleClickOpen}>
           {icon}
         </IconButton>:
         <Button variant="contained" size='small' onClick={handleClickOpen} color={buttonColor}>

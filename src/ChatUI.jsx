@@ -3,12 +3,14 @@ import {
   TextField, Paper, List, ListItem, ListItemText,
   useTheme, InputAdornment, IconButton, Typography, Box
 } from '@mui/material';
-import SendIcon from '@mui/icons-material/Send';
+import CloseIcon from '@mui/icons-material/Close';  // Import CloseIcon
+import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 
-function ChatUI() {
+function ChatUI({closeWindow}) {
   const theme = useTheme();
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState('');
+
 
   const handleSend = () => {
     if (input.trim()) {
@@ -42,6 +44,7 @@ function ChatUI() {
 
   return (
     <Paper
+    elevation={4}
       sx={{
         width: '300px',
         height: '400px',
@@ -51,7 +54,23 @@ function ChatUI() {
         backgroundColor: theme.palette.secondary.main,
       }}
     >
-      <Typography
+      <Box
+        sx={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          padding: '10px',
+          // backgroundColor: theme.palette.secondary.main
+        }}
+      >
+        <Typography variant="overline" sx={{marginLeft:'80px'}}>
+          bldrs.ai copilot
+        </Typography>
+        <IconButton size="small" onClick={closeWindow}>
+          <CloseIcon fontSize="small" />
+        </IconButton>
+      </Box>
+      {/* <Typography
         variant="overline"
         sx={{
           backgroundColor: theme.palette.secondary.main,
@@ -60,7 +79,7 @@ function ChatUI() {
         }}
       >
         bldrs.ai copilot
-      </Typography>
+      </Typography> */}
       <List
         sx={{
           flex: 1,
@@ -114,9 +133,10 @@ function ChatUI() {
                 <IconButton
                   onClick={handleSend}
                   edge="end"
+                  size="small"
                   disabled={!input.trim()}
                 >
-                  <SendIcon color="default" />
+                  <ArrowForwardOutlinedIcon color="default" />
                 </IconButton>
               </InputAdornment>
             )

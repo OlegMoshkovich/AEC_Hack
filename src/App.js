@@ -155,16 +155,20 @@ function App({changeTheme, darkTheme}) {
     setCircles([...circles, newCircle]);
   };
 
+  const closeWindow = () => {
+    setShowChatUI(false);
+  };
+
   return (
     <>
     <AppBar darkTheme={darkTheme} changeTheme={changeTheme}/>
     {!isMobile &&
       <Drawer
-        topPanel={<NotesList/>}
         topPanelName={'Notes'}
+        topPanel={<NotesList/>}
         topPanelButton={ <NoteButtons/>}
-        bottomPanel={<PropertiesList/>}
         bottomPanelName={'Properties'}
+        bottomPanel={<PropertiesList/>}
         bottomPanelButton={<PropertiesButtons/>}
         side={'right'}
         isOpen={rightDrawer}
@@ -175,11 +179,11 @@ function App({changeTheme, darkTheme}) {
     }
     {!isMobile &&
       <Drawer
-        topPanel={<TreePanel/>}
         topPanelName={'Spatial navigation'}
+        topPanel={<TreePanel/>}
         topPanelButton={ <NavigationButtons/>}
-        bottomPanel={<VersionPanel/>}
         bottomPanelName={'Timeline'}
+        bottomPanel={<VersionPanel/>}
         bottomPanelButton={<TimelineButtons/>}
         side={'left'}
         isOpen={leftDrawer}
@@ -238,13 +242,13 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed',  left: leftDrawer ? '288px': '8px', top: '64px', height:'88%', zIndex:100}}
+        sx={{position:'fixed',  left: leftDrawer ? '288px': '18px', top: '67px', height:'88%', zIndex:100}}
       >
           {!isMobile &&
           <Stack spacing={0}>
             <Tooltip placement={'right'} title={'Spatial Navigation'}>
               <IconButton
-              size="large"
+              size="small"
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
@@ -254,7 +258,7 @@ function App({changeTheme, darkTheme}) {
                 <SegmentIcon size='inherit' color='default'/>
               </IconButton>
             </Tooltip>
-            <Tooltip placement={'right'} title={'Version history'}>
+            {/* <Tooltip placement={'right'} title={'Version history'}>
               <IconButton
               size="large"
               edge="end"
@@ -265,7 +269,7 @@ function App({changeTheme, darkTheme}) {
               >
                 <HistoryIcon size='inherit' color='default'/>
               </IconButton>
-            </Tooltip>
+            </Tooltip> */}
           </Stack>
           }
           <Dialog
@@ -293,13 +297,13 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', right: (rightDrawer && !isMobile) ? '300px' : '20px', top: '64px', height:'88%'}}
+        sx={{position:'fixed', right: (rightDrawer && !isMobile) ? '300px' : '20px', top: '67px', height:'88%'}}
       >
         {!isMobile &&
           <Stack spacing={0}>
             <Tooltip placement={'left'} title={'Information'}>
             <IconButton
-              size="large"
+              size="small"
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
@@ -313,7 +317,7 @@ function App({changeTheme, darkTheme}) {
         }
 
         <IconButton
-          size="large"
+          size="small"
           edge="end"
           aria-label="account of current user"
           aria-haspopup="true"
@@ -332,7 +336,7 @@ function App({changeTheme, darkTheme}) {
           right: rightDrawer ? '350px' : '70px',
         }}
         >
-          <ChatUI/>
+          <ChatUI closeWindow={()=>setShowChatUI(false)}/>
         </Box>
       }
       {(showChatUI && isMobile) &&
@@ -346,7 +350,7 @@ function App({changeTheme, darkTheme}) {
           width: '100%',
         }}
         >
-          <ChatUI/>
+          <ChatUI closeWindow={()=>setShowChatUI(false)}/>
         </Stack>
       }
     </>
