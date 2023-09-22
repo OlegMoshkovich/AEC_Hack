@@ -32,7 +32,7 @@ function Circle({ x, y }) {
         position: 'fixed',
         left: `${x}px`,
         top: `${y}px`,
-        zIndex: 10,
+        // zIndex: 10,
       }}
     >
       {/* <Tooltip title={clicked?"Click to show a note":'Click to hide a note'} placement={'top'} open={hover}> */}

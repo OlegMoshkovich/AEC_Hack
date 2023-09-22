@@ -30,7 +30,7 @@ import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddIcon from '@mui/icons-material/Add';
 import { useTheme } from '@mui/material/styles';
 import Circle from './Circle';
-import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOutlinedIcon from '@mui/icons-material/VisibilityOutlined';
 import Logo from './Logo'
 import ChatUI from './ChatUI'
 
@@ -113,7 +113,7 @@ function App({changeTheme, darkTheme}) {
       spacing={1}
     >
       <IconButton aria-label="comments" size='small'>
-        <VisibilityIcon fontSize='small' onClick={toggleShowComments} color={showComments ? 'primary' : 'default'}/>
+        <VisibilityOutlinedIcon fontSize='small' onClick={toggleShowComments} color={showComments ? 'primary' : 'default'}/>
       </IconButton>
       {/* <IconButton aria-label="comments" size='small'>
         <AddCommentOutlinedIcon fontSize='small' onClick={toggleShowComments} color={showComments ? 'primary' : 'default'}/>
@@ -238,7 +238,7 @@ function App({changeTheme, darkTheme}) {
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed',  left: leftDrawer ? '288px': '14px', top: '64px', height:'88%', zIndex:100}}
+        sx={{position:'fixed',  left: leftDrawer ? '288px': '8px', top: '64px', height:'88%', zIndex:100}}
       >
           {!isMobile &&
           <Stack spacing={0}>
