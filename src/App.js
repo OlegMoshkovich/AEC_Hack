@@ -1,9 +1,10 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css';
 import useStore from './Store';
 import ComponentLibrary from './ComponentLibrary'
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack';
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 import Tooltip from '@mui/material/Tooltip';
@@ -31,6 +32,7 @@ import { useTheme } from '@mui/material/styles';
 import Circle from './Circle';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import Logo from './Logo'
+import ChatUI from './ChatUI'
 
 const AboutShare = () => {
   return(
@@ -98,6 +100,7 @@ function App({changeTheme, darkTheme}) {
 
   const {showComments, toggleShowComments} = useStore();
   const {showComponents} = useStore();
+  const [showChatUI, setShowChatUI] = useState(false)
   const {circles} = useStore();
   const {setCircles} = useStore();
   const isMobile = useMediaQuery('(max-width:600px)');
@@ -315,10 +318,37 @@ function App({changeTheme, darkTheme}) {
           aria-label="account of current user"
           aria-haspopup="true"
           color="inherit"
+          onClick={()=>setShowChatUI(!showChatUI)}
         >
-          <AutoFixHighOutlinedIcon size='inherit' color='default'/>
+          <AutoFixHighOutlinedIcon size='inherit' color={showChatUI ? "primary" : "default"}/>
         </IconButton>
       </Stack>
+
+      {(showChatUI && !isMobile) &&
+        <Box
+        sx={{
+          position: 'fixed',
+          bottom: '3%',
+          right: rightDrawer ? '350px' : '70px',
+        }}
+        >
+          <ChatUI/>
+        </Box>
+      }
+      {(showChatUI && isMobile) &&
+        <Stack
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+        sx={{
+          position: 'fixed',
+          top: '140px',
+          width: '100%',
+        }}
+        >
+          <ChatUI/>
+        </Stack>
+      }
     </>
   );
 }

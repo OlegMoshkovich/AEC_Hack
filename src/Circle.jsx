@@ -42,8 +42,8 @@ function Circle({ x, y }) {
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           style={{
-            width: clicked ? '20px':'10px',
-            height: clicked ? '20px':'10px',
+            width: (clicked || hover) ? '20px':'10px',
+            height: (clicked || hover) ? '20px':'10px',
             borderRadius:'14px',
             backgroundColor: `${theme.palette.primary.main}`,
             transform: 'translate(-50%, -50%)',
