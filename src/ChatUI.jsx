@@ -60,7 +60,7 @@ function ChatUI({closeWindow}) {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '10px',
-          // backgroundColor: theme.palette.secondary.main
+          backgroundColor: theme.palette.secondary.main
         }}
       >
         <Typography variant="overline" sx={{marginLeft:'80px'}}>
