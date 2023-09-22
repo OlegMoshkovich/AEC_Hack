@@ -112,7 +112,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               tabs={true}
               tabList={['Samples','Projects']}
             />
-            <Tooltip title={showComments ? 'Hide notes' : 'Show notes'} placement={'right'}>
+            <Tooltip title={'Add notes'} placement={'right'}>
               <IconButton
                 size="large"
                 edge="end"

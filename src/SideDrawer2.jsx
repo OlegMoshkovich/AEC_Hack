@@ -22,8 +22,8 @@ export default function SideDrawer2({
     bottomPanelName,
     bottomPanelButton,
     bottomPanel,
-    firstPanelGlobal,
-    secondPanelGlobal,
+    isFirstPanelInput=false,
+    isSecondPanelInput=false,
   }) {
   const [isFirstPanel, setIsFirstPanel] = React.useState(true)
   const [isSecondPanel, setIsSecondPanel] = React.useState(true)
@@ -74,7 +74,7 @@ export default function SideDrawer2({
         }}
       >
         <Toolbar />
-            {isFirstPanel &&
+            {(isFirstPanel || isFirstPanelInput) &&
               <Box
                 sx={{
                   minHeight:'50%',
@@ -116,7 +116,7 @@ export default function SideDrawer2({
                 {/* {topPanel} */}
               </Box>
             }
-            {isSecondPanel &&
+            {(isSecondPanel || isSecondPanelInput) &&
               <Box
                 sx={{
                   minHeight:'40%',

@@ -8,7 +8,7 @@ import useStore from './Store';
 
 function Circle({ x, y }) {
   const [hover, setHover] = useState(false);
-  const [clicked, setClicked] = useState(true);
+  const [clicked, setClicked] = useState(false);
   const [info, setInfo] = useState(null); // To store title and content
   const theme = useTheme();
   const {notes} = useStore();
@@ -24,11 +24,6 @@ function Circle({ x, y }) {
       src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
     },]);
   };
-  const regularDiameter = '14px'
-  const largeDiameter = '24px'
-
-
-
 
   return (
     <div
@@ -40,29 +35,29 @@ function Circle({ x, y }) {
         zIndex: 10,
       }}
     >
-      <Tooltip title={clicked?"Click to show a note":'Click to hide a note'} placement={'top'}>
+      {/* <Tooltip title={clicked?"Click to show a note":'Click to hide a note'} placement={'top'} open={hover}> */}
         <div
           className="circle"
           onClick={() => setClicked(!clicked)}
           onMouseEnter={() => setHover(true)}
           onMouseLeave={() => setHover(false)}
           style={{
-            width: hover ? '30px':'10px',
-            height: hover ? '30px':'10px',
+            width: clicked ? '20px':'10px',
+            height: clicked ? '20px':'10px',
             borderRadius:'14px',
-            backgroundColor: hover || clicked ? `${theme.palette.primary.main}`:'lime',
+            backgroundColor: `${theme.palette.primary.main}`,
             transform: 'translate(-50%, -50%)',
             transition: 'width 0.5s, height 0.5s'
           }}
         />
-      </Tooltip>
+      {/* </Tooltip> */}
       {/* {((hover && info) || (clicked && info)) &&  (
         <Box sx={{ zIndex: 1000}}>
           <Card title={info.title} content={info.content} date={'today'}/>
         </Box>
-      )}
+      )} */}
 
-      {clicked && !info && (
+      {/* {clicked && !info && (
         <Box sx={{ zIndex: 1000 }}>
           <CardInput onSave={handleSave} />
         </Box>
