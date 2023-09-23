@@ -63,8 +63,8 @@ function ChatUI({closeWindow}) {
           backgroundColor: theme.palette.secondary.main
         }}
       >
-        <Typography variant="overline" sx={{marginLeft:'80px'}}>
-          bldrs.ai copilot
+        <Typography variant="body2" sx={{marginLeft:'74px'}}>
+          BLDRS AI COPILOT
         </Typography>
         <IconButton size="small" onClick={closeWindow}>
           <CloseIcon fontSize="small" />
