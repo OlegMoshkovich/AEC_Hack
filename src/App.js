@@ -38,7 +38,7 @@ const AboutShare = () => {
   return(
     <Stack sx={{height: '240px', overflow: 'scroll'}}>
     <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-      Welcome to Share, 3D integration environment.
+      3D integration environment.
     </Typography>
     <Typography variant='body1'>
       Upload your 3D/CAD/BIM model, position the camera and share the link.
@@ -55,7 +55,7 @@ const AboutImagine = () =>{
   return(
     <Stack sx={{height: '240px', overflow: 'scroll'}}>
       <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-        Welcome to Imagine - AI renderer.
+        AI renderer.
       </Typography>
       <Typography variant='body1'>
         Upload your model to Share, position the camera and grab Share link.
@@ -66,7 +66,7 @@ const AboutImagine = () =>{
         Paste the link&nbsp;
         <Link href="https://discord.com/channels/853953158560743424/1126526910495740005" color="inherit">
           here
-        </Link>&nbsp;and input a prompt, our copilot will take care of the rest.
+        </Link>&nbsp;and input a prompt, our copilot will generate a rendering using AI model.
       </Typography>
     </Stack>
   )
