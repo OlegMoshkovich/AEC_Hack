@@ -12,10 +12,6 @@ import SegmentIcon from '@mui/icons-material/Segment';
 import InfoOutlinedIcon from '@mui/icons-material/InfoOutlined';
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import AutoFixHighOutlinedIcon from '@mui/icons-material/AutoFixHighOutlined';
-import AddCommentOutlinedIcon from '@mui/icons-material/AddCommentOutlined';
-import CommentOutlinedIcon from '@mui/icons-material/CommentOutlined';
-import AccountTreeOutlinedIcon from '@mui/icons-material/AccountTreeOutlined';
-import HistoryIcon from '@mui/icons-material/History';
 import AppBar from './AppBar'
 import Drawer from './SideDrawer2'
 import Dialog from './Dialog'
@@ -95,7 +91,6 @@ function App({changeTheme, darkTheme}) {
     leftDrawer,
     toggleRightDrawer,
     toggleLeftDrawer
-
   } = useStore();
 
   const {showComments, toggleShowComments} = useStore();
@@ -255,7 +250,7 @@ function App({changeTheme, darkTheme}) {
               color="inherit"
               onClick={()=>toggleLeftDrawer()}
               >
-                <SegmentIcon size='inherit' color='default'/>
+                <SegmentIcon size='inherit' color={leftDrawer ? 'primary' : 'default'}/>
               </IconButton>
             </Tooltip>
             {/* <Tooltip placement={'right'} title={'Version history'}>
@@ -277,9 +272,15 @@ function App({changeTheme, darkTheme}) {
             tabs={true}
             tabList={['Share', 'Imagine', 'Repo']}
             dialogTitle={
-              <Typography>
-                BLDRS.AI
-              </Typography>
+            <Stack
+            alignItems={'center'}
+            spacing={2}
+            >
+                <Logo/>
+                <Typography variant={'body2'}>
+                  BLDRS.AI
+                </Typography>
+              </Stack>
             }
             dialogContent1={
               <AboutShare/>
@@ -310,7 +311,7 @@ function App({changeTheme, darkTheme}) {
               color="inherit"
               onClick={()=>toggleRightDrawer()}
             >
-              <MenuOutlinedIcon size='inherit' color='default'/>
+              <MenuOutlinedIcon size='inherit' color={rightDrawer ? 'primary' : 'default'}/>
             </IconButton>
             </Tooltip>
           </Stack>

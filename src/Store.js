@@ -12,7 +12,7 @@ const firstNote =
 }
 
 const useStore = create((set) => ({
-  borderRadius: 16,
+  borderRadius: 6,
   themeScheme: 0,
   showComponents: false,
   showComments: false,

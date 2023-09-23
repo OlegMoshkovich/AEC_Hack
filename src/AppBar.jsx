@@ -114,7 +114,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
             />
             <Tooltip title={'Add notes'} placement={'right'}>
               <IconButton
-                size="large"
+                size="medium"
                 edge="end"
                 aria-label="account of current user"
                 aria-haspopup="true"
@@ -151,7 +151,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
           sx={{marginRight:'-15px'}}
           >
           <IconButton
-              size="large"
+              size="medium"
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
