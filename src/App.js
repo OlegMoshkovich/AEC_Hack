@@ -38,7 +38,7 @@ const AboutShare = () => {
   return(
     <Stack sx={{height: '240px', overflow: 'scroll'}}>
     <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-      3D integration environment.
+      Share is a 3D integration environment.
     </Typography>
     <Typography variant='body1'>
       Upload your 3D/CAD/BIM model, position the camera and share the link.
@@ -55,7 +55,7 @@ const AboutImagine = () =>{
   return(
     <Stack sx={{height: '240px', overflow: 'scroll'}}>
       <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-        AI renderer.
+        Imagine is AI renderer.
       </Typography>
       <Typography variant='body1'>
         Upload your model to Share, position the camera and grab Share link.
