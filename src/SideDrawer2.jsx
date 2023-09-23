@@ -7,8 +7,11 @@ import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack'
 import CloseIcon from '@mui/icons-material/Close';
 import {Typography} from '@mui/material';
+import FormControl from '@mui/material/FormControl';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListIcon from '@mui/icons-material/List';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 const drawerWidth = 280;
 
 
@@ -28,6 +31,9 @@ export default function SideDrawer2({
   const [isFirstPanel, setIsFirstPanel] = React.useState(true)
   const [isSecondPanel, setIsSecondPanel] = React.useState(true)
 
+  const [firstPanel, setFirstPanel] = React.useState('first')
+  const [secondPanel, setSecondPanel] = React.useState('second')
+
   useEffect(() => {
     if(!isFirstPanel && !isSecondPanel){
       setIsOpen()
@@ -36,6 +42,26 @@ export default function SideDrawer2({
       console.log('in the use effect')
     }
   }, [setIsFirstPanel, setIsSecondPanel, isFirstPanel, isSecondPanel, setIsOpen])
+
+  const handlePanelSelectionFirst = (event) => {
+    const panel = event.target.value;
+    console.log('panel', panel)
+    if (panel === 'top') {
+      setFirstPanel('first')
+    } else if (panel === 'bottom') {
+      setFirstPanel('second')
+    }
+  };
+
+  const handlePanelSelectionSecond = (event) => {
+    const panel = event.target.value;
+    console.log('panel', panel)
+    if (panel === 'top') {
+      setSecondPanel('first')
+    } else if (panel === 'bottom') {
+      setSecondPanel('second')
+    }
+  };
 
 
   return (
@@ -90,9 +116,32 @@ export default function SideDrawer2({
                       alignItems="center"
                       sx={{height: '40px'}}
                     >
-                        <Typography variant="body1">
-                          {topPanelName}
-                        </Typography>
+                      <FormControl variant="standard"
+                         sx={{
+                          m: 1,
+                          color: 'default',
+                          '& .MuiInput-underline:after': {
+                            borderBottom: 'none', // remove the bottom border when focused
+                          },
+                          '& .MuiInput-underline:before': {
+                            borderBottom: 'none', // remove the initial bottom border
+                          },
+                        }}>
+                           <Select
+                            value={firstPanel === 'first' ? 'top' : 'bottom'}
+                            onChange={handlePanelSelectionFirst}
+                            displayEmpty
+                            size='small'
+                            sx={{
+                              '& .MuiPaper-root': {
+                                borderRadius: 0, // this sets the dropdown's border radius to 0
+                              },
+                            }}
+                          >
+                            <MenuItem value="top">{topPanelName}</MenuItem>
+                            <MenuItem value="bottom">{bottomPanelName}</MenuItem>
+                          </Select>
+                      </FormControl>
                         <Stack
                           direction="row"
                           justifyContent="center"
@@ -111,7 +160,8 @@ export default function SideDrawer2({
                       </Stack>
                       </Stack>
                     </ListSubheader>
-                    {topPanel}
+                    {firstPanel === 'first' && topPanel}
+                    {firstPanel === 'second' && bottomPanel}
                 </List>
                 {/* {topPanel} */}
               </Box>
@@ -132,9 +182,27 @@ export default function SideDrawer2({
                       alignItems="center"
                       sx={{height: '40px'}}
                     >
-                        <Typography variant="body1">
-                          {bottomPanelName}
-                        </Typography>
+                    <FormControl variant="standard"
+                         sx={{
+                          m: 1,
+                          color: 'default',
+                          '& .MuiInput-underline:after': {
+                            borderBottom: 'none', // remove the bottom border when focused
+                          },
+                          '& .MuiInput-underline:before': {
+                            borderBottom: 'none', // remove the initial bottom border
+                          },
+                        }}>
+                         <Select
+                            value={secondPanel === 'second' ? 'bottom' : 'top'}
+                            onChange={handlePanelSelectionSecond}
+                            displayEmpty
+                            size='small'
+                          >
+                            <MenuItem value="top">{topPanelName}</MenuItem>
+                            <MenuItem value="bottom">{bottomPanelName}</MenuItem>
+                          </Select>
+                        </FormControl>
                         <Stack
                           direction="row"
                           justifyContent="center"
@@ -153,7 +221,8 @@ export default function SideDrawer2({
                       </Stack>
                       </Stack>
                     </ListSubheader>
-                    {bottomPanel}
+                    {secondPanel === 'first' && topPanel}
+                    {secondPanel === 'second' && bottomPanel}
                 </List>
                 {/* {topPanel} */}
               </Box>

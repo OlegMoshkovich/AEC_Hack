@@ -38,6 +38,13 @@ const themeComponent = {
         },
       ]
     },
+    MuiFormControl: {
+      styleOverrides: {
+        root: ({ theme }) => ({
+          border:'none'
+        }),
+      }
+    },
     MuiList: {
       styleOverrides: {
         root: ({ theme }) => ({
