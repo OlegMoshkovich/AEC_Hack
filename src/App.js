@@ -79,7 +79,7 @@ const AboutRepo = () =>{
       <Link href="https://github.com/bldrs-ai/Share" color="inherit">
       GitHub
       </Link>
-    , give us a star, fork "Share" and contribute to the project.
+    , give us a star, fork "Share" and  contribute to the project.
     </Typography>
     </Stack>
   )
