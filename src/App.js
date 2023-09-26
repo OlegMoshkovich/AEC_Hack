@@ -34,13 +34,13 @@ const AboutShare = () => {
   return(
     <Stack sx={{height: '240px', overflow: 'scroll'}}>
     <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-      Share is a 3D integration environment.
+      Share - 3D integration environment.
     </Typography>
     <Typography variant='body1'>
       Upload your 3D/CAD/BIM model, position the camera and share the link.
     </Typography>
     <Typography variant='body1'>
-      With Share link everyone has access to the same context in digital space.
+      With "Share" link everyone has access to the same context in digital space.
     </Typography>
   </Stack>
   )
@@ -54,14 +54,14 @@ const AboutImagine = () =>{
         Imagine is AI renderer.
       </Typography>
       <Typography variant='body1'>
-        Upload your model to Share, position the camera and grab Share link.
+        Upload your model to "Share", position the camera and grab "Share" link.
       </Typography>
 
       <Typography variant='body1'>
 
         Paste the link&nbsp;
         <Link href="https://discord.com/channels/853953158560743424/1126526910495740005" color="inherit">
-          here
+          to discord
         </Link>&nbsp;and input a prompt, our copilot will generate a rendering using AI model.
       </Typography>
     </Stack>
@@ -79,7 +79,7 @@ const AboutRepo = () =>{
       <Link href="https://github.com/bldrs-ai/Share" color="inherit">
       GitHub
       </Link>
-    , give us a star, fork Share, contribute to the project.
+    , give us a star, fork "Share" and contribute to the project.
     </Typography>
     </Stack>
   )
