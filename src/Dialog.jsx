@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Button from '@mui/material/Button';
 import MuiDialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
@@ -6,11 +6,9 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Typography from '@mui/material/Typography';
-import GitHubIcon from '@mui/icons-material/GitHub';
 import Tabs from './Tabs'
 import {Stack} from '@mui/system';
 import IconButton from '@mui/material/IconButton';
-import EditIcon from '@mui/icons-material/Edit';
 
 export default function Dialog({
   buttonLabel='dialog',
@@ -24,7 +22,7 @@ export default function Dialog({
   dialogContent3='sample content 3',
   tabs=false,
   tabList= ['tab 1', 'tab 2', 'tab 3'],
-  actionTitle='ok'
+  actionTitle='ok',
 }) {
   const [open, setOpen] = useState(false);
   const [currentTab, setCurrentTab] = useState(0);
@@ -36,6 +34,7 @@ export default function Dialog({
   const handleClose = () => {
     setOpen(false);
   };
+
 
   return (
     <div>

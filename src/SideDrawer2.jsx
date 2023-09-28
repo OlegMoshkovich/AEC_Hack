@@ -6,7 +6,6 @@ import List from '@mui/material/List';
 import IconButton from '@mui/material/IconButton';
 import Stack from '@mui/material/Stack'
 import CloseIcon from '@mui/icons-material/Close';
-import {Typography} from '@mui/material';
 import FormControl from '@mui/material/FormControl';
 import ListSubheader from '@mui/material/ListSubheader';
 import ListIcon from '@mui/icons-material/List';
@@ -25,14 +24,18 @@ export default function SideDrawer2({
     bottomPanelName,
     bottomPanelButton,
     bottomPanel,
-    isFirstPanelInput=false,
-    isSecondPanelInput=false,
+    showFirstPanel=true,
+    showSecondPanel=true,
   }) {
   const [isFirstPanel, setIsFirstPanel] = React.useState(true)
-  const [isSecondPanel, setIsSecondPanel] = React.useState(false)
+  const [isSecondPanel, setIsSecondPanel] = React.useState(true)
 
   const [firstPanel, setFirstPanel] = React.useState('first')
   const [secondPanel, setSecondPanel] = React.useState('second')
+  useEffect(()=>{
+    setIsFirstPanel(showFirstPanel)
+    setIsSecondPanel(showSecondPanel)
+  },[])
 
   useEffect(() => {
     if(!isFirstPanel && !isSecondPanel){
@@ -100,7 +103,7 @@ export default function SideDrawer2({
         }}
       >
         <Toolbar />
-            {(isFirstPanel || isFirstPanelInput) &&
+            {(isFirstPanel) &&
               <Box
                 sx={{
                   minHeight:'50%',
@@ -166,7 +169,7 @@ export default function SideDrawer2({
                 {/* {topPanel} */}
               </Box>
             }
-            {(isSecondPanel || isSecondPanelInput) &&
+            {(isSecondPanel) &&
               <Box
                 sx={{
                   minHeight:'40%',

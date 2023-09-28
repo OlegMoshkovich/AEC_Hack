@@ -168,8 +168,8 @@ function App({changeTheme, darkTheme}) {
         side={'right'}
         isOpen={rightDrawer}
         setIsOpen={toggleRightDrawer}
-        isFirstPanelInput={false}
-        isSecondPanelInput={false}
+        showFirstPanel={true}
+        showSecondPanel={false}
       />
     }
     {!isMobile &&
@@ -183,6 +183,8 @@ function App({changeTheme, darkTheme}) {
         side={'left'}
         isOpen={leftDrawer}
         setIsOpen={toggleLeftDrawer}
+        showFirstPanel={true}
+        showSecondPanel={true}
       />
     }
     {isMobile &&
