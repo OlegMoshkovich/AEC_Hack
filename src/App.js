@@ -32,7 +32,7 @@ import ChatUI from './ChatUI'
 
 const AboutShare = () => {
   return(
-    <Stack sx={{height: '200px', overflow: 'scroll', paddingTop: '20px'}}>
+    <Stack sx={{height: '220px', overflow: 'scroll', paddingTop: '20px'}}>
     <Typography variant='body1' color='default'>
       Share - 3D integration environment.
     </Typography>
@@ -49,7 +49,7 @@ const AboutShare = () => {
 
 const AboutImagine = () =>{
   return(
-    <Stack sx={{height: '200px', overflow: 'scroll', paddingTop: '20px'}}>
+    <Stack sx={{height: '220px', overflow: 'scroll', paddingTop: '20px'}}>
       <Typography variant='body1' color='default' >
         Imagine - AI renderer.
       </Typography>
@@ -70,7 +70,7 @@ const AboutImagine = () =>{
 
 const AboutRepo = () =>{
   return(
-    <Stack sx={{height: '200px', overflow: 'scroll', paddingTop: '20px'}}>
+    <Stack sx={{height: '220px', overflow: 'scroll', paddingTop: '20px'}}>
     <Typography variant='body1' color='default'>
       We are open source.
     </Typography>
