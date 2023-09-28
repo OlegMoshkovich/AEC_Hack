@@ -32,8 +32,8 @@ import ChatUI from './ChatUI'
 
 const AboutShare = () => {
   return(
-    <Stack sx={{height: '240px', overflow: 'scroll'}}>
-    <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
+    <Stack sx={{height: '200px', overflow: 'scroll', paddingTop: '20px'}}>
+    <Typography variant='body1' color='default'>
       Share - 3D integration environment.
     </Typography>
     <Typography variant='body1'>
@@ -49,9 +49,9 @@ const AboutShare = () => {
 
 const AboutImagine = () =>{
   return(
-    <Stack sx={{height: '240px', overflow: 'scroll'}}>
-      <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
-        Imagine is AI renderer.
+    <Stack sx={{height: '200px', overflow: 'scroll', paddingTop: '20px'}}>
+      <Typography variant='body1' color='default' >
+        Imagine - AI renderer.
       </Typography>
       <Typography variant='body1'>
         Upload your model to "Share", position the camera and grab "Share" link.
@@ -70,8 +70,8 @@ const AboutImagine = () =>{
 
 const AboutRepo = () =>{
   return(
-    <Stack sx={{height: '240px', overflow: 'scroll'}}>
-    <Typography variant='body1' color='default' sx={{fontWeight:'bold'}}>
+    <Stack sx={{height: '200px', overflow: 'scroll', paddingTop: '20px'}}>
+    <Typography variant='body1' color='default'>
       We are open source.
     </Typography>
     <Typography variant='body1'>
@@ -278,7 +278,7 @@ function App({changeTheme, darkTheme}) {
             >
                 <Logo/>
                 <Typography variant={'body2'}>
-                  BLDRS.AI
+                  BLDRS
                 </Typography>
               </Stack>
             }

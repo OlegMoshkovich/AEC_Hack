@@ -29,7 +29,7 @@ export default function SideDrawer2({
     isSecondPanelInput=false,
   }) {
   const [isFirstPanel, setIsFirstPanel] = React.useState(true)
-  const [isSecondPanel, setIsSecondPanel] = React.useState(true)
+  const [isSecondPanel, setIsSecondPanel] = React.useState(false)
 
   const [firstPanel, setFirstPanel] = React.useState('first')
   const [secondPanel, setSecondPanel] = React.useState('second')
