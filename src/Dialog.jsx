@@ -57,7 +57,7 @@ export default function Dialog({
           {dialogTitle}
         </DialogTitle>
         <DialogContent
-          sx={{maxWidth:'260px'}}
+          sx={{maxWidth:'300px'}}
         >
           <DialogContentText id="alert-dialog-description">
             <Stack spacing={1}>

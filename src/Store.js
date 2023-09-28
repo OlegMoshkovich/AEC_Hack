@@ -10,13 +10,21 @@ const firstNote =
   type:'image',
   src:'https://user-images.githubusercontent.com/3433606/271344003-c505b72f-0d39-4ae1-99a4-c276daeb0733.png'
 }
+const secondNote =
+{
+  title:'Example Note',
+  date: '17.09.2023',
+  content:`Engine cross sectional plans`,
+  type:'image',
+  src:'https://i.pinimg.com/564x/ac/6d/50/ac6d50ccbde053337dae0390bd44a193.jpg'
+}
 
 const useStore = create((set) => ({
   borderRadius: 6,
   themeScheme: 0,
   showComponents: false,
   showComments: false,
-  notes:[firstNote],
+  notes:[firstNote,secondNote],
   circles:[],
   rightDrawer:false,
   leftDrawer: false,

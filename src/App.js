@@ -278,9 +278,9 @@ function App({changeTheme, darkTheme}) {
             alignItems={'center'}
             spacing={2}
             >
-                <Logo/>
+                {/* <Logo/> */}
                 <Typography variant={'body2'}>
-                  BLDRS
+                  BLDRS.AI
                 </Typography>
               </Stack>
             }
