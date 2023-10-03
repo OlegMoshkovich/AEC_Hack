@@ -164,7 +164,13 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               }
             </IconButton>
             {!isMobile && <AvatarGroup/>}
-            <Button variant="contained"  size="small" color='primary' disableElevation>
+            <Button
+              variant="contained"
+              size="small"
+              color='primary'
+              disableElevation
+              onClick={()=>window.open('https://bldrs.ai')}
+            >
               Share
             </Button>
             <IconButton
