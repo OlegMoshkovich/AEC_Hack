@@ -1,7 +1,8 @@
 import * as React from 'react';
 import Chip from '@mui/material/Chip'
 import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
@@ -18,6 +19,7 @@ export function Projects(){
   const [org, setOrg] = React.useState('sp');
   const [file, setFile] = React.useState(10);
   const [save, setSave] = React.useState('');
+  const [deleteMode, setDeleteMode] = React.useState(false);
   const [version, setVersion] = React.useState(true);
 
   const handleChangeRepos = (event) => {
@@ -59,8 +61,24 @@ export function Projects(){
         spacing={1}
         sx={{overflow: 'scroll', paddingBottom: '20px'}}
       >
-        <Chip label="Open" onClick={()=>setSave(false)} variant={save ? 'outlined' : ''} color='primary'/>
-        <Chip label="Save" onClick={()=>setSave(true)} variant={save ? '' : 'outlined'} color='primary'/>
+        <Chip label="Open"
+          onClick={()=>{
+            setSave(false)
+            setDeleteMode(false)
+          }
+          }
+          variant={(!save && !deleteMode) ? '' : 'outlined'}
+          color='primary'/>
+        <Chip label="Save"
+         onClick={()=>{
+         setSave(true)
+         setDeleteMode(false)
+         }} variant={save ? '' : 'outlined'} color='primary'/>
+        <Chip label="Delete"
+        onClick={()=>{
+          setSave(false)
+          setDeleteMode(true)
+        }} variant={deleteMode ? '' : 'outlined'} color='primary'/>
       </Stack>
       <Typography variant='overline' sx={{textAlign: 'center'}}>
         Repositories
@@ -116,6 +134,11 @@ export function Projects(){
         </Select>
       </FormControl>
       </Box>
+      {deleteMode &&
+        <Button sx={{marginTop:'20px'}} variant="contained" color="error" disabled={file === 10}>
+          Delete
+        </Button>
+      }
     </>
     }
       { repo && save &&
