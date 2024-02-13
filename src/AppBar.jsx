@@ -1,33 +1,28 @@
 import * as React from 'react';
 import AppBar from '@mui/material/AppBar';
+import Chip from '@mui/material/Chip'
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
+import MenuItem from '@mui/material/MenuItem';
+import FormControl from '@mui/material/FormControl';
+import Select from '@mui/material/Select';
 import Logo from './Logo'
 import Stack from '@mui/material/Stack'
 import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
 import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
 import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
+import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
 import Tooltip from '@mui/material/Tooltip';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import AutocompleteExample from './AutoComplete'
 import AvatarGroup from './AvatarGroup'
 import useStore from './Store';
 import Dialog from './Dialog'
-
-
-
-const industries=[
-  '.IFC',
-  '.OBJ',
-  '.STL',
-  '.STEP',
-  '.FBX',
-  '.SLDPRT/SLDASM',
-  '.3DM',]
+import {Projects} from './Projects'
 
 const searchElements = [
   { title: 'Surfaces' },
@@ -35,24 +30,27 @@ const searchElements = [
   { title: 'Gears' },
   { title: 'Electonics' },
 ]
-
-
-function Files(){
-
+function Recent(){
   return(
     <Stack
-      spacing={1}
-        sx={{height: '280px', overflow: 'scroll', marginTop: '10px'}}
-    >
-      {industries.map((item,index) => {
-        return(
-          <Button key={item} variant='contained' size='small' color='primary' onClick={()=>console.log(item)}>
-            {item}
-          </Button>
-        )
-      })
-      }
-    </Stack>
+    direction='column'
+    justifyContent="center"
+    spacing={1}
+    sx={{overflow: 'scroll'}}
+  >
+  <Typography variant='overline' sx={{textAlign: 'center', paddingTop: '10px'}}>
+    Samples
+  </Typography>
+    <Chip label="Momentum" onClick={()=>console.log('here')} variant='outlined'/>
+    <Chip label="Schneestock" onClick={()=>console.log('here')} variant='outlined'/>
+    <Chip label="Momentum" onClick={()=>console.log('here')} variant='filled' color='primary'/>
+  <Typography variant='overline' sx={{textAlign: 'center', paddingTop: '10px'}}>
+    Recent
+  </Typography>
+    <Chip label="Momentum" onClick={()=>console.log('here')} variant='outlined'/>
+    <Chip label="Schneestock" onClick={()=>console.log('here')} variant='outlined'/>
+    <Chip label="Momentum" onClick={()=>console.log('here')} variant='outlined'/>
+  </Stack>
   )
 }
 
@@ -60,7 +58,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
   const isMobile = useMediaQuery('(max-width:600px)');
   const {toggleShowComponents} = useStore();
   const {toggleShowComments, showComments} = useStore();
-  const {toggleRightDrawer, rightDrawer} = useStore();
+  const {toggleRightDrawer} = useStore();
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -69,7 +67,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
         elevation={0}
         position="fixed"
         sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        size='small'
+        size='large'
       >
       <Toolbar>
         <Stack
@@ -89,32 +87,26 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               <Logo scaled={true}/>
             </IconButton>
             <Dialog
+              actionTitle={'OK'}
               buttonLabel={'Files'}
               buttonColor={'secondary'}
+              tabs={true}
+              tabList={['Recent','Projects']}
               dialogTitle={
                 <Typography>
                   OPEN
                 </Typography>
               }
-              dialogContent1={<Files/>}
-              dialogContent2={
-                <Stack
-                direction='row'
-                justifyContent="center"
-                sx={{height: '280px', overflow: 'scroll', marginTop: '10px'}}
-                >
-                  <Button key={1} variant='contained' size='small' color='primary' onClick={()=>console.log(1)}>
-                  Open Local model
-                  </Button>
-                </Stack>
+              dialogContent1={
+                <Recent/>
               }
-              actionTitle={'OK'}
-              tabs={true}
-              tabList={['Samples','Projects']}
+              dialogContent2={
+                <Projects/>
+              }
             />
             <Tooltip title={'Add notes'} placement={'right'}>
               <IconButton
-                size="medium"
+                size="large"
                 edge="end"
                 aria-label="account of current user"
                 aria-haspopup="true"
@@ -151,7 +143,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
           sx={{marginRight:'-15px'}}
           >
           <IconButton
-              size="medium"
+              size="large"
               edge="end"
               aria-label="account of current user"
               aria-haspopup="true"
@@ -166,7 +158,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
             {!isMobile && <AvatarGroup/>}
             <Button
               variant="contained"
-              size="small"
+              size="large"
               color='primary'
               disableElevation
               onClick={()=>window.open('https://bldrs.ai')}

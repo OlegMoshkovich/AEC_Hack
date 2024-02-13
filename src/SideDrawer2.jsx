@@ -150,6 +150,7 @@ export default function SideDrawer2({
                           justifyContent="center"
                           alignItems="center"
                           spacing={.5}
+
                         >
                           {!isSecondPanel &&
                               <IconButton aria-label="comments" size='small' onClick={()=>setIsSecondPanel(true)}>

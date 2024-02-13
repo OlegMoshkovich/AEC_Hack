@@ -12,6 +12,7 @@ export default function NotesList() {
     <Stack justifyContent={'center'} alignItems={'center'}>
       <List
       spacing={1}
+      // sx={{border:'1px solid red'}}
       >
         {notes.map((item, index) => (
             <ListItem key={index}>
