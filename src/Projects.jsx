@@ -9,8 +9,9 @@ import Select from '@mui/material/Select';
 import Stack from '@mui/material/Stack'
 import Input from '@mui/material/Input';
 import InputAdornment from '@mui/material/InputAdornment';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined'
+import UploadFileOutlinedIcon from '@mui/icons-material/UploadFileOutlined';
+
 
 export function Projects(){
   const [repo, setRepo] = React.useState(20);
@@ -58,8 +59,8 @@ export function Projects(){
         spacing={1}
         sx={{overflow: 'scroll', paddingBottom: '20px'}}
       >
-        <Chip label="Open" onClick={()=>setSave(false)} variant={save ? 'outlined' : ''}/>
-        <Chip label="Save" onClick={()=>setSave(true)} variant={save ? '' : 'outlined'}/>
+        <Chip label="Open" onClick={()=>setSave(false)} variant={save ? 'outlined' : ''} color='primary'/>
+        <Chip label="Save" onClick={()=>setSave(true)} variant={save ? '' : 'outlined'} color='primary'/>
       </Stack>
       <Typography variant='overline' sx={{textAlign: 'center'}}>
         Repositories
@@ -143,8 +144,8 @@ export function Projects(){
         spacing={1}
         sx={{overflow: 'scroll', padding: '20px 0px'}}
       >
-        <Chip label="Create New Model" onClick={()=>setVersion(false)} variant={version ? 'outlined' : ''}/>
-        <Chip label="Create a Version" onClick={()=>setVersion(true)} variant={version ? '' : 'outlined'}/>
+        <Chip label="Create New Model" onClick={()=>setVersion(false)} variant={version ? 'outlined' : ''} color='primary'/>
+        <Chip label="Create a Version" onClick={()=>setVersion(true)} variant={version ? '' : 'outlined'} color='primary'/>
       </Stack>
       {version &&
         <Box sx={{ minWidth: 120 }}>
@@ -170,8 +171,8 @@ export function Projects(){
         <Input
           id="input-with-icon-adornment"
           startAdornment={
-            <InputAdornment position="start">
-              <AccountCircle />
+            <InputAdornment position="start" size = 'small'>
+              <UploadFileOutlinedIcon size = 'small'/>
             </InputAdornment>
           }
         />
