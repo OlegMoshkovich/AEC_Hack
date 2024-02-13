@@ -91,16 +91,16 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               buttonLabel={'Files'}
               buttonColor={'secondary'}
               tabs={true}
-              tabList={['Recent','Projects']}
+              tabList={['Projects','Recent']}
               dialogTitle={
                 <Typography>
                   OPEN
                 </Typography>
               }
-              dialogContent1={
+              dialogContent2={
                 <Recent/>
               }
-              dialogContent2={
+              dialogContent1={
                 <Projects/>
               }
             />
