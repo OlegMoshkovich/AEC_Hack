@@ -13,9 +13,14 @@ import Stack from '@mui/material/Stack'
 
 export function Projects(){
   const [repo, setRepo] = React.useState('');
+  const [file, setFile] = React.useState('');
   const [save, setSave] = React.useState('');
-  const handleChange = (event) => {
+
+  const handleChangeRepos = (event) => {
     setRepo(event.target.value);
+  };
+  const handleChangeFiles = (event) => {
+    setFile(event.target.value);
   };
   return(
     <Stack
@@ -23,10 +28,6 @@ export function Projects(){
     justifyContent="center"
     sx={{overflow: 'scroll'}}
     >
-      {
-
-
-      }
       <Typography variant='overline' sx={{textAlign: 'center'}}>
         Organizations
       </Typography>
@@ -48,7 +49,7 @@ export function Projects(){
           labelId="demo-simple-select-label"
           id="demo-simple-select"
           value={repo}
-          onChange={handleChange}
+          onChange={handleChangeRepos}
           size='small'
         >
           <MenuItem value={null}>...</MenuItem>
@@ -77,24 +78,22 @@ export function Projects(){
       <Typography variant='overline' sx={{textAlign: 'center'}}>
         Files
       </Typography>
-      <Stack
-        direction='column'
-        justifyContent="center"
-        alignContent='center'
-        spacing={1}
-        sx={{overflow: 'scroll', paddingBottom: '20px', height: '100px'}}
-      >
-        <Box/>
-        <Box/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-        <Chip label="Momentum.ifc" onClick={()=>console.log('here')} variant='outlined'/>
-      </Stack>
+      <Box sx={{ minWidth: 120 }}>
+      <FormControl fullWidth>
+        <Select
+          labelId="demo-simple-select-label"
+          id="demo-simple-select"
+          value={file}
+          onChange={handleChangeFiles}
+          size='small'
+        >
+          <MenuItem value={null}>...</MenuItem>
+          <MenuItem value={20}>One</MenuItem>
+          <MenuItem value={30}>Two</MenuItem>
+          <MenuItem value={40}>Three</MenuItem>
+        </Select>
+      </FormControl>
+      </Box>
     </>
     }
     </Stack>
