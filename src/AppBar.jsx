@@ -94,7 +94,7 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
               tabList={['Projects','Recent']}
               dialogTitle={
                 <Typography>
-                  OPEN
+                  Files
                 </Typography>
               }
               dialogContent2={
