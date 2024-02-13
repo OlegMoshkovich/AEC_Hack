@@ -199,6 +199,9 @@ export function Projects(){
             </InputAdornment>
           }
         />
+        <Typography variant='caption'>
+          Please include file extension
+        </Typography>
       </FormControl>
       }
     </>
