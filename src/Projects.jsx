@@ -116,7 +116,7 @@ export function Projects(){
         <Chip label="Bldrs.ai" onClick={()=>console.log('here')} variant='outlined'/>
       </Stack>
       <Typography variant='overline' sx={{textAlign: 'center'}}>
-        Files
+        Projects
       </Typography>
       <Box sx={{ minWidth: 120 }}>
       <FormControl fullWidth>

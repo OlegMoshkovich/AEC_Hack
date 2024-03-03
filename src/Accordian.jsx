@@ -6,8 +6,13 @@ import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function BasicAccordion({title, content}) {
+  const [expanded, setExpanded] = React.useState(true);
+  const handleChange = () => {
+    // Toggle the expanded state
+    setExpanded(!expanded);
+  };
   return (
-      <Accordion elevation={0}>
+      <Accordion elevation={0} expanded={expanded} onChange={handleChange}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel1a-content"

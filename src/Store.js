@@ -20,18 +20,21 @@ const secondNote =
 }
 
 const useStore = create((set) => ({
-  borderRadius: 6,
+  borderRadius: 16,
   themeScheme: 0,
   showComponents: false,
   showComments: false,
   notes:[firstNote,secondNote],
   circles:[],
+  res: [], // Initialize 'res' with an empty array
   rightDrawer:false,
   leftDrawer: false,
   isNotesOpen: true,
   isPropertiesOpen: true,
   isNavigationOpen: true,
   isTimelineOpen: true,
+  showViewer: false,
+  project: '',
   setNotes: (value) => set(() => ({ notes: value})),
   setCircles: (value) => set(() => ({ circles: value})),
   setBorderRadius: (value) => set(() => ({ borderRadius: value})),
@@ -40,6 +43,9 @@ const useStore = create((set) => ({
   toggleShowComments: () => set((state) => ({ showComments: !state.showComments})),
   toggleRightDrawer: () => set((state) => ({ rightDrawer: !state.rightDrawer})),
   toggleLeftDrawer: () => set((state) => ({ leftDrawer: !state.leftDrawer})),
+  setRes: (value) => set(() => ({ res: value })), // Function to update 'res'
+  setProject: (value) => set(() => ({ res: value })), // Function to update 'res'
+  toggleShowViewer: () => set((state) => ({ showViewer: !state.showViewer })),
 }));
 
 export default useStore;

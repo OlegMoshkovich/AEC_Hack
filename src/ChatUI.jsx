@@ -51,7 +51,7 @@ function ChatUI({closeWindow}) {
         overflow: 'hidden',
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: theme.palette.secondary.main,
+        // backgroundColor: theme.palette.secondary.main,
       }}
     >
       <Box
@@ -60,31 +60,22 @@ function ChatUI({closeWindow}) {
           justifyContent: 'space-between',
           alignItems: 'center',
           padding: '10px',
-          backgroundColor: theme.palette.secondary.main
+          backgroundColor: theme.palette.background.paper,
+          borderBottom: `1px solid ${theme.palette.secondary.main}`
         }}
       >
-        <Typography variant="body2" sx={{marginLeft:'74px'}}>
-          BLDRS AI COPILOT
+        <Typography variant="body1" sx={{marginLeft: '14px'}} >
+          Chat GPT
         </Typography>
         <IconButton size="small" onClick={closeWindow}>
           <CloseIcon fontSize="small" />
         </IconButton>
       </Box>
-      {/* <Typography
-        variant="overline"
-        sx={{
-          backgroundColor: theme.palette.secondary.main,
-          padding: '10px',
-          textAlign: 'center',
-        }}
-      >
-        bldrs.ai copilot
-      </Typography> */}
       <List
         sx={{
           flex: 1,
           overflow: 'auto',
-          backgroundColor: theme.palette.secondary.main,
+          backgroundColor: theme.palette.background.paper,
         }}
       >
         {messages.map((msg, idx) => (
@@ -116,7 +107,8 @@ function ChatUI({closeWindow}) {
         sx={{
           padding: '10px 10px',  // Adjusted padding for top/bottom and left/right respectively
           // height: '60px',  // Adjusted to account for the added padding
-
+          borderTop: `1px solid ${theme.palette.secondary.main}`,
+          backgroundColor: theme.palette.background.paper,
         }}
       >
         <TextField
@@ -136,7 +128,7 @@ function ChatUI({closeWindow}) {
                   size="small"
                   disabled={!input.trim()}
                 >
-                  <ArrowForwardOutlinedIcon color="default" />
+                  <ArrowForwardOutlinedIcon color="default" fontSize='small' />
                 </IconButton>
               </InputAdornment>
             )

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
@@ -12,12 +12,42 @@ import { createTheme } from '@mui/material';
 import { grey } from '@mui/material/colors';
 import useStore from './Store';
 import {colors} from './colors'
+import {Triplestore} from './oxigraph/triplestore.ts'
+import {queries} from './queries.js';
+import {SimpleSetupSettings, SimpleSceneSetup} from './ifc-viewer/viewerComponents/simple-scene-setup'
+const workerPath = `${process.env.PUBLIC_URL}/oxigraph/worker.js`;
+const modelPath =`${process.env.PUBLIC_URL}/blox.frag`;
+const modelPropsPath =`${process.env.PUBLIC_URL}/blox.json`;
+
 
 
 const Sample = () =>{
-const [dark, setDark] = useState(false)
-const { borderRadius } = useStore();
-const { themeScheme } = useStore()
+const [dark, setDark] = useState(true)
+const { borderRadius, themeScheme, setRes } = useStore((state) => ({
+  borderRadius: state.borderRadius,
+  themeScheme: state.themeScheme,
+  setRes: state.setRes
+}));
+// const viewerSettings = new SimpleSetupSettings();
+// viewerSettings.divId='viewer'
+// viewerSettings.models = [{
+//     "fragmentsFilePath": modelPath,
+//     "propertiesFilePath": modelPropsPath,
+//     "cache": true,
+//     "hidden": false}]
+
+
+
+useEffect(
+   ()=>{
+    loadOxyGraph()
+    // const loadViewer = async() =>{
+    //   const app = new SimpleSceneSetup(viewerSettings);
+    //   await app.init();
+    // }
+    // loadViewer()
+  }, []
+)
 
 const themeComponent = {
   spacing: 8,
@@ -37,6 +67,18 @@ const themeComponent = {
           })
         },
       ]
+    },
+    MuiIconButton: {
+      styleOverrides: {
+        root:({ theme }) => ({
+          backgroundColor: theme.palette.background.default, // use palette color here
+          color: '#fff', // Icon color
+          border: '1px solid #231E14',
+          '&:hover': {
+            backgroundColor: 'blue', // Background color on hover
+          },
+        })
+      },
     },
     MuiFormControl: {
       styleOverrides: {
@@ -137,7 +179,7 @@ const lightTheme = createTheme({
   palette: {
     mode: 'light',
     default: {
-      main: grey[800],
+      main: 'black',
     },
     primary: {
       main: colors[themeScheme].primary,
@@ -147,7 +189,7 @@ const lightTheme = createTheme({
     },
     background: {
       paper: grey[300],  // Change to your desired color
-      default: 'white',  // Change to your desired color
+      default: '#6F9ABF',  // Change to your desired color
     },
   },
   ...themeComponent,
@@ -156,7 +198,7 @@ const darkTheme = createTheme({
   palette: {
     mode: 'dark',
     default: {
-      main: grey[300],
+      main: 'white',
     },
     primary: {
       main: colors[themeScheme].primary,
@@ -165,12 +207,34 @@ const darkTheme = createTheme({
       main: grey[800]
     },
     background: {
-      paper: grey[900],  // Change to your desired color
-      default: '#101010',  // Change to your desired color
+      paper: '#434D58',  // Change to your desired color
+      default: '#0D0D0D',  // Change to your desired color
     },
   },
   ...themeComponent,
 })
+
+const loadOxyGraph = async () =>{
+  const trippleStore = Triplestore.getInstance(workerPath);
+  console.log('tripple store', trippleStore)
+  await trippleStore.init()
+  trippleStore.addPrefinedQueries(queries)
+  const files = [
+    {
+      filePath: `${process.env.PUBLIC_URL}/graphData/blox.ttl`,
+      mimetype: 'text/turtle',
+  },{
+    filePath: `${process.env.PUBLIC_URL}/graphData/buildingAA.ttl`,
+    mimetype: 'text/turtle',
+}, {
+  filePath: `${process.env.PUBLIC_URL}/graphData/buildingBB.ttl`,
+  mimetype: 'text/turtle',
+}
+  ]
+  await trippleStore.loadFiles(files)
+  const res = await trippleStore.queryStored('listProperties')
+  setRes(res)
+}
 
   return(
     <React.StrictMode>

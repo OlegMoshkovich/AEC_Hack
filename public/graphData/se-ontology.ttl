@@ -1,0 +1,34 @@
+@prefix se: <https://sparenergi.dk/schema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+
+# CLASSES
+se:EnergyLabel a owl:Class ;
+    rdfs:label "Energimærke"@da , "Energy label"@en .
+se:EnergySavingsProposal a owl:Class ;
+    rdfs:label "Energibesparelsesforslag"@da , "Energy Savings Proposal"@en .
+se:ProfitableEnergySavingsProposal a owl:Class ;
+    rdfs:subClassOf se:EnergySavingsProposal ;
+    rdfs:label "Rentabelt Energibesparelsesforslag"@da , "Profitable Energy Savings Proposal"@en .
+
+# OBJECT PROPERTIES
+se:hasEnergyLabel a owl:ObjectProperty ;
+    rdfs:label "har energimærke"@da , "has energy label"@en .
+se:hasEnergySavingsProposal a owl:ObjectProperty ;
+    rdfs:label "har energibesparelsesforslag"@da , "has energy savings proposal"@en .
+se:elementSavingsProposal a owl:ObjectProperty ;
+    rdfs:label "elements energibesparelsesforslag"@da , "element's energy savings proposal"@en .
+
+# DATATYPE PROPERTIES
+se:simpleRepaymentPeriod a owl:DatatypeProperty ;
+    rdfs:domain se:EnergySavingsProposal ;
+    rdfs:label "simpel tilbagebetalingstid"@da , "simple repayment period"@en ;
+    rdfs:comment "simpel tilbagebetalingstid i år"@da , "simple repayment period in years"@en .
+se:calculatedAnnualSavings a owl:DatatypeProperty ;
+    rdfs:domain se:EnergySavingsProposal ;
+    rdfs:label "beregnet årlig besparelse"@da , "calculated annual savings"@en ;
+    rdfs:comment "beregnet årlig besparelse i kroner/år"@da , "calculated annual savings in dkk/year"@en .
+se:investment a owl:DatatypeProperty ;
+    rdfs:domain se:EnergySavingsProposal ;
+    rdfs:label "investering"@da , "investment"@en ;
+    rdfs:comment "investering i kroner"@da , "investment in dkk"@en .

@@ -1,0 +1,29 @@
+@prefix schema: <http://schema.org/> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix rec: <https://w3id.org/rec/core/> .
+@prefix se: <https://sparenergi.dk/schema#> .
+@prefix sev: <https://sparenergi.dk/vocab/> .
+@prefix inst: <http://example.com/buildings/AA/> .
+
+<http://example.com/buildings/AA> a bot:Building , schema:Place , rec:Building ;
+    schema:name "BLOX" ;
+    schema:image <https://www.csk.dk/images/cases/domicil_og_specialbyggeri/Blox//Blox%2001.jpg> ;
+    schema:geo <http://example.com/buildings/AA/geo> ;
+    se:hasEnergyLabel sev:EnergyLabelA ;
+    se:hasEnergySavingsProposal <http://example.com/buildings/AA/ESP1> .
+
+<http://example.com/buildings/AA/geo>
+    schema:latitude 55.6720447 ;
+    schema:longitude 12.575995 .
+
+<http://example.com/buildings/AA/ESP1> a se:EnergySavingsProposal ;
+    schema:name "Window replacement"@en ;
+    se:simpleRepaymentPeriod 150 ;
+    se:investment 150000 ;
+    se:calculatedAnnualSavings 1000 .
+
+inst:2GBOt9sXnEW9PFr0N3MPdo se:elementSavingsProposal <http://example.com/buildings/AA/ESP1> .
+inst:2GBOt9sXnEW9PFr0N3MPdr se:elementSavingsProposal <http://example.com/buildings/AA/ESP1> .
+inst:2GBOt9sXnEW9PFr0N3MPdt se:elementSavingsProposal <http://example.com/buildings/AA/ESP1> .
+inst:2GBOt9sXnEW9PFr0N3MPds se:elementSavingsProposal <http://example.com/buildings/AA/ESP1> .
+inst:2GBOt9sXnEW9PFr0N3MPdn se:elementSavingsProposal <http://example.com/buildings/AA/ESP1> .

@@ -1,0 +1,51 @@
+@prefix schema: <http://schema.org/> .
+@prefix bot: <https://w3id.org/bot#> .
+@prefix se: <https://sparenergi.dk/schema#> .
+@prefix rec: <https://w3id.org/rec/core/> .
+@prefix sev: <https://sparenergi.dk/vocab/> .
+@prefix dbr: <https://dbpedia.org/resource/> .
+
+<http://example.com/buildings/BB> a bot:Building , schema:Place , rec:Building ;
+    schema:name "Ulrikkenborg Plads 1" ;
+    schema:image <https://emoweb.dk/EMODigital/EMODigital.svc/Picture/311439466> ;
+    schema:address <http://example.com/buildings/BB/address> ;
+    schema:geo <http://example.com/buildings/BB/geo> ;
+    se:hasEnergyLabel sev:EnergyLabelC ;
+    se:hasEnergySavingsProposal <http://example.com/buildings/BB/ESP1> , 
+        <http://example.com/buildings/BB/ESP2> ,
+        <http://example.com/buildings/BB/ESP3> ,
+        <http://example.com/buildings/BB/ESP4> .
+
+<http://example.com/buildings/BB/address> a schema:PostalAddress ;
+    schema:addressCountry dbr:Denmark ;
+    schema:postalCode "2800" ;
+    schema:streetAddress "Ulrikkenborg Plads 1" .
+
+<http://example.com/buildings/BB/geo>
+    schema:latitude 55.7676765 ;
+    schema:longitude 12.4998316 .
+
+# https://old.sparenergi.dk/forbruger/vaerktoejer/find-dit-energimaerke
+<http://example.com/buildings/BB/ESP1> a se:EnergySavingsProposal ;
+    schema:name "Re-insulation of floor towards the outside"@en ;
+    se:investment 23400 ;
+    se:calculatedAnnualSavings 1600 ;
+    se:simpleRepaymentPeriod 15 .
+
+<http://example.com/buildings/BB/ESP2> a se:EnergySavingsProposal ;
+    schema:name "Re-insulation of hot water risers"@en ;
+    se:investment 19200 ;
+    se:calculatedAnnualSavings 5600 ;
+    se:simpleRepaymentPeriod 3.5 .
+
+<http://example.com/buildings/BB/ESP3> a se:EnergySavingsProposal ;
+    schema:name "Re-insulation of molded floor covering against unheated basement"@en ;
+    se:investment 236000 ;
+    se:calculatedAnnualSavings 6500 ;
+    se:simpleRepaymentPeriod 36 .
+
+<http://example.com/buildings/BB/ESP4> a se:EnergySavingsProposal ;
+    schema:name "Replacement of light bulbs on the back stairs and in the basement"@en ;
+    se:investment 1000 ;
+    se:calculatedAnnualSavings 2800 ;
+    se:simpleRepaymentPeriod 0.4 .

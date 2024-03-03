@@ -6,59 +6,67 @@ import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button'
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import Logo from './Logo'
 import Stack from '@mui/material/Stack'
-import MapsUgcOutlinedIcon from '@mui/icons-material/MapsUgcOutlined';
 import PortraitOutlinedIcon from '@mui/icons-material/PortraitOutlined';
-import LightModeOutlinedIcon from '@mui/icons-material/LightModeOutlined';
-import NightlightOutlinedIcon from '@mui/icons-material/NightlightOutlined';
-import CreateNewFolderOutlinedIcon from '@mui/icons-material/CreateNewFolderOutlined';
-import Tooltip from '@mui/material/Tooltip';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import AutocompleteExample from './AutoComplete'
-import AvatarGroup from './AvatarGroup'
 import useStore from './Store';
 import Dialog from './Dialog'
-import {Projects} from './Projects'
+import {Triplestore} from './oxigraph/triplestore.ts'
+
 
 const searchElements = [
-  { title: 'Surfaces' },
-  { title: 'Case' },
-  { title: 'Gears' },
-  { title: 'Electonics' },
+  { title: 'address 1' },
+  { title: 'address 2' },
+  { title: 'address 3' },
+  { title: 'address 4' },
 ]
-function Recent(){
+function Recent({onGoToLocation, onClose}){
+  const {res} = useStore()
+  console.log('res from dialog', res)
+  // console.log('setProject', setProject)
+
+
   return(
     <Stack
     direction='column'
     justifyContent="center"
     spacing={1}
-    sx={{overflow: 'scroll'}}
+    sx={{overflow: 'scroll', width: '200px'}}
   >
-  <Typography variant='overline' sx={{textAlign: 'center', paddingTop: '10px'}}>
-    Samples
-  </Typography>
-    <Chip label="Momentum" onClick={()=>console.log('here')} variant='outlined'/>
-    <Chip label="Schneestock" onClick={()=>console.log('here')} variant='outlined'/>
-    <Chip label="Momentum" onClick={()=>console.log('here')} variant='filled' color='primary'/>
-  <Typography variant='overline' sx={{textAlign: 'center', paddingTop: '10px'}}>
-    Recent
-  </Typography>
-    <Chip label="Momentum" onClick={()=>console.log('here')} variant='outlined'/>
-    <Chip label="Schneestock" onClick={()=>console.log('here')} variant='outlined'/>
-    <Chip label="Momentum" onClick={()=>console.log('here')} variant='outlined'/>
+<Stack
+  direction='column'
+  justifyContent="center"
+  spacing={1}
+  sx={{ overflow: 'scroll', width: '200px' }}
+>
+  {
+    res.map((project, index) => (
+      <Chip
+        key={index} // Use a unique identifier for `key` if available
+        label={`${project.iri}`} // Convert `project.iri` to a string, if it's not already
+        variant='contained'
+        onClick={async () => {
+          onGoToLocation(project.lat, project.lng)
+          onClose()
+          console.log(project.iri)
+          const trippleStore = Triplestore.getInstance();
+          const res = await trippleStore.queryStored("propertyEnergySavingsProposals", {propertyId: project.iri})
+          console.log(res)
+        }}
+        color='primary'
+      />
+    ))
+  }
+  </Stack>
   </Stack>
   )
 }
 
-export default function PrimaryAppBar({darkTheme, changeTheme}) {
+export default function PrimaryAppBar({ darkTheme, changeTheme, onGoToLocation }) {
   const isMobile = useMediaQuery('(max-width:600px)');
-  const {toggleShowComponents} = useStore();
-  const {toggleShowComments, showComments} = useStore();
-  const {toggleRightDrawer} = useStore();
+
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -66,8 +74,8 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
         color='default'
         elevation={0}
         position="fixed"
-        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        size='large'
+        sx={{ zIndex: (theme) => theme.zIndex.drawer + 1, borderBottom: '1px solid #323232' }}
+        size='small'
       >
       <Toolbar>
         <Stack
@@ -82,48 +90,25 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
             aria-label="account of current user"
             aria-haspopup="true"
             color="inherit"
-            onClick={toggleShowComponents}
+            onClick={onGoToLocation}
           >
               <Logo scaled={true}/>
             </IconButton>
             <Dialog
               actionTitle={'OK'}
-              buttonLabel={'Files'}
-              buttonColor={'secondary'}
-              tabs={true}
-              tabList={['Projects','Recent']}
+              buttonLabel={'Projects'}
+              buttonColor={'primary'}
+              tabs={false}
+              tabList={['Recent']}
               dialogTitle={
                 <Typography>
-                  Files
+                  Projects
                 </Typography>
               }
-              dialogContent2={
-                <Recent/>
-              }
-              dialogContent1={
-                <Projects/>
+              dialogContent={
+                <Recent onGoToLocation={onGoToLocation}/>
               }
             />
-            <Tooltip title={'Add notes'} placement={'right'}>
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-haspopup="true"
-                color="inherit"
-                onClick={
-                  ()=>{
-                     toggleRightDrawer()
-                    toggleShowComments()
-                  }
-                }
-              >
-                <MapsUgcOutlinedIcon
-                size='inherit'
-                color= {showComments ? 'primary' : 'default'}
-                />
-              </IconButton>
-            </Tooltip>
         </Stack>
         {!isMobile && <Stack
           direction='row'
@@ -142,26 +127,12 @@ export default function PrimaryAppBar({darkTheme, changeTheme}) {
           spacing={1}
           sx={{marginRight:'-15px'}}
           >
-          <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              color="inherit"
-              onClick={changeTheme}
-            >
-              {darkTheme ?
-                <NightlightOutlinedIcon size='inherit' color='default'/>:
-                <LightModeOutlinedIcon size='inherit' color='default'/>
-              }
-            </IconButton>
-            {!isMobile && <AvatarGroup/>}
             <Button
               variant="contained"
-              size="large"
+              size="small"
               color='primary'
               disableElevation
-              onClick={()=>window.open('https://bldrs.ai')}
+              onClick={onGoToLocation} // Use the passed function as the onClick handler
             >
               Share
             </Button>
