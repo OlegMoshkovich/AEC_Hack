@@ -34,7 +34,7 @@ const useStore = create((set) => ({
   isNavigationOpen: true,
   isTimelineOpen: true,
   showViewer: false,
-  project: '',
+  project: [],
   setNotes: (value) => set(() => ({ notes: value})),
   setCircles: (value) => set(() => ({ circles: value})),
   setBorderRadius: (value) => set(() => ({ borderRadius: value})),
@@ -44,7 +44,7 @@ const useStore = create((set) => ({
   toggleRightDrawer: () => set((state) => ({ rightDrawer: !state.rightDrawer})),
   toggleLeftDrawer: () => set((state) => ({ leftDrawer: !state.leftDrawer})),
   setRes: (value) => set(() => ({ res: value })), // Function to update 'res'
-  setProject: (value) => set(() => ({ res: value })), // Function to update 'res'
+  setProject: (value) => set(() => ({ project: value })), // Function to update 'res'
   toggleShowViewer: () => set((state) => ({ showViewer: !state.showViewer })),
 }));
 

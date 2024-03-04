@@ -5,8 +5,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
-export default function BasicAccordion({title, content}) {
-  const [expanded, setExpanded] = React.useState(true);
+export default function BasicAccordion({title, content, expand='false'}) {
+  const [expanded, setExpanded] = React.useState(expand);
   const handleChange = () => {
     // Toggle the expanded state
     setExpanded(!expanded);
@@ -22,8 +22,7 @@ export default function BasicAccordion({title, content}) {
         </AccordionSummary>
         <AccordionDetails>
           <Typography>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-            malesuada lacus ex, sit amet blandit leo lobortis eget.
+          {content}
           </Typography>
         </AccordionDetails>
       </Accordion>

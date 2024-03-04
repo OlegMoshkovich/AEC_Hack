@@ -11,6 +11,7 @@ export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false)
   const [isNotes, setIsNotes] = React.useState(false)
   const [isProperties, setIsProperties] = React.useState(true)
+  console.log('side drawer')
 
   const toggleDrawer = () => {
     setState(!state)

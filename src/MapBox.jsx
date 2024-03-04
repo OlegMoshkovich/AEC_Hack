@@ -8,11 +8,11 @@ const Map = forwardRef((props, ref) => {
   const toggleShowViewer = useStore((state) => state.toggleShowViewer);
 
 
-  const goToLocation = (lat, lng) => {
+  const goToLocation = (lat, lng, zoom=10) => {
     const map = mapRef.current.getMap();
     map.flyTo({
       center: [12.5981, 55.6811], // Corrected coordinates for New York City
-      zoom: 8, // You might adjust the zoom level based on your preference
+      zoom: zoom, // You might adjust the zoom level based on your preference
       essential: true
     });
     console.log(lng, lat)
@@ -34,7 +34,7 @@ const Map = forwardRef((props, ref) => {
       initialViewState={{
         latitude: 55.6811, // Initial coordinates; you might want to set these to New York as well
         longitude: 12.5981,
-        zoom: 2
+        zoom: 7
       }}
       mapStyle="mapbox://styles/aechack2024/cltb88ibs00d201qsdm0cfzqd"
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

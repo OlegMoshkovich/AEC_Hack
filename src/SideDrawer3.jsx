@@ -8,9 +8,11 @@ import Stack from '@mui/material/Stack'
 import CloseIcon from '@mui/icons-material/Close';
 import FormControl from '@mui/material/FormControl';
 import ListSubheader from '@mui/material/ListSubheader';
-import ListIcon from '@mui/icons-material/List';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
+import useStore from './Store';
+import ListItem from '@mui/material/ListItem';
+import Accordion from './Accordian';
 const drawerWidth = 380;
 
 
@@ -32,10 +34,15 @@ export default function SideDrawer2({
 
   const [firstPanel, setFirstPanel] = React.useState('first')
   const [secondPanel, setSecondPanel] = React.useState('second')
+  const {project, setProject} = useStore()
   useEffect(()=>{
     setIsFirstPanel(showFirstPanel)
     setIsSecondPanel(showSecondPanel)
   },[])
+
+  useEffect(()=>{
+    console.log ('project', project)
+  },[isOpen])
 
   useEffect(() => {
     if(!isFirstPanel && !isSecondPanel){
@@ -96,6 +103,7 @@ export default function SideDrawer2({
         sx={{
           width: drawerWidth,
           flexShrink: 0,
+
           [`& .MuiDrawer-paper`]: {
             width: drawerWidth,
             backgroundColor: (theme) => theme.palette.background.default,
@@ -153,83 +161,43 @@ export default function SideDrawer2({
                           spacing={.5}
 
                         >
-                          {/* {!isSecondPanel &&
-                              <IconButton aria-label="comments" size='small' onClick={()=>setIsSecondPanel(true)}>
-                                <ListIcon fontSize='small'/>
-                              </IconButton>
-                          } */}
-                          {topPanelButton}
                         <IconButton aria-label="comments" size='small' onClick={()=>setIsOpen()}>
                           <CloseIcon fontSize='small'/>
                         </IconButton>
                       </Stack>
                       </Stack>
                     </ListSubheader>
-                    {firstPanel === 'first' && topPanel}
-                    {firstPanel === 'second' && bottomPanel}
+                    <Stack>
+                      <List
+                      spacing={1}
+                      >
+                        {project.map((project, index) => (
+                            <ListItem  key={`accordian ${index}`}>
+                              <Accordion
+                              key={project.label}
+                              title={<Box sx={{fontWeight:'bold'}}>{project.label}</Box>}
+                              content={
+                                <Stack sx={{width:'320px', color:'#C4CDD6'}}>
+                                  <Stack direction='row' justifyContent={'space-between'}>
+                                    <Box>Calculated Annual Savings: </Box>
+                                    <Box sx={{fontWeight:'bold'}}>{project.calculatedAnnualSavings} DK</Box>
+                                  </Stack>
+                                  <Stack direction='row' justifyContent={'space-between'}>
+                                    <Box>Investment:  </Box>
+                                    <Box sx={{fontWeight:'bold'}}> {project.investment} DK</Box>
+                                  </Stack>
+                                  <Stack direction='row' justifyContent={'space-between'}>
+                                    <Box>Simple Repayment: </Box>
+                                    <Box sx={{fontWeight:'bold'}}>{project.simpleRepaymentPeriod} years</Box>
+                                  </Stack>
+                                </Stack>
+
+                                }/>
+                            </ListItem>
+                        ))}
+                      </List>
+                  </Stack>
                 </List>
-                {/* {topPanel} */}
-              </Box>
-            }
-            {(isSecondPanel) &&
-              <Box
-                sx={{
-                  minHeight:'40%',
-                  overflow: 'scroll'
-                }}>
-                <List
-                  spacing={1}
-                  >
-                    <ListSubheader>
-                    <Stack
-                      direction="row"
-                      justifyContent="space-between"
-                      alignItems="center"
-                      sx={{height: '40px'}}
-                    >
-                    <FormControl variant="standard"
-                         sx={{
-                          m: 1,
-                          color: 'default',
-                          '& .MuiInput-underline:after': {
-                            borderBottom: 'none', // remove the bottom border when focused
-                          },
-                          '& .MuiInput-underline:before': {
-                            borderBottom: 'none', // remove the initial bottom border
-                          },
-                        }}>
-                         <Select
-                            value={secondPanel === 'second' ? 'bottom' : 'top'}
-                            onChange={handlePanelSelectionSecond}
-                            displayEmpty
-                            size='small'
-                          >
-                            <MenuItem value="top">{topPanelName}</MenuItem>
-                            <MenuItem value="bottom">{bottomPanelName}</MenuItem>
-                          </Select>
-                        </FormControl>
-                        <Stack
-                          direction="row"
-                          justifyContent="center"
-                          alignItems="center"
-                          spacing={.5}
-                        >
-                        {!isFirstPanel &&
-                              <IconButton aria-label="comments" size='small' onClick={()=>setIsFirstPanel(true)}>
-                                <ListIcon fontSize='small'/>
-                              </IconButton>
-                        }
-                          {bottomPanelButton}
-                        <IconButton aria-label="comments" size='small' onClick={()=>setIsSecondPanel(false)}>
-                          <CloseIcon fontSize='small'/>
-                        </IconButton>
-                      </Stack>
-                      </Stack>
-                    </ListSubheader>
-                    {secondPanel === 'first' && topPanel}
-                    {secondPanel === 'second' && bottomPanel}
-                </List>
-                {/* {topPanel} */}
               </Box>
             }
       </Drawer>

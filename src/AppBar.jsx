@@ -23,9 +23,8 @@ const searchElements = [
   { title: 'address 4' },
 ]
 function Recent({onGoToLocation, onClose}){
-  const {res} = useStore()
+  const {res, setProject} = useStore()
   console.log('res from dialog', res)
-  // console.log('setProject', setProject)
 
 
   return(
@@ -48,12 +47,12 @@ function Recent({onGoToLocation, onClose}){
         label={`${project.iri}`} // Convert `project.iri` to a string, if it's not already
         variant='contained'
         onClick={async () => {
-          onGoToLocation(project.lat, project.lng)
+          onGoToLocation(project.lat, project.lng, 14)
           onClose()
           console.log(project.iri)
           const trippleStore = Triplestore.getInstance();
           const res = await trippleStore.queryStored("propertyEnergySavingsProposals", {propertyId: project.iri})
-          console.log(res)
+          setProject(res)
         }}
         color='primary'
       />

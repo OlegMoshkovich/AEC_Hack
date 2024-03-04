@@ -35,6 +35,7 @@ export default function SideDrawer2({
   useEffect(()=>{
     setIsFirstPanel(showFirstPanel)
     setIsSecondPanel(showSecondPanel)
+    console.log('side drawer 2')
   },[])
 
   useEffect(() => {

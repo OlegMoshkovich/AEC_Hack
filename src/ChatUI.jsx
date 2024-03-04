@@ -6,6 +6,7 @@ import {
 import CloseIcon from '@mui/icons-material/Close';  // Import CloseIcon
 import ArrowForwardOutlinedIcon from '@mui/icons-material/ArrowForwardOutlined';
 
+
 function ChatUI({closeWindow}) {
   const theme = useTheme();
   const [messages, setMessages] = useState([]);
@@ -65,7 +66,7 @@ function ChatUI({closeWindow}) {
         }}
       >
         <Typography variant="body1" sx={{marginLeft: '14px'}} >
-          Chat GPT
+          Chat
         </Typography>
         <IconButton size="small" onClick={closeWindow}>
           <CloseIcon fontSize="small" />
