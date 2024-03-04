@@ -42,7 +42,7 @@ function SwipeableEdgeDrawer(props) {
 
   // This is used only for the example
   const container = window !== undefined ? () => window().document.body : undefined;
-  const tabList = ['Navigation', 'Properties', 'Notes', 'Timeline']
+  const tabList = ['Information']
   return (
     <Root>
       <CssBaseline />
@@ -68,7 +68,7 @@ function SwipeableEdgeDrawer(props) {
           keepMounted: true,
           slots: { backdrop: "div" },
           slotProps: {
-            root: { //override the fixed position + the size of backdrop
+            root: {
               style: {
                 position: "absolute",
                 top: "unset",
@@ -95,6 +95,7 @@ function SwipeableEdgeDrawer(props) {
           <Typography sx={{ p: 2, color: 'text.secondary' }}>
             <Tabs
               tabList = {tabList}
+              centered={true}
               currentTab={(tabNumber)=>setCurrentTab(tabNumber)}
             />
           </Typography>

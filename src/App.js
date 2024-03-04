@@ -1,186 +1,141 @@
-import React, {useState, useRef} from 'react'
-import './App.css';
-import useStore from './Store';
-import IconButton from '@mui/material/IconButton';
-import Stack from '@mui/material/Stack';
+import AppBar from './AppBar';
 import Box from '@mui/material/Box';
+import ChatUI from './ChatUI';
+import CircularProgress from '@mui/material/CircularProgress';
+import Close from '@mui/icons-material/Close';
+import Drawer from './SideDrawer3';
+import IconButton from '@mui/material/IconButton';
+import Map from './MapBox';
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+import MobileDrawer from './DrawerMobile';
+import PropertiesList from './PropertiesList';
+import React, { useState, useRef } from 'react';
+import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import Typography from '@mui/material/Typography';
-import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-import AppBar from './AppBar'
-import Drawer from './SideDrawer3'
-import NotesList from './NotesList'
-import PropertiesList from './PropertiesList'
-import AddOutlinedIcon from '@mui/icons-material/AddOutlined';
-import VersionPanel from './VersionPanel'
-import TreePanel from './TreePanel'
-import MobileDrawer from './DrawerMobile'
-import useMediaQuery from '@mui/material/useMediaQuery';
-import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 import AddIcon from '@mui/icons-material/Add';
-import { useTheme } from '@mui/material/styles';
-import ChatUI from './ChatUI'
-import TextsmsIcon from '@mui/icons-material/Textsms';
-import Close from '@mui/icons-material/Close';
-import Map from './MapBox'
-import CircularProgress from '@mui/material/CircularProgress';
-import Draggable from 'react-draggable';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import useStore from './Store';
+import {useTheme} from '@mui/material/styles';
+import './App.css';
 
+import './App.css';
 
-function App({changeTheme, darkTheme}) {
+function App({ changeTheme, darkTheme }) {
   const {
     rightDrawer,
-    leftDrawer,
     toggleRightDrawer,
-    toggleLeftDrawer,
-    toggleShowViewer,
     showViewer
   } = useStore();
 
-  const [showChatUI, setShowChatUI] = useState(false)
-  const [viewerLoading, setViewerLoading] = useState(false)
+  const [showChatUI, setShowChatUI] = useState(false);
+  const [viewerLoading, setViewerLoading] = useState(false);
+
   const isMobile = useMediaQuery('(max-width:600px)');
   const theme = useTheme();
   const mapComponentRef = useRef();
 
-
-  const PropertiesButtons = () => {
-    return(
-      <IconButton aria-label="comments" size='small'>
-        <AddIcon fontSize='small'/>
-      </IconButton>
-    )
-  }
-  const NavigationButtons = () =>{
-    return(
-      <IconButton aria-label="comments" size='small'>
-        <AddOutlinedIcon fontSize='small'/>
-      </IconButton>
-    )
-  }
-  const TimelineButtons = () => {
-    return(
-      <IconButton aria-label="comments" size='small'>
-          <SaveOutlinedIcon fontSize='small'/>
-        </IconButton>
-    )
-  }
+  const PropertiesButtons = () => (
+    <IconButton aria-label="add property" size='small'>
+      <AddIcon fontSize='small'/>
+    </IconButton>
+  );
 
   const triggerGoToLocation = (lat, lang) => {
-    if (mapComponentRef.current) {
-      mapComponentRef.current.goToLocation(lat, lang);
-    }
+    mapComponentRef.current?.goToLocation(lat, lang);
   };
-
 
   return (
     <>
-    <AppBar darkTheme={darkTheme} changeTheme={changeTheme} onGoToLocation={triggerGoToLocation}/>
-    {!isMobile &&
-      <Drawer
-        topPanelName={'Info'}
-        topPanel={<PropertiesList/>}
-        topPanelButton={<PropertiesButtons/>}
-        side={'right'}
-        isOpen={rightDrawer}
-        setIsOpen={toggleRightDrawer}
-        showFirstPanel={true}
-        showSecondPanel={false}
-      />
-    }
-    {isMobile &&
-      <MobileDrawer
-        panels={[
-          <TreePanel/>,
-          <PropertiesList/>,
-          <NotesList/>,
-          <VersionPanel/>]}
-      />
-    }
-    {/* Image setup */}
+      <AppBar darkTheme={darkTheme} changeTheme={changeTheme} onGoToLocation={triggerGoToLocation} />
+      {!isMobile && (
+        <Drawer
+          topPanelName={'Info'}
+          topPanel={<PropertiesList />}
+          topPanelButton={<PropertiesButtons />}
+          side={'right'}
+          isOpen={rightDrawer}
+          setIsOpen={toggleRightDrawer}
+          showFirstPanel={true}
+          showSecondPanel={false}
+        />
+      )}
+      {isMobile && (
+        <MobileDrawer panels={[<PropertiesList />]} />
+      )}
       <Box
         sx={{
-          position:'fixed',
-          width:'100%',
+          position: 'fixed',
+          width: '100%',
           height: '100%',
-          backgroundColor: `${theme.palette.background.default}`,
-          zIndex:-100}}
+          backgroundColor: theme.palette.background.default,
+          zIndex: -100
+        }}
       >
-        <Map ref={mapComponentRef}/>
+        <Map ref={mapComponentRef} />
       </Box>
-
       <Stack
         direction="column"
         justifyContent="space-between"
         alignItems="center"
-        sx={{position:'fixed', right: (rightDrawer && !isMobile) ? '400px' : '20px', top: '77px', height:'82%'}}
+        sx={{
+          position: 'fixed',
+          right: rightDrawer && !isMobile ? '400px' : '20px',
+          top: '77px',
+          height: isMobile ? '78%' : '82%',
+          // border:'1px solid red'
+        }}
       >
-        {!isMobile &&
-          <Stack spacing={0}>
-            <Tooltip placement={'left'} title={'Information'}>
+        {!isMobile && (
+          <Tooltip placement={'left'} title={'Information'}>
             <IconButton
-              size="large"
-              edge="end"
-              aria-label="account of current user"
-              aria-haspopup="true"
-              color="inherit"
-              onClick={()=>toggleRightDrawer()}
+              onClick={() => toggleRightDrawer()}
+              aria-label="toggle drawer"
+              color={rightDrawer ? 'primary' : 'default'}
             >
-              <MenuOutlinedIcon size='inherit' color={rightDrawer ? 'primary' : 'default'}/>
+              <MenuOutlinedIcon />
             </IconButton>
-            </Tooltip>
-          </Stack>
-        }
+          </Tooltip>
+        )}
         <IconButton
-          size="large"
-          edge="end"
-          aria-label="account of current user"
-          aria-haspopup="true"
-          onClick={()=>setViewerLoading(!viewerLoading)}
+          onClick={() => setViewerLoading(!viewerLoading)}
+          aria-label="loading viewer"
         />
         <IconButton
-          size="large"
-          edge="end"
-          aria-label="account of current user"
-          aria-haspopup="true"
-          sx={{border:'1px solid #F2B138'}}
-          onClick={()=>setShowChatUI(!showChatUI)}
+          onClick={() => setShowChatUI(!showChatUI)}
+          aria-label="toggle chat UI"
+          sx={{ border: '1px solid #F2B138' }}
         >
-          <Typography variant='overline' sx={{width:30, height:30, fontWeight:'bold'}}>
+          <Typography variant='overline' sx={{ width: 30, height: 30, fontWeight: 'bold' }}>
             GPT
           </Typography>
-          {/* <TextsmsIcon size='inherit' color={showChatUI ? "primary" : "default"} /> */}
         </IconButton>
       </Stack>
 
-      {(showChatUI && !isMobile) &&
+      {showChatUI && !isMobile && (
         <Box
-        sx={{
-          position: 'fixed',
-          bottom: '7%',
-          right: rightDrawer ? '450px' : '70px',
-        }}
+          sx={{
+            position: 'fixed',
+            bottom: '7%',
+            right: rightDrawer ? '460px' : '80px',
+          }}
         >
-          <ChatUI closeWindow={()=>setShowChatUI(false)}/>
+          <ChatUI closeWindow={() => setShowChatUI(false)} />
         </Box>
-      }
-
-      {(showChatUI && isMobile) &&
-        <Stack
-        direction="column"
-        justifyContent="center"
-        alignItems="center"
-        sx={{
-          position: 'fixed',
-          top: '140px',
-          width: '100%',
-        }}
+      )}
+      {showChatUI && isMobile && (
+        <Box
+          sx={{
+            position: 'fixed',
+            bottom: '21%',
+            right: '20px',
+          }}
         >
-          <ChatUI closeWindow={()=>setShowChatUI(false)}/>
-        </Stack>
-      }
-              {
-        showViewer &&
+          <ChatUI closeWindow={() => setShowChatUI(false)} />
+        </Box>
+      )}
+        {
+          showViewer &&
         <Stack
         id='viewer'
         spacing={1}
@@ -199,35 +154,37 @@ function App({changeTheme, darkTheme}) {
             <Typography variant='overline' >Loading a model</Typography>
           </Stack>
         }
-      {
-        viewerLoading &&
+      {viewerLoading && (
         <Box
-        id='viewer'
-        sx={{
-          position:'absolute',
-          top:120,
-          left:10,
-          width:360,
-          height:360,
-          backgroundColor:'#0D0D0D',
-          borderRadius:'20px'}}>
-        <IconButton
-          size="small"
-          edge="end"
-          aria-label="account of current user"
-          aria-haspopup="true"
-          sx={{position:'absolute', right:'10px', top:'18px'}}
-          onClick={()=>setViewerLoading(false)}
+          sx={{
+            position: 'absolute',
+            top: 120,
+            left: 10,
+            width: 360,
+            height: 360,
+            backgroundColor: '#0D0D0D',
+            borderRadius: '20px'
+          }}
         >
-          <Close size='inherit' color={showChatUI ? "primary" : "default"} />
-        </IconButton>
+          <IconButton
+            onClick={() => setViewerLoading(false)}
+            aria-label="close viewer"
+            sx={{ position: 'absolute', right: '10px', top: '18px' }}
+          >
+            <Close />
+          </IconButton>
           <iframe
-            style={{borderRadius: '10px', border:'2px solid #F2B138'}}
-            src="https://deploy-preview-1010--bldrs-share.netlify.app/share/v/gh/bldrs-ai/test-models/main/MC-ARCH_2019_w_rooms.ifc/106/2701979/116/211/178372/178543#c:102.999,12.491,124.849,-15.437,-23.396,-9.741" width="360" height="360" frameborder="0">
-                Your browser does not support iframes.
+            style={{ borderRadius: '10px', border: '2px solid #F2B138' }}
+            width="360"
+            height="360"
+            frameBorder="0"
+            src="https://deploy-preview-1010--bldrs-share.netlify.app/share/v/gh/bldrs-ai/test-models/main/MC-ARCH_2019_w_rooms.ifc/106/2701979/116/211/178372/178543#c:102.999,12.491,124.849,-15.437,-23.396,-9.741"
+            title="Model Viewer"
+          >
+            Your browser does not support iframes.
           </iframe>
-          </Box>
-        }
+        </Box>
+      )}
     </>
   );
 }

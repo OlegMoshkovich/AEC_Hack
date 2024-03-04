@@ -33,24 +33,19 @@ export default function SideDrawer2({
   const [isSecondPanel, setIsSecondPanel] = React.useState(true)
 
   const [firstPanel, setFirstPanel] = React.useState('first')
-  const [secondPanel, setSecondPanel] = React.useState('second')
-  const {project, setProject} = useStore()
+  const {project} = useStore()
+
   useEffect(()=>{
     setIsFirstPanel(showFirstPanel)
     setIsSecondPanel(showSecondPanel)
   },[])
 
-  useEffect(()=>{
-    console.log ('project', project)
-  },[isOpen])
 
   useEffect(() => {
     if(!isFirstPanel && !isSecondPanel){
       setIsOpen()
       setIsFirstPanel(true)
       setIsSecondPanel(true)
-      console.log('in the use effect')
-      console.log('in the side drawer')
     }
   }, [setIsFirstPanel, setIsSecondPanel, isFirstPanel, isSecondPanel, setIsOpen])
 
@@ -63,17 +58,6 @@ export default function SideDrawer2({
       setFirstPanel('second')
     }
   };
-
-  const handlePanelSelectionSecond = (event) => {
-    const panel = event.target.value;
-    console.log('panel', panel)
-    if (panel === 'top') {
-      setSecondPanel('first')
-    } else if (panel === 'bottom') {
-      setSecondPanel('second')
-    }
-  };
-
 
   return (
     <Box sx={{ display: 'flex' }}>
